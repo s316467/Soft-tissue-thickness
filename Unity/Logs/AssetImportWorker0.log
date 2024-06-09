@@ -15,7 +15,7 @@ E:/PoliTo/Corsi PoliTo/Semestre 4/Soluzioni di grafica 3D in applicazioni biomet
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58986
+52703
 Successfully changed project path to: E:/PoliTo/Corsi PoliTo/Semestre 4/Soluzioni di grafica 3D in applicazioni biometriche/Soft tissue thickness
 E:/PoliTo/Corsi PoliTo/Semestre 4/Soluzioni di grafica 3D in applicazioni biometriche/Soft tissue thickness
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ E:/PoliTo/Corsi PoliTo/Semestre 4/Soluzioni di grafica 3D in applicazioni biomet
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [27864] Host "[IP] 172.24.64.1 [Port] 0 [Flags] 2 [Guid] 558947968 [EditorId] 558947968 [Version] 1048832 [Id] WindowsEditor(7,PC_ANTONIO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [28992] Host "[IP] 172.19.176.1 [Port] 0 [Flags] 2 [Guid] 1738111797 [EditorId] 1738111797 [Version] 1048832 [Id] WindowsEditor(7,PC_ANTONIO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [27864] Host "[IP] 172.24.64.1 [Port] 0 [Flags] 2 [Guid] 558947968 [EditorId] 558947968 [Version] 1048832 [Id] WindowsEditor(7,PC_ANTONIO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [28992] Host "[IP] 172.19.176.1 [Port] 0 [Flags] 2 [Guid] 1738111797 [EditorId] 1738111797 [Version] 1048832 [Id] WindowsEditor(7,PC_ANTONIO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
-Refreshing native plugins compatible for Editor in 19.14 ms, found 15 plugins.
+Refreshing native plugins compatible for Editor in 17.83 ms, found 15 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.21f1 (bf09ca542b87)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/Resources/UnitySubsystems
@@ -70,48 +70,48 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56248
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56528
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.010023 seconds.
-- Loaded All Assemblies, in  0.457 seconds
+Registered in 0.008309 seconds.
+- Loaded All Assemblies, in  0.263 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.238 seconds
-Domain Reload Profiling: 692ms
-	BeginReloadAssembly (184ms)
+- Finished resetting the current domain, in  0.206 seconds
+Domain Reload Profiling: 467ms
+	BeginReloadAssembly (78ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (40ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (59ms)
-	LoadAllAssembliesAndSetupDomain (163ms)
-		LoadAssemblies (184ms)
+	RebuildCommonClasses (25ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (103ms)
+		LoadAssemblies (76ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (159ms)
-			TypeCache.Refresh (158ms)
-				TypeCache.ScanAssembly (146ms)
+		AnalyzeDomain (101ms)
+			TypeCache.Refresh (100ms)
+				TypeCache.ScanAssembly (91ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (238ms)
+	FinalizeReload (206ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (191ms)
+		SetupLoadedEditorAssemblies (164ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (9ms)
 			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (132ms)
-			ProcessInitializeOnLoadMethodAttributes (44ms)
+			ProcessInitializeOnLoadAttributes (112ms)
+			ProcessInitializeOnLoadMethodAttributes (37ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -119,8 +119,8 @@ Domain Reload Profiling: 692ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.951 seconds
-Refreshing native plugins compatible for Editor in 11.06 ms, found 15 plugins.
+- Loaded All Assemblies, in  0.558 seconds
+Refreshing native plugins compatible for Editor in 10.48 ms, found 15 plugins.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
@@ -138,284 +138,342 @@ Mono: successfully reloaded assembly
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  0.888 seconds
-Domain Reload Profiling: 1837ms
-	BeginReloadAssembly (166ms)
+- Finished resetting the current domain, in  0.841 seconds
+Domain Reload Profiling: 1397ms
+	BeginReloadAssembly (116ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
+		DisableScriptedObjects (4ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (23ms)
-	RebuildCommonClasses (26ms)
+		CreateAndSetChildDomain (20ms)
+	RebuildCommonClasses (24ms)
 	RebuildNativeTypeToScriptingClass (7ms)
-	initialDomainReloadingComplete (35ms)
-	LoadAllAssembliesAndSetupDomain (714ms)
-		LoadAssemblies (485ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (377ms)
+		LoadAssemblies (260ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (327ms)
-			TypeCache.Refresh (284ms)
-				TypeCache.ScanAssembly (254ms)
-			ScanForSourceGeneratedMonoScriptInfo (34ms)
+		AnalyzeDomain (181ms)
+			TypeCache.Refresh (146ms)
+				TypeCache.ScanAssembly (130ms)
+			ScanForSourceGeneratedMonoScriptInfo (27ms)
 			ResolveRequiredComponents (8ms)
-	FinalizeReload (889ms)
+	FinalizeReload (842ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (733ms)
+		SetupLoadedEditorAssemblies (694ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (7ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (87ms)
-			ProcessInitializeOnLoadAttributes (566ms)
-			ProcessInitializeOnLoadMethodAttributes (60ms)
-			AfterProcessingInitializeOnLoad (9ms)
+			BeforeProcessingInitializeOnLoad (82ms)
+			ProcessInitializeOnLoadAttributes (537ms)
+			ProcessInitializeOnLoadMethodAttributes (56ms)
+			AfterProcessingInitializeOnLoad (6ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (7ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 10.56 ms, found 15 plugins.
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 10.74 ms, found 15 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5822 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 89 unused Assets / (1.2 MB). Loaded Objects now: 6292.
-Memory consumption went from 193.3 MB to 192.1 MB.
-Total: 4.473000 ms (FindLiveObjects: 0.420000 ms CreateObjectMapping: 0.384000 ms MarkObjects: 3.039700 ms  DeleteObjects: 0.628400 ms)
+Unloading 5839 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 89 unused Assets / (1.2 MB). Loaded Objects now: 6312.
+Memory consumption went from 197.6 MB to 196.4 MB.
+Total: 3.877300 ms (FindLiveObjects: 0.445000 ms CreateObjectMapping: 0.167500 ms MarkObjects: 2.747700 ms  DeleteObjects: 0.516300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
-  custom:scripting/monoscript/fileName/DPadInteraction.cs: 95e73fe253040182d7d3a72946b178f3 -> 93f85c8ba74c4199c8fc9b6e8c6fb8a6
-  custom:scripting/monoscript/fileName/OpenXRFeatureSettingsEditor.cs: 432d4287b2c032d3f57733ec7a14ca52 -> 46f7bc9b6667349416d592c92274a2cd
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:scripting/monoscript/fileName/UWPCoreWindowBuildHooks.cs: 83747187b120078555c0394b9a9b0ce0 -> 528ee0545204f8083d130ec04efc78bc
-  custom:scripting/monoscript/fileName/MetaQuestFeatureEditor.cs: acb175f41678fa8897fabd924791b0e7 -> fff340053bb2e94334d0d5989f2eb349
-  custom:scripting/monoscript/fileName/PalmPoseInteraction.cs: d1ed093e68224e5cc45274e3ae6adc1c -> 6bd25b6029acb9127f25748cb0b6d2a8
-  custom:scripting/monoscript/fileName/OpenXRRuntime.cs: 41cdbd5bfbc4a71a3067e813237075c2 -> c3a00f9ce6a0283dcb391b83637adf44
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:scripting/monoscript/fileName/MetaQuestTouchProControllerProfile.cs: 924a0a20cbec88241d3a6560225c517c -> 9fffae235d4c14901711127c7daeb86c
-  custom:scripting/monoscript/fileName/OpenXRConstants.cs: 62bb241e63691239607e98a1eb79e80e -> f878d042bd3999b796b9387b0c8a1032
-  custom:scripting/monoscript/fileName/OpenXRFeatureUICommon.cs: 461800e5238100664aadc5872df93167 -> 45f7a59cd9c5cd84e28e0f7a429879c2
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:scripting/monoscript/fileName/OpenXRLoaderUI.cs: 9a80d2e453353745eb2f0dd55330d851 -> ebd8d704d5e26f054d43886c272cd005
-  custom:scripting/monoscript/fileName/WaitForRestartFinish.cs: c5a146c5b1d306e0748cbca9592361f1 -> 0e76bf389cf347a5d8d6432ec661895f
-  custom:scripting/monoscript/fileName/KHRSimpleControllerProfile.cs: 3b25cc37f550e18bd565ed99a4735dab -> bcdcb81587b2075f7af2f75706b9e69a
-  custom:scripting/monoscript/fileName/OpenXRBuildProcessor.cs: 78ee5da2c331be8992399c1b88b44da9 -> 48dc0e114f75799c0d74bafe70808189
-  custom:scripting/monoscript/fileName/OpenXRFeatureInternal.cs: 8f6297df34271fdb1ce2d9607ec6261d -> 90647cc400823b41df847a6cbfc29026
-  custom:scripting/monoscript/fileName/OpenXRFeatureSettings.cs: 8f6297df34271fdb1ce2d9607ec6261d -> 90647cc400823b41df847a6cbfc29026
-  custom:scripting/monoscript/fileName/DPadInteractionCustomEditor.cs: 99cd61b34a13338ccbcfea9c8d6abe5b -> d93785eeae2b4d41d39f603bd6f9849d
-  custom:scripting/monoscript/fileName/OpenXRSpaceSettings.cs: 8f6297df34271fdb1ce2d9607ec6261d -> 90647cc400823b41df847a6cbfc29026
-  custom:scripting/monoscript/fileName/ConformanceAutomationFeature.cs: cecaa95652b5ef8cb218b1dba74d83f1 -> 97112e825fad9ed87f6a9c7acc231c0b
-  custom:scripting/monoscript/fileName/OpenXRLoaderInternal.cs: 8f6297df34271fdb1ce2d9607ec6261d -> 90647cc400823b41df847a6cbfc29026
-  custom:scripting/monoscript/fileName/FeatureHelpers.cs: 04ad13b1b8191b392f3bd1df6ddd9271 -> 0e8d07707daeed1da30b1605e903226b
-  custom:scripting/monoscript/fileName/DebuggerState.cs: 9e1dc0a50db973559c612ce1e515d668 -> 41070b7a08cc178a9ea51324cdaf5b81
   custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
-  custom:scripting/monoscript/fileName/OpenXRHmd.cs: be9ba1f914b0ca630d830f312e55d947 -> 1624687aa096b40d58d149d9c6304cca
-  custom:scripting/monoscript/fileName/OpenXRMangementSettings.cs: 92bd940a5b14de9463a17a42849426eb -> 5a013b6c45b1e1d06085cb1496493b86
-  custom:scripting/monoscript/fileName/OculusTouchControllerProfile.cs: 30174fa0cf36f963f4ec71c1aeb12f39 -> 03df51b5c781d1980f509408bae72bc8
-  custom:scripting/monoscript/fileName/OpenXRNativeTypes.cs: 793b5e02b73bcc70e26074eb04bed819 -> 91cde5f962ea5dcb75652e72bac8769f
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:scripting/monoscript/fileName/KnownFeatureSets.cs: ef1e57626e9d494e608dd097a504d985 -> 2cf391597f07a52473981e9cc2b41b67
-  custom:scripting/monoscript/fileName/OpenXRProjectValidationRulesSetup.cs: 25e2d07ebf4abc51d6b13033f9d9631b -> 63c520149123eced22b6028c5ebd9d08
-  custom:scripting/monoscript/fileName/MicrosoftHandInteraction.cs: 4dc4abdfb772f525705d10e2a1807220 -> dac920740153b0163dda0f7e56920e40
-  custom:scripting/monoscript/fileName/RuntimeDebuggerWindow.cs: 410e78f6930c47a47f060ada0f65ea14 -> 0bc1d5ee7ce2553d42d62861471f3c44
-  custom:scripting/monoscript/fileName/PackageSettingsEditor.cs: 3d290d8387d6b7e9107e28c918b35a75 -> 6212fddebb8f67c4da0f50592230839b
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:scripting/monoscript/fileName/OpenXRLoader.cs: 2a29eae8313c0da50c8f79719feabdc3 -> 18020e98a4b26e822e0c5684b0251e04
-  custom:scripting/monoscript/fileName/ValveIndexControllerProfile.cs: dcb1a84c7641748e3dbe495d3f7fcacd -> f923b1771c835a70375d3505e818878d
-  custom:scripting/monoscript/fileName/OculusQuestFeatureEditor.cs: caa2240a357715777809c1e155d7fcfc -> af70b82209b4cf6ce20a2da2892dfc5f
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:scripting/monoscript/fileName/OpenXRChooseRuntimeLibraries.cs: 310f73dd2546cb472dfd9dd2b709f43e -> 3923c2f1337a35d737ad0192eb46b432
-  custom:scripting/monoscript/fileName/OculusQuestFeature.cs: f4ac8316c0f32dfaffd8fcb19bf24db7 -> 041c3418dd65b8e99ca410c708996814
-  custom:scripting/monoscript/fileName/OpenXRFeatureSetManager.cs: 4e048d6bab7aae2619fe673806cc6ebf -> 4f340a53d115a7e1888d00ddc4cd614b
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:scripting/monoscript/fileName/MockRuntime.cs: 4707e1b72a1c680c9bca910cce99580c -> 8e970d93da4762c7d57e9c9dd2b36dbb
-  custom:scripting/monoscript/fileName/OpenXRDevice.cs: f3c3823f4956568d1e9728f978cdcf7b -> 1b3be9b024fb29351711164fb0577202
-  custom:scripting/monoscript/fileName/HTCViveControllerProfile.cs: 68cbea6a75bb808962ef4679852274fe -> 575b921c71649e99576a05f0add9cf5d
-  custom:scripting/monoscript/fileName/BootConfigBuilder.cs: 80cbd1d6b38400b696adb897e5751311 -> a174d8870c7a69fabc7d42a75b0f23aa
-  custom:scripting/monoscript/fileName/OpenXRRenderSettings.cs: 8f6297df34271fdb1ce2d9607ec6261d -> 90647cc400823b41df847a6cbfc29026
-  custom:scripting/monoscript/fileName/EyeGazeInteraction.cs: df93ecad6ff84040ea811a409734aecf -> dc1f12620c8656649cfc16f13969f5fa
-  custom:scripting/monoscript/fileName/OpenXRAnalytics.cs: cd04f750fae989b24a13eb8b7fc568c7 -> 67d5de80ae8e3ee46bb1b4907783d54c
-  custom:scripting/monoscript/fileName/MicrosoftMotionControllerProfile.cs: 047322156082fa203c5ec2a3d6b58d79 -> 6dcaa2067404bed7771687f2f9dfa057
-  custom:scripting/monoscript/fileName/OpenXRRestarter.cs: 42c4a284fa4bc016f7554a7523fe6083 -> c236f3f43c026f409512d203b81e6184
-  custom:scripting/monoscript/fileName/OpenXRFeatureAttribute.cs: 02f616d9d4e5ebefb869a433568617fe -> cb6dde4b346c754b123a290cdf928c65
-  custom:scripting/monoscript/fileName/OpenXRLoaderNoPreInit.cs: 7ea37fe40035155d109f06ed1e31bdc0 -> 8f7a064e1e0bb6e17b9f5d171fe53dfc
-  custom:scripting/monoscript/fileName/HandCommonPosesInteraction.cs: a9ba4ac130365bd9a98d3249459ad095 -> c984aa78f460c3bf39ec56bc9a0a414a
-  custom:scripting/monoscript/fileName/OpenXRDiagnosticReport.cs: 81b79e6d53653bad181c2294c861dd29 -> f43e8307d90025ed39c346ed63d1208d
-  custom:scripting/monoscript/fileName/RuntimeDebuggerOpenXRFeatureEditor.cs: 78d558165618d978f07c916ce9e6e2f5 -> 26a9be57964b520d3a47d8c20db877e9
-  custom:scripting/monoscript/fileName/PoseControl.cs: 609dfc7c8c05a1cf200909bbac757fec -> 4ff0d325328ef40fb1693e34ac3358bf
-  custom:scripting/monoscript/fileName/OpenXRFeatureBuildHooks.cs: 1710c5d7a8e48075c9e4aff8b45f1152 -> da31756dd3c74e69bcd7ed1a1983ed53
-  custom:scripting/monoscript/fileName/HPReverbG2ControllerProfile.cs: 9d8499f0c7d25c6b81dc777a2c71df61 -> 6aadb5e22feaccfa77ef6db6c4d4541c
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:scripting/monoscript/fileName/BootConfig.cs: 24b01b5e4e987a969a9c22c0ebea884d -> b2c4d54615a39b14509e601dd0f329ff
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:scripting/monoscript/fileName/OpenXRPackageSettings.cs: b11fb0112aeb128e201271bf06e53e96 -> 4f4aaba453bf105fb1c3c3d64247142d
-  custom:scripting/monoscript/fileName/ModifyAndroidManifestMeta.cs: 0665e52998c0deb3bd8028395f9cc405 -> 3b920058e4dd8cbdb95cce4af271f981
-  custom:scripting/monoscript/fileName/OpenXRFeatureSetAttribute.cs: 984b4e8e6598cf2b759dd56f021485ae -> 9e20f05fe0a3688af8836175869f0bb7
-  custom:scripting/monoscript/fileName/HapticControl.cs: 81ffcc968c7774530b274658fb3c363b -> d7a5389cafde2a1337c58e2f0d91a837
-  custom:scripting/monoscript/fileName/MetaQuestFeature.cs: 3ce83f71782e0ea75b31e962ea3efa0c -> b9c317336250afc5bb5fa2c2df269ea6
-  custom:scripting/monoscript/fileName/OpenXRRuntimeSelector.cs: b88171011e80f362675b48be5e486939 -> 976a19637455f3c9d6af12ad00b783e3
-  custom:scripting/monoscript/fileName/OpenXRFeatureEditor.cs: 80fd68feb25104575fb2fab5d957091c -> 01dd3fecc4e9c7ce9fb6af5d0948ba2a
-  custom:scripting/monoscript/fileName/BuildHelperUtils.cs: 8328d1d9a38e1eb013b8e145e6eaf5e2 -> 619773c3d1b7f3f0ca7461f5c27242a8
-  custom:scripting/monoscript/fileName/HandInteractionProfile.cs: 0d2aed2831986eac6f8f9aa17828b9d5 -> 9c7649bd495ee99cc73ddacbe0a8cd95
-  custom:scripting/monoscript/fileName/ModifyAndroidManifestOculus.cs: fb2d868358b34027ef7bebd7c414bb6f -> 1d09740e7edd66fffc5895aae9e385d3
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:scripting/monoscript/fileName/RuntimeDebuggerOpenXRFeature.cs: ca724df07df4d3ac84a3c339b29d867a -> 8b269b64ad1c99e85d7f28185c15f7bb
-  custom:scripting/monoscript/fileName/MetaQuestFeatureBuildHooks.cs: 9faef18f7993e6e1073d79300a2378de -> 2ac755c66ffd4e4b7c22530386a7ba47
-  custom:scripting/monoscript/fileName/OpenXRInput.cs: 22c2d7f1ec78d2a3229acc23c316aa56 -> b351db87f98ee399e568b78e0ed353e3
-  custom:scripting/monoscript/fileName/OpenXRInteractionFeature.cs: cdbb80131a5413ae3319d169bec27823 -> a60484418ad6b497996467bb6f98db73
-  custom:scripting/monoscript/fileName/OpenXREditorSettings.cs: 2445cd97d9c83a89667b220edba88001 -> 321e3a8126bc4b0248cbcecf63892f31
-  custom:scripting/monoscript/fileName/OpenXRProjectValidation.cs: b212a865ce6bc0eec7aa584eb24e0320 -> 181508e149a91a64c6dfdc447b97c322
 ========================================================================
 Received Import Request.
-  Time since last request: 7889.454609 seconds.
-  path: Assets/XR/Settings/OpenXR Editor Settings.asset
-  artifactKey: Guid(b10ea0904160cf143b192d98cfc08da9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/XR/Settings/OpenXR Editor Settings.asset using Guid(b10ea0904160cf143b192d98cfc08da9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1852294c343d8de36241a98a82a2879a') in 0.070070 seconds
+  Time since last request: 23894.292493 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Materials/5.mat
+  artifactKey: Guid(b62873551dfeef943be6324c304cd0ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Materials/5.mat using Guid(b62873551dfeef943be6324c304cd0ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22d6b3f7d5cf8241ac95d23c690569c5') in 0.245579 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Materials/9.mat
+  artifactKey: Guid(0b03c720042dbe146afee09a803c4c9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Materials/9.mat using Guid(0b03c720042dbe146afee09a803c4c9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f21449815868b17a9a052aae7fa1c714') in 0.043136 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxHandleWhite.mat
+  artifactKey: Guid(986558eab447a9847bbe138149edc1b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxHandleWhite.mat using Guid(986558eab447a9847bbe138149edc1b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fd333d190c268abda39e1ba18deda3e') in 0.080357 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/MRTK/Shaders/Text3DShader.shader
-  artifactKey: Guid(80c006b91733f1a4991c49af89321ecd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/MRTK/Shaders/Text3DShader.shader using Guid(80c006b91733f1a4991c49af89321ecd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'bb3a3f54b34916bcff4433a175d7c701') in 0.014998 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/XR/Resources/XRSimulationRuntimeSettings.asset
-  artifactKey: Guid(37b3821df2c3cde42a53403464ac684a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/XR/Resources/XRSimulationRuntimeSettings.asset using Guid(37b3821df2c3cde42a53403464ac684a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '3d779cdb054e5c125f48056bdef87c29') in 0.016337 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/MixedRealityToolkit.Generated/ProjectPreferences.asset
-  artifactKey: Guid(0c72689c2c9796c4a9ffde7e2bb57bfa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/MixedRealityToolkit.Generated/ProjectPreferences.asset using Guid(0c72689c2c9796c4a9ffde7e2bb57bfa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e64f1bd2f4c54ebe1ffaab6abb82dcc1') in 0.014380 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 48.773034 seconds.
-  path: Assets/MixedRealityToolkit.Generated/ProjectPreferences.asset
-  artifactKey: Guid(0c72689c2c9796c4a9ffde7e2bb57bfa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/MixedRealityToolkit.Generated/ProjectPreferences.asset using Guid(0c72689c2c9796c4a9ffde7e2bb57bfa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4cfadf3cbdd0f0f49f30dd5aba87b7e8') in 0.010798 seconds
-Number of updated asset objects reloaded before import = 51
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 30.727603 seconds.
-  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
-  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1376401c96de8c8061992c0394e8e50f') in 0.032792 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/TextMesh Pro/Resources/Fonts & Materials
-  artifactKey: Guid(731f1baa9d144a9897cb1d341c2092b8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Resources/Fonts & Materials using Guid(731f1baa9d144a9897cb1d341c2092b8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '534213e548dda3500003358659ddbff5') in 0.008548 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
-  artifactKey: Guid(e3265ab4bf004d28a9537516768c1c75) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Fonts/LiberationSans.ttf using Guid(e3265ab4bf004d28a9537516768c1c75) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '38f58702e8bf148d3dba15ff500c08a0') in 0.019958 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader
-  artifactKey: Guid(a02a7d8c237544f1962732b55a9aebf1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader using Guid(a02a7d8c237544f1962732b55a9aebf1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '694cace24b9106ce887e0e4469eacc4b') in 0.010591 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader
-  artifactKey: Guid(14eb328de4b8eb245bb7cea29e4ac00b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader using Guid(14eb328de4b8eb245bb7cea29e4ac00b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
- -> (artifact id: '7ca91b9ad0624548558bd25da794985f') in 0.011129 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf
-  artifactKey: Guid(1b8d251f9af63b746bf2f7ffe00ebb9b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf using Guid(1b8d251f9af63b746bf2f7ffe00ebb9b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '39c130885b8c94149fa78ce7c68bc64a') in 0.006638 seconds
+  Time since last request: 0.000019 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxSlate.mat
+  artifactKey: Guid(6f044b5d95469d64ea8feb1225b1d5fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxSlate.mat using Guid(6f044b5d95469d64ea8feb1225b1d5fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7793e8f79dcca8b224feb0dbd48ccfa2') in 0.103046 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
   Time since last request: 0.000013 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc
-  artifactKey: Guid(3997e2241185407d80309a82f9148466) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc using Guid(3997e2241185407d80309a82f9148466) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '80965d749f2ac8b1df0de1218ab0150f') in 0.006261 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/TextMesh Pro/Resources/Sprite Assets
-  artifactKey: Guid(512a49d95c0c4332bdd98131869c23c9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Resources/Sprite Assets using Guid(512a49d95c0c4332bdd98131869c23c9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ce89debfdcff6ffd6255befce7b6b81b') in 0.008248 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/TextMesh Pro/Sprites
-  artifactKey: Guid(d0603b6d5186471b96c778c3949c7ce2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Sprites using Guid(d0603b6d5186471b96c778c3949c7ce2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '60ed3d864534746dea2fa10fba1fbfde') in 0.007449 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
-  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ce568c2b6824ccd418ce6b2c27af18b3') in 0.037063 seconds
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_MoveArrows_geo.fbx
+  artifactKey: Guid(15c4f2d8e761dd34a9cdbae9c6a96bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_MoveArrows_geo.fbx using Guid(15c4f2d8e761dd34a9cdbae9c6a96bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '293abc51385f4934c436ec61b7c52f90') in 0.055179 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 9
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt
-  artifactKey: Guid(381dcb09d5029d14897e55f98031fca5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt using Guid(381dcb09d5029d14897e55f98031fca5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'b979927d47e06c27213a95463339f58c') in 0.007834 seconds
+  Time since last request: 0.000015 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Controllers/Visuals/Gizmos/GizmoLeft.fbx
+  artifactKey: Guid(164467aaab0440cbb011a7c287072878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Controllers/Visuals/Gizmos/GizmoLeft.fbx using Guid(164467aaab0440cbb011a7c287072878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f919f1da6b8555e9f3e09cf7b71e44af') in 0.022764 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 77
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_Focus_geo.fbx
+  artifactKey: Guid(3f1525ceb67261b429bc8741e7cee099) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_Focus_geo.fbx using Guid(3f1525ceb67261b429bc8741e7cee099) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3462d272310780c0bee45a70fd21188b') in 0.015316 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundsControlHandleDefault.mat
+  artifactKey: Guid(ac37c7c0a1a7e8646b4f9f3ab4a6bfd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundsControlHandleDefault.mat using Guid(ac37c7c0a1a7e8646b4f9f3ab4a6bfd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24533520249c47af744fd8c694aeefb8') in 0.066166 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader
-  artifactKey: Guid(bc1ede39bf3643ee8e493720e4259791) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader using Guid(bc1ede39bf3643ee8e493720e4259791) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '9b6f2bc09f527da987bbe37b2497296f') in 0.010168 seconds
+  Time since last request: 0.000017 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/balloon.fbx
+  artifactKey: Guid(23d0d428664728f48bc426a2842ced95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/balloon.fbx using Guid(23d0d428664728f48bc426a2842ced95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3040453cdd4f438de90d9f0aadd7724f') in 0.023505 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
+Number of asset objects unloaded after import = 25
 ========================================================================
 Received Import Request.
   Time since last request: 0.000016 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc
-  artifactKey: Guid(d930090c0cd643c7b55f19a38538c162) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc using Guid(d930090c0cd643c7b55f19a38538c162) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '09f03dc3d86ae2fbc2ccaeb68975c7ac') in 0.006573 seconds
+  path: Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Prototyping/Chevron.fbx
+  artifactKey: Guid(dc6c0266b7f350f40b24b8ddfae317b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Prototyping/Chevron.fbx using Guid(dc6c0266b7f350f40b24b8ddfae317b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55bfd00cc329c7ed7d797b91ee9fc350') in 0.014245 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/DefaultCursor.fbx
+  artifactKey: Guid(ceae3a0d54734302818fcee506300fef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/DefaultCursor.fbx using Guid(ceae3a0d54734302818fcee506300fef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4368fd0a03c3ba904a148dba060dec6d') in 0.077671 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 98
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_RotateArrows_geo.fbx
+  artifactKey: Guid(1f927d8a23ccb6443b8eb9990f48070b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Cursors/Cursor_RotateArrows_geo.fbx using Guid(1f927d8a23ccb6443b8eb9990f48070b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d7612040c1602142b1274ad5e0fca72') in 0.015858 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Sliders/Button_Oval_Concave_12x24mm_optimized.fbx
+  artifactKey: Guid(fa3a0f81e3a63bd4db13ad99b3858f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Meshes/Sliders/Button_Oval_Concave_12x24mm_optimized.fbx using Guid(fa3a0f81e3a63bd4db13ad99b3858f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5641fcd3c8662e483122eafc40f849c6') in 0.018648 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxHandleBlueGrabbed.mat
+  artifactKey: Guid(bf37b5eab60b288498d02fd524325d10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Materials/BoundingBoxHandleBlueGrabbed.mat using Guid(bf37b5eab60b288498d02fd524325d10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd45b1a785ba636da0d82984f1b10a737') in 0.051811 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/TextMesh Pro
-  artifactKey: Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro using Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'dbc18e629d396abcd4fc1c2bd767c6ce') in 0.009137 seconds
+  Time since last request: 0.000017 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.extensions/SceneTransitionService/Assets/CameraFaderMaterial.mat
+  artifactKey: Guid(625ee7fe9fc9cb549b4f5ee443687d00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.extensions/SceneTransitionService/Assets/CameraFaderMaterial.mat using Guid(625ee7fe9fc9cb549b4f5ee443687d00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74eaa86e8595d4afa38df5b38ab4f1ab') in 0.072943 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Materials/7.mat
+  artifactKey: Guid(0393ac2b971eddd4785463e9f09c243c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Materials/7.mat using Guid(0393ac2b971eddd4785463e9f09c243c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff47db5813ba31112b8ba8276149d35c') in 0.052806 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Materials/10.mat
+  artifactKey: Guid(1c8a9561fb418d140bd508ccf24fe2a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.examples/StandardAssets/Models/Materials/10.mat using Guid(1c8a9561fb418d140bd508ccf24fe2a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4d23f6b060530e093a63edd37299156') in 0.035905 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Models/Handle_Base.FBX
+  artifactKey: Guid(05caa5187fce40347be70de0b50397ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Models/Handle_Base.FBX using Guid(05caa5187fce40347be70de0b50397ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10fe06efd38c3dc8642d5bceaec1ebe4') in 0.031961 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 21
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.unity.xr.arfoundation/Assets/Prefabs/Handles.fbx
+  artifactKey: Guid(405ff1b6d34178a4a987fc2f6908a1f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.xr.arfoundation/Assets/Prefabs/Handles.fbx using Guid(405ff1b6d34178a4a987fc2f6908a1f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20524f00824c083f7e1cfd7a0301e11c') in 0.048512 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 34
+========================================================================
+Received Import Request.
+  Time since last request: 6.903492 seconds.
+  path: Packages/com.unity.textmeshpro/Scripts/Runtime/Unity.TextMeshPro.asmdef
+  artifactKey: Guid(6055be8ebefd69e48b49212b09b47b2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.textmeshpro/Scripts/Runtime/Unity.TextMeshPro.asmdef using Guid(6055be8ebefd69e48b49212b09b47b2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59cbc3ee61744d923f67b2bf47c5a69b') in 0.000487 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.014921 seconds.
+  path: Packages/com.unity.textmeshpro/Scripts/Editor/Unity.TextMeshPro.Editor.asmdef
+  artifactKey: Guid(6546d7765b4165b40850b3667f981c26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.textmeshpro/Scripts/Editor/Unity.TextMeshPro.Editor.asmdef using Guid(6546d7765b4165b40850b3667f981c26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a9a20a185e98d1202adffbc9b3fd2e7') in 0.000406 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.008016 seconds.
+  path: Packages/com.unity.textmeshpro/Tests/Editor/Unity.TextMeshPro.Editor.Tests.asmdef
+  artifactKey: Guid(656e461844099ae43a609ff6109b0877) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.textmeshpro/Tests/Editor/Unity.TextMeshPro.Editor.Tests.asmdef using Guid(656e461844099ae43a609ff6109b0877) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f44f7119ddcc8791782e949591d587d3') in 0.000354 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.011408 seconds.
+  path: Packages/com.unity.textmeshpro/Tests/Runtime/Unity.TextMeshPro.Tests.asmdef
+  artifactKey: Guid(bb05cab7d802aa5468f8f2f86840d984) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.textmeshpro/Tests/Runtime/Unity.TextMeshPro.Tests.asmdef using Guid(bb05cab7d802aa5468f8f2f86840d984) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c65ca0260e2e10cb129713f8d72b633') in 0.000486 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.420 seconds
+Refreshing native plugins compatible for Editor in 12.16 ms, found 15 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  1.070 seconds
+Domain Reload Profiling: 1488ms
+	BeginReloadAssembly (132ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (230ms)
+		LoadAssemblies (262ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (31ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (12ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1071ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (528ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (84ms)
+			ProcessInitializeOnLoadAttributes (382ms)
+			ProcessInitializeOnLoadMethodAttributes (41ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 10.47 ms, found 15 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5775 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 68 unused Assets / (1.1 MB). Loaded Objects now: 6362.
+Memory consumption went from 195.8 MB to 194.7 MB.
+Total: 4.269400 ms (FindLiveObjects: 0.485800 ms CreateObjectMapping: 0.448000 ms MarkObjects: 2.810300 ms  DeleteObjects: 0.524300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 134.229777 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Prefabs/PressableButtonHoloLens2TextOnly4Lines_48x96.prefab
+  artifactKey: Guid(8e9607bc5dcaf684db874e9b032d5d89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/Features/UX/Interactable/Prefabs/PressableButtonHoloLens2TextOnly4Lines_48x96.prefab using Guid(8e9607bc5dcaf684db874e9b032d5d89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5f4f5299de1f6099b08c4617ce616c0') in 0.177909 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 328
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Prefabs/Text/UITextSelawikBold.prefab
+  artifactKey: Guid(c5337f2ec5db84a468cfc45ab910bef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Prefabs/Text/UITextSelawikBold.prefab using Guid(c5337f2ec5db84a468cfc45ab910bef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89adae28d5c119b0c288bbce780c954d') in 0.023089 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Prefabs/Text/UITextSelawikSemibold.prefab
+  artifactKey: Guid(49decb0e244f5d44bb735bcc4ebf67a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.microsoft.mixedreality.toolkit.foundation/SDK/StandardAssets/Prefabs/Text/UITextSelawikSemibold.prefab using Guid(49decb0e244f5d44bb735bcc4ebf67a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e30d51510eda9a1e02b64acec972644c') in 0.002158 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: Operazione di I/O terminata a causa dell'uscita dal thread oppure della richiesta di un'applicazione.
 AssetImportWorker is now disconnected from the server
