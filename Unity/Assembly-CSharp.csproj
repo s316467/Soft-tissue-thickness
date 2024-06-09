@@ -61,10 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Manager.cs" />
+    <Compile Include="Assets\hardSlider.cs" />
     <Compile Include="Assets\Scripts\Distances.cs" />
+    <Compile Include="Assets\softSlider.cs" />
     <Compile Include="Assets\TargetText.cs" />
+    <Compile Include="Assets\SimpleTargetHard.cs" />
+    <Compile Include="Assets\TargetLandmarkSoft.cs" />
+    <Compile Include="Assets\SimpleTargetSoft.cs" />
     <Compile Include="Assets\SimpleTarget.cs" />
     <Compile Include="Assets\TargetLandmark.cs" />
+    <Compile Include="Assets\TargetLandmarkHard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

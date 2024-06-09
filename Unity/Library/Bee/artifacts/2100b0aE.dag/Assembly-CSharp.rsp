@@ -441,10 +441,16 @@
 -r:"Library/Bee/artifacts/2100b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/hardSlider.cs"
 "Assets/Scripts/Distances.cs"
 "Assets/Scripts/Manager.cs"
 "Assets/SimpleTarget.cs"
+"Assets/SimpleTargetHard.cs"
+"Assets/SimpleTargetSoft.cs"
+"Assets/softSlider.cs"
 "Assets/TargetLandmark.cs"
+"Assets/TargetLandmarkHard.cs"
+"Assets/TargetLandmarkSoft.cs"
 "Assets/TargetText.cs"
 -langversion:9.0
 

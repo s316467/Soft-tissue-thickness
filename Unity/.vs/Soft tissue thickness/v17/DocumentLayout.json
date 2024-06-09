@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{614F9D36-7DC8-4DCF-6A0B-88DDEB57EE61}|Assembly-CSharp.csproj|e:\\polito\\corsi polito\\semestre 4\\soluzioni di grafica 3d in applicazioni biometriche\\soft tissue thickness\\assets\\scripts\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{614F9D36-7DC8-4DCF-6A0B-88DDEB57EE61}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614F9D36-7DC8-4DCF-6A0B-88DDEB57EE61}|Assembly-CSharp.csproj|E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\assets\\scripts\\distances.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{614F9D36-7DC8-4DCF-6A0B-88DDEB57EE61}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\distances.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,10 +28,22 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Manager.cs",
               "ToolTip": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Assets\\Scripts\\Manager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Manager.cs",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAmwGQAAAANAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAgwAwAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T13:54:53.163Z",
+              "WhenOpened": "2024-06-09T15:49:37.985Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Distances.cs",
+              "DocumentMoniker": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Assets\\Scripts\\Distances.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Distances.cs",
+              "ToolTip": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Assets\\Scripts\\Distances.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Distances.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T15:08:42.544Z"
             }
           ]
         }
