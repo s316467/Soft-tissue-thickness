@@ -1,0 +1,524 @@
+\documentclass{article_saj}
+\pagestyle{myheadings}
+\usepackage{graphicx,saj,multicol,subeqnarray}
+\usepackage{natbib}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{widetext}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{tikz} % for checkmark
+\usepackage{pifont} % for xmark
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,upgreek}
+\usepackage{titlesec}
+\input{astro}
+\titlelabel{\thetitle.\quad}
+\definecolor{xlinkcolor}{cmyk}{1,0.6,0,0}
+\usepackage[bookmarks=false,         % show bookmarks bar?
+     pdfnewwindow=true,      % links in new window
+     colorlinks=true,    % false: boxed links; true: colored links
+     linkcolor=xlinkcolor,     % color of internal links
+     citecolor=xlinkcolor,     % color of links to bibliography
+     filecolor=xlinkcolor,  % color of file links
+     urlcolor=xlinkcolor,      % color of external links
+final=true
+]{hyperref}
+
+% Papertype can be "Invited Review", "Original Scientific Paper",
+% "Preliminary report" or "Professional paper"
+
+\def\papertype{\ \hfill\ Editorial}
+
+\def\udc{52}
+\setcounter{publno}{200}
+\setcounter{publyear}{2020}
+\setcounter{page}{1}
+\setcounter{firstpage}{1}
+\setcounter{lastpage}{5}
+
+\citestyle{kluwer}%
+
+\setcounter{footnote}{0}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\begin{document}
+%
+\parindent=.5cm
+\baselineskip=3.8truemm
+\columnsep=.5truecm
+%
+\newenvironment{lefteqnarray}{\arraycolsep=0pt\begin{eqnarray}}
+{\end{eqnarray}\protect\aftergroup\ignorespaces}
+\newenvironment{lefteqnarray*}{\arraycolsep=0pt\begin{eqnarray*}}
+{\end{eqnarray*}\protect\aftergroup\ignorespaces}
+\newenvironment{leftsubeqnarray}{\arraycolsep=0pt\begin{subeqnarray}}
+{\end{subeqnarray}\protect\aftergroup\ignorespaces}
+%
+
+% Runningtitle
+
+\markboth{\eightrm INSTRUCTIONS FOR AUTHORS} 
+{\eightrm B. ARBUTINA {\lowercase{\eightit{et al.}}}}
+
+\begin{strip}
+
+{\ }
+
+\vskip-1cm
+
+\publ
+
+\type
+
+{\ }
+
+% Title
+
+\title{INSTRUCTIONS FOR AUTHORS}
+
+% Authors
+
+\authors{B. Arbutina$^{1}$, D. Uro{\v s}evi{\' c}$^{1}$ and M. Jovanovi{\' c}$^2$}
+
+\vskip3mm
+
+% Address
+
+\address{$^1$Department of Astronomy, Faculty of Mathematics,
+University of Belgrade\break Studentski trg 16, 11000 Belgrade,
+Serbia}
+
+% E-mail
+
+\Email{arbo@math.rs, dejanu@math.rs}
+
+\address{$^2$Astronomical Observatory, Volgina 7, 11060 Belgrade 38, Serbia}
+
+\Email{milena@aob.rs}
+
+% Received and Accepted dates
+
+\dates{May 18, 2020}{June 1, 2020}
+
+% Abstract
+
+\summary{The purpose of this editorial is to help authors in
+preparing papers to be submitted to our journal. Papers should be
+prepared in \LaTeX\ by using Serbian Astronomical Journal style
+file which has some predefined fields in the preamble and some
+additional or slightly modified commands for the main text. The
+authors are welcome to use this document as the sample paper and/or template.}
+
+% Keywords (see keywords.pdf file)
+
+\keywords{Editorials notices -- Publications, bibliography --
+Miscellaneous}
+
+\end{strip}
+
+\tenrm
+
+% Sections
+
+\section{INTRODUCTION}
+
+\indent
+
+This\footnotetext[0]{\copyright \ 2020 The Author(s). Published by
+Astronomical Observatory of Belgrade and Faculty of Mathematics,
+University of Belgrade. This open access article is distributed under
+CC BY-NC-ND 4.0 International licence.}
+editorial is meant to provide help to authors preparing
+papers to be submitted to our journal. Serbian Astronomical
+Journal (SerAJ) is published semiannually (in June and December)
+by the Astronomical Observatory and the Department of Astronomy,
+Belgrade, Serbia. It publishes invited reviews, original
+scientific papers, preliminary reports, and professional papers
+over the entire range of astronomy, astrophysics, astrobiology and
+related fields. 
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+Papers should be prepared in \LaTeX\ by using SerAJ style file
+which has some predefined fields in the preamble (paper category,
+title, authors, affiliations and e-mails, keywords and summary)
+and some additional or slightly modified commands for the main
+text. The authors are welcome to use this document as the sample
+paper and/or template. Comparing its \LaTeX\ source with the output it generates can show one how
+to produce a simple document of his/her own. Summary should
+contain at maximum 300 words (but much less is desirable) in
+order for the abstract to fit entirely on the first page. Authors have
+to use keywords from the list which is common to the major
+astronomical and astrophysical journals. The list is available at
+journal's website: \url{http://saj.math.rs/index.php?id=key}.
+
+Submission to our journal is a representation that the manuscript
+has not been published elsewhere. Each article submitted for
+publication is peer-reviewed. There are no paper charges. If
+usable color figures have been submitted with article, they will
+appear in color on the web, in the electronic edition of the
+journal. In the printed issue, color reproduction depends on
+journal policy and will be decided on a case-by-case basis.
+
+Publication in the Serbian Astronomical Journal consists of
+several steps:
+
+\parindent=.7cm
+
+\par\hang\textindent{(i)} submission to the journal (more detailed instructions are available upon
+request),
+
+\par\hang\textindent{(ii)} referee is chosen by the editors and we are
+waiting for his report,
+
+\par\hang\textindent{(iii)} referee's report has been received and (minor or major)
+revision is required (note that this step may be repeated couple
+of times), or acceptance/rejection of the paper has been
+suggested. If revised paper has not been received within 3 months it will be
+considered withdrawn.
+
+\par\hang\textindent{(iv)} If paper has been accepted, before publication author
+will receive a proof of his/her article for small corrections. The
+proof is used solely for checking the typesetting and editing,
+also the completeness and correctness of the text, tables, and
+figures. Changes to the article as accepted for publication will
+not be considered at this stage.
+
+\par\hang\textindent{(v)} Paper has been published and it is available electronically at SerAJ website and
+shortly after in hard copy, as well
+as in the selected bibliographic services.
+
+\parindent=.5cm
+
+Serbian Astronomical Journal is currently indexed or abstracted in
+Astrophysics Data System (ADS),
+Clarivate Analytics' Web of Science and Journal Citation Report,
+Scopus, Chemical Abstracts, Referativni Zhurnal, EBSCO, SRJ SCImago,
+DOAJ, Serbian Citation Index (SCIndeks), DOISerbia.
+
+\section{INSTRUCTIONS}
+
+\indent
+
+In the following subsections we will give some examples how to
+typeset mathematical formulas, include figures and tables and
+correctly prepare references. Our intention is not to cover all possible aspects
+of preparing a scientific text -- for more detailed instructions
+one should consult some of the many \LaTeX\ manuals.
+
+Here is just an example of quotation:
+
+\vskip.2cm
+
+\noindent {\nineit Astronomy is useful because it raises us above
+ourselves; it is useful because it is grand$\dots$ It shows us how
+small is man's body, how great his mind, since his intelligence
+can embrace the whole of this dazzling immensity, where his body
+is only an obscure point, and enjoy its silent harmony.}
+\vskip.1cm
+
+\rightline{\ninerm Henri Poincar\'e (1854 -- 1912)}
+
+% Subsections
+
+\subsection{Equations, figures, tables}
+
+\indent
+
+\LaTeX\ is good at typesetting mathematical formulas or symbols
+such as $\alpha$, $\beta$, $\Gamma$, $\Sigma$, $\pi$, $\nabla$, $\partial$, $\forall$, $\exists$, $\times$, $\pm$, $\infty$ etc.
+Equations should be enumerated.
+
+% Equations
+
+The following is an example of equation:
+\begin{equation}
+\Sigma=AD^{-\beta}.
+\label{eq:1}
+\end{equation}
+
+% "\begin{equation}" can be replaced with "$$"
+% "\end{equation}" can be replaced with "$$"
+% In that case "\label{(number)}" may be replaced with "\eqno{(number)}"
+
+One can also use equation arrays:
+\begin{lefteqnarray}
+\label{eq:f}
+&& f(x)=\log(x^2+3x), \\
+\label{eq:g}
+&& g(x)=x+\sin x,
+\end{lefteqnarray}
+or
+% SUBEQUATIONS
+subequations (i.e. subequation arrays):
+\begin{leftsubeqnarray}
+\slabel{eq:casa}
+&& \sin\theta=0.24, \\
+\slabel{eq:casb} && \cos\alpha=0.47. \label{seq:cas}
+\end{leftsubeqnarray}
+In the text equations should be quoted Eq. (\ref{eq:1}) or Eqs. (\ref{eq:f}) and (\ref{eq:g}).
+
+% \slabel{eq:namei} recalls the single equation e.g. (2i) (i=a,b,...)
+%
+% \label{seq:name}  recalls the whole group of subequations e.g., (2)
+
+% Tables
+
+Tables \ref{table1} and \ref{table2} are examples of tables. For large tables it is
+necessary to switch from two column to single column environment.
+Table \ref{table1} gives number of students graduated from Department of
+Astronomy, Faculty of Mathematics, University of Belgrade in a
+given period. For more information check Belgrade astronomical
+community database -- BAZA (from Serbian: Beogradska Astronomska
+ZAjednica) at \url{http://alas.matf.bg.ac.rs/\~astrobaza/} (see
+also \citeauthor{2009ata} \citeyear{2009ata}).
+
+% Onecolumn table
+
+\begin{table}
+\caption{{An example of a small table (number of students
+graduated from Department of Astronomy, Faculty of Mathematics,
+University of Belgrade in a given period).}}
+\vskip.25cm
+\centerline{\begin{tabular}{cc}
+\hline
+Period & Graduated students \\
+\hline
+1935/36 -- 1939/40 & 2 \\
+1940/41 -- 1949/50 & 2 \\
+1950/51 -- 1959/60 & 31 \\
+1960/61 -- 1969/70 & 20 \\
+1970/71 -- 1979/80 & 38 \\
+1980/81 -- 1989/90 & 35 \\
+1990/91 -- 1999/00 & 51 \\
+2000/01 -- 2009/10 & 77 \\
+\hline
+\end{tabular}}
+\label{table1}
+\end{table}
+
+% Twocolumn table
+
+\begin{table*}
+\caption{An example of a large table (citation of the
+Serbian Astronomical Journal in the period 2003--2010).}
+\parbox{\textwidth}{
+\vskip.25cm
+\centerline{\begin{tabular}{@{\extracolsep{0.0mm}}lcccccccccccc@{}}
+  \hline
+    Year ($y$)  & \multicolumn{6}{c}{No. of articles in} & \multicolumn{4}{c}{Cites to articles from} &   \multicolumn{2}{c}{Impact factor} \\
+              & \multicolumn{3}{c}{$y-1$} & \multicolumn{3}{c}{$y-2$} & \multicolumn{2}{c}{$y-1$} & \multicolumn{2}{c}{$y-2$} & \multicolumn{2}{c}{\ } \\
+              &&  &&&  && {\footnotesize Other cites} & {\footnotesize Self cites} & {\footnotesize Other cites} & {\footnotesize Self cites} & &   \\
+ \hline
+ 2003         && 8 &&& 16 && 0 & 3 & 2 & 2 & 7/24 &  0.292\\
+ 2004         && 26 &&& 8 && 3 & 9 & 1 & 0 & 13/34 &  0.382\\
+ 2005        && 17 &&& 26 && 5 & 4 & 5 & 0 & 14/43 &  0.326\\
+ 2006        && 21 &&& 17 && 2 & 4 & 1 & 2 & 9/38 &  0.237\\
+ 2007        && 19 &&& 21 && 2 & 6 & 6 & 2 & 16/40 &  0.400\\
+ 2008        && 18 &&& 19 && 5 & 4 & 10 & 5 & 24/37 &  0.649\\
+ 2009        && 23 &&& 18 && 15 & 11 & 7 & 2 & 35/41 &  0.854\\
+ 2010        && 21 &&& 23 && 5 & 3 & 8 & 3 & 19/44 &  0.432\\
+   \hline
+\end{tabular}}}
+\label{table2}
+\end{table*}
+
+% Figures in ps or eps format with resolution 600dpi
+
+% Onecolumn figure
+
+\begin{figure}
+\centerline{\includegraphics[width=0.5\columnwidth, keepaspectratio]{fig1.eps}}
+\caption{This is an example of a small figure.}
+\label{fig1}
+\end{figure}
+
+% Twocolumn figure
+
+\begin{figure*}[ht!]
+\centerline{\includegraphics[width=0.73\textwidth, keepaspectratio]{fig2.eps}}
+\caption{This is an example of a large figure. It is
+necesary to switch from two column to single column environment.}
+\label{fig2}
+\end{figure*}
+
+Table \ref{table2} shows the number of articles published in SerAJ, number of
+cites to articles published in SerAJ (self cites and other cites)
+and calculated impact factors (IF) for years
+2003--2010.\footnote{More information about SerAJ citation can be
+found in \citet{2007Arb,2010Arb,2013Arb}.}
+
+Figs. \ref{fig1} and \ref{fig2} are examples of small and large figure,
+respectively. Figures should be in ps or eps format with
+recommended resolution 600 dpi (300 dpi minimum). Figure captions should be
+below the figure itself. As with the tables, for large figures it
+is necessary to switch from two column to single column
+environment, and then switch back to two columns afterwards.
+
+% Subsections
+
+\subsection{Citations and references}
+
+\indent
+
+Make sure that all the citations that appear in the text are listed
+correctly in the References, ordered alphabetically by surname
+(with initials following). If there are several references to the
+same first author, they should be entered according to the
+following scheme:
+
+\parindent=.7cm
+
+\par\hang\textindent{(1)} one author: chronologically,
+
+\par\hang\textindent{(2)}  author and one co-author: alphabetically by co-author, then
+chronologically,
+
+\par\hang\textindent{(3)} author, two or more co-authors: chronologically.
+
+\parindent=.5cm
+
+You can cite an author directly in the text, such as \citet{1986Ber},
+or after some statement, in parentheses separated by
+commas \citep{2020Doe,1978Bel,1983All,1987Bin,1998Cas,2004Uro,2005Cir,2007Met,2008Ive,2020Smith,
+2015aste.book..297N}. Use
+'et al.' in the text for more than two authors, and in the
+references for more than eight authors (the first three being named). If more than one citation
+for a particular author (author group) is made for the same year,
+'a', 'b', 'c', $\ldots$ should be added to the year. Do not
+include the title in a reference, except for books and monographs
+that are not published in periodical publications. If citation does
+not correspond to any publication, after the author's name and
+year one usually puts: 'in preparation' or 'private communication'.
+If paper has not been published yet and there is no ArXiv preprint
+either, instead of the full reference with pagination one can put
+journal's title followed by one of these statements: 'submitted',
+'accepted', 'in press', or put DOI number if available. Use short (ADS)
+journals abbreviations when preparing references (e.g.
+SerAJ).\footnote{A list of journals in astronomy and
+astrophysics, space sciences and related fields, together with its
+abbreviations is available at
+\url{http://saj.math.rs/index.php?id=abbr}.}
+
+% Acknowledgements
+
+\acknowledgements{This is the place for acknowledgements such as:
+during the work on this paper the authors were financially
+supported by the Ministry of Education and Science of the Republic
+of Serbia through the projects:  176004 'Stellar physics',
+176005 'Emission nebulae: structure and evolution', 176011 'Kinematics and
+dynamics of celestial bodies and systems'.}
+
+% References
+
+%\vskip2mm
+
+\newcommand\eprint{in press }
+
+\bibsep=0pt
+
+\bibliographystyle{aa_url_saj}
+
+{\small
+
+\bibliography{sample_saj}
+}
+
+\begin{strip}
+
+\end{strip}
+
+\clearpage
+
+{\ }
+
+\clearpage
+
+{\ }
+
+\newpage
+
+\begin{strip}
+
+{\ }
+
+% Serbian abstract
+
+% Title
+
+\naslov{UPU{T}{S}TVO ZA AUTORE}
+
+% Authors
+
+\authors{B. Arbutina$^{1}$, D. Uro{\v s}evi{\' c}$^{1}$ and M. Jovanovi{\' c}$^2$}
+
+\vskip3mm
+
+% Address
+
+\address{$^1$Department of Astronomy, Faculty of Mathematics,
+University of Belgrade\break Studentski trg 16, 11000 Belgrade,
+Serbia}
+
+% E-mail
+
+\Email{arbo@math.rs, dejanu@math.rs}
+
+\address{$^2$Astronomical Observatory, Volgina 7, 11060 Belgrade 38, Serbia}
+
+\Email{milena@aob.rs}
+
+\vskip3mm
+
+% UDC
+
+\centerline{{\rrm UDK} \udc}
+
+% Papertype
+
+\vskip1mm
+
+\centerline{\rit Uredjivaqki prilog}
+
+\vskip.7cm
+
+\baselineskip=3.8truemm
+
+\begin{multicols}{2}
+
+{
+\rrm
+
+Ovaj prilog ima za cilj da pomogne autorima kod pripreme
+qlanaka za na{\ss} qasopis.~Radove, po mogu{\cc}nosti, treba
+pripremiti koriste{\cc}i}  \LaTeX\ {\rrm uz posebnu datoteku koja
+defini{\ss}e izgled qasopisa} Serbian Astronomical Journal {\rrm i
+sadr{\zz}i unapred definisana polja u preambuli dokumenta i neke
+dodatne ili de\-li\-miq\-no izmenjene komande koje se koriste pri unosu
+samog teksta.~Autori mogu koristiti ovaj dokument kao primer pri
+kucanju svojih radova.
+
+{\ }
+
+}
+
+\end{multicols}
+
+\end{strip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       C O M P I L I N G
+% You must compile your LaTeX source text "mysource.tex" in THE following
+% way:
+%  pdflatex mysource
+%  bibtex mysource
+%  pdflatex mysource
+%  pdflatex mysource
+% Compiling twice is required to set all the parameters needed
+% (lastpage, labels...) properly. It will also generate the mysource.bbl
+% with your bibliography.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
