@@ -8,7 +8,7 @@ public class Manager : MonoBehaviour
     public GameObject SoftTarget, HardTarget, softSlider, hardSlider;
     public TMP_Text softVisibilityButtonText, hardVisibilityButtonText;
     public Material[] material; // Array of materials to switch between
-    private new Renderer softRenderer, hardRenderer;
+    private Renderer softRenderer, hardRenderer;
     private bool softDisabled = true;
     private bool hardDisabled = true;
     private bool softDist = true;
@@ -39,17 +39,46 @@ public class Manager : MonoBehaviour
         if (SoftTarget != null)
         {
             softRenderer = SoftTarget.GetComponent<Renderer>();
-            softRenderer.enabled = true;
+            if (softRenderer != null)
+            {
+                softRenderer.enabled = true;
+            }
+            else
+            {
+                Debug.LogError("SoftTarget does not have a Renderer component.");
+            }
         }
 
         if (HardTarget != null)
         {
             hardRenderer = HardTarget.GetComponent<Renderer>();
-            hardRenderer.enabled = true;
+            if (hardRenderer != null)
+            {
+                hardRenderer.enabled = true;
+            }
+            else
+            {
+                Debug.LogError("HardTarget does not have a Renderer component.");
+            }
         }
 
-        softSlider.SetActive(true);
-        hardSlider.SetActive(true);
+        if (softSlider != null)
+        {
+            softSlider.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("softSlider is not assigned.");
+        }
+
+        if (hardSlider != null)
+        {
+            hardSlider.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("hardSlider is not assigned.");
+        }
     }
 
     public void OnRestartTouch()
@@ -59,52 +88,114 @@ public class Manager : MonoBehaviour
 
     public void HideSoft(PinchSlider slider)
     {
+        if (softRenderer == null)
+        {
+            Debug.LogError("SoftRenderer is not assigned.");
+            return;
+        }
+
         if (softDisabled)
         {
             ChangeAlpha(0, softRenderer);
-            slider.SliderValue = 0;
-            softVisibilityButtonText.text = "Show Soft Model";
+            if (slider != null)
+            {
+                slider.SliderValue = 0;
+            }
+            if (softVisibilityButtonText != null)
+            {
+                softVisibilityButtonText.text = "Show Soft Model";
+            }
             softDisabled = false;
         }
         else
         {
             ChangeAlpha(1, softRenderer);
-            slider.SliderValue = 1;
-            softVisibilityButtonText.text = "Hide Soft Model";
+            if (slider != null)
+            {
+                slider.SliderValue = 1;
+            }
+            if (softVisibilityButtonText != null)
+            {
+                softVisibilityButtonText.text = "Hide Soft Model";
+            }
             softDisabled = true;
         }
     }
 
     public void HideHard(PinchSlider slider)
     {
+        if (hardRenderer == null)
+        {
+            Debug.LogError("HardRenderer is not assigned.");
+            return;
+        }
+
         if (hardDisabled)
         {
             ChangeAlpha(0, hardRenderer);
-            slider.SliderValue = 0;
-            hardVisibilityButtonText.text = "Show Hard Model";
+            if (slider != null)
+            {
+                slider.SliderValue = 0;
+            }
+            if (hardVisibilityButtonText != null)
+            {
+                hardVisibilityButtonText.text = "Show Hard Model";
+            }
             hardDisabled = false;
         }
         else
         {
             ChangeAlpha(1, hardRenderer);
-            slider.SliderValue = 1;
-            hardVisibilityButtonText.text = "Hide Hard Model";
+            if (slider != null)
+            {
+                slider.SliderValue = 1;
+            }
+            if (hardVisibilityButtonText != null)
+            {
+                hardVisibilityButtonText.text = "Hide Hard Model";
+            }
             hardDisabled = true;
         }
     }
 
     public void ChangeSoftOpacity(SliderEventData eventData)
     {
-        ChangeAlpha(eventData.NewValue, softRenderer);
+        if (softRenderer != null)
+        {
+            ChangeAlpha(eventData.NewValue, softRenderer);
+        }
+        else
+        {
+            Debug.LogError("SoftRenderer is not assigned.");
+        }
     }
 
     public void ChangeHardOpacity(SliderEventData eventData)
     {
-        ChangeAlpha(eventData.NewValue, hardRenderer);
+        if (hardRenderer != null)
+        {
+            ChangeAlpha(eventData.NewValue, hardRenderer);
+        }
+        else
+        {
+            Debug.LogError("HardRenderer is not assigned.");
+        }
     }
 
     public void ChangeAlpha(float alphaVal, Renderer renderer)
     {
+        if (renderer == null)
+        {
+            Debug.LogError("Renderer is null.");
+            return;
+        }
+
+        if (material == null || material.Length < 2)
+        {
+            Debug.LogError("Material array is not properly assigned.");
+            return;
+        }
+
         if (alphaVal == 1)
         {
             renderer.sharedMaterial = material[1]; // Opaque material
@@ -122,12 +213,25 @@ public class Manager : MonoBehaviour
     {
         LineRenderer[] linerend = GameObject.FindObjectsOfType<LineRenderer>();
         TargetText[] meshrend = GameObject.FindObjectsOfType<TargetText>();
+
+        // Debug.Log("Number of LineRenderers: " + linerend.Length);
+        // Debug.Log("Number of TargetTexts: " + meshrend.Length);
+
+        if (linerend.Length != meshrend.Length)
+        {
+            Debug.LogError("The number of LineRenderers and TargetTexts do not match.");
+            return;
+        }
+
         if (softDist)
         {
             for (int i = 0; i < linerend.Length; i++)
             {
-                linerend[i].gameObject.GetComponent<LineRenderer>().enabled = false;
-                meshrend[i].gameObject.GetComponent<MeshRenderer>().enabled = false;
+                linerend[i].enabled = false;
+                if (i < meshrend.Length)
+                {
+                    meshrend[i].gameObject.GetComponent<MeshRenderer>().enabled = false;
+                }
             }
             softDist = false;
         }
@@ -135,8 +239,11 @@ public class Manager : MonoBehaviour
         {
             for (int i = 0; i < linerend.Length; i++)
             {
-                linerend[i].gameObject.GetComponent<LineRenderer>().enabled = true;
-                meshrend[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
+                linerend[i].enabled = true;
+                if (i < meshrend.Length)
+                {
+                    meshrend[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
+                }
             }
             softDist = true;
         }
@@ -146,12 +253,22 @@ public class Manager : MonoBehaviour
     {
         LineRenderer[] linerend = GameObject.FindObjectsOfType<LineRenderer>();
         TargetText[] meshrend = GameObject.FindObjectsOfType<TargetText>();
+
+        if (linerend.Length != meshrend.Length)
+        {
+            Debug.LogError("The number of LineRenderers and TargetTexts do not match.");
+            return;
+        }
+
         if (hardDist)
         {
             for (int i = 0; i < linerend.Length; i++)
             {
-                linerend[i].gameObject.GetComponent<LineRenderer>().enabled = false;
-                meshrend[i].gameObject.GetComponent<MeshRenderer>().enabled = false;
+                linerend[i].enabled = false;
+                if (i < meshrend.Length)
+                {
+                    meshrend[i].gameObject.GetComponent<MeshRenderer>().enabled = false;
+                }
             }
             hardDist = false;
         }
@@ -159,8 +276,11 @@ public class Manager : MonoBehaviour
         {
             for (int i = 0; i < linerend.Length; i++)
             {
-                linerend[i].gameObject.GetComponent<LineRenderer>().enabled = true;
-                meshrend[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
+                linerend[i].enabled = true;
+                if (i < meshrend.Length)
+                {
+                    meshrend[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
+                }
             }
             hardDist = true;
         }
@@ -169,6 +289,13 @@ public class Manager : MonoBehaviour
     public void HideSoftLandmark()
     {
         TargetLandmarkSoft[] landTarget = GameObject.FindObjectsOfType<TargetLandmarkSoft>();
+
+        if (landTarget == null)
+        {
+            Debug.LogError("No TargetLandmarkSoft objects found.");
+            return;
+        }
+
         if (softLand)
         {
             for (int i = 0; i < landTarget.Length; i++)
@@ -190,6 +317,13 @@ public class Manager : MonoBehaviour
     public void HideHardLandmark()
     {
         TargetLandmarkHard[] landTarget = GameObject.FindObjectsOfType<TargetLandmarkHard>();
+
+        if (landTarget == null)
+        {
+            Debug.LogError("No TargetLandmarkHard objects found.");
+            return;
+        }
+
         if (hardLand)
         {
             for (int i = 0; i < landTarget.Length; i++)
