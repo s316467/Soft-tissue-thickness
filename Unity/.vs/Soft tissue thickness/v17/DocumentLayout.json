@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{614F9D36-7DC8-4DCF-6A0B-88DDEB57EE61}|Assembly-CSharp.csproj|E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\assets\\scripts\\distances.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{614F9D36-7DC8-4DCF-6A0B-88DDEB57EE61}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\distances.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{614F9D36-7DC8-4DCF-6A0B-88DDEB57EE61}|Assembly-CSharp.csproj|e:\\polito\\corsi polito\\semestre 4\\soluzioni di grafica 3d in applicazioni biometriche\\soft tissue thickness\\assets\\scripts\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{614F9D36-7DC8-4DCF-6A0B-88DDEB57EE61}|Assembly-CSharp.csproj|E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\assets\\scripts\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{614F9D36-7DC8-4DCF-6A0B-88DDEB57EE61}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Library\\PackageCache\\com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec\\Services\\InputSystem\\MixedRealityInputSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec\\Services\\InputSystem\\MixedRealityInputSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Library\\PackageCache\\com.unity.xr.openxr@1.11.0\\Runtime\\Features\\OpenXRInteractionFeature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.xr.openxr@1.11.0\\Runtime\\Features\\OpenXRInteractionFeature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MixedRealityInputSystem.cs",
-              "DocumentMoniker": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Library\\PackageCache\\com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec\\Services\\InputSystem\\MixedRealityInputSystem.cs",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec\\Services\\InputSystem\\MixedRealityInputSystem.cs",
-              "ToolTip": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Library\\PackageCache\\com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec\\Services\\InputSystem\\MixedRealityInputSystem.cs",
-              "RelativeToolTip": "Library\\PackageCache\\com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec\\Services\\InputSystem\\MixedRealityInputSystem.cs",
-              "ViewState": "AQIAAK0CAAAAAAAAAIAwwMQCAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T14:29:30.978Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OpenXRInteractionFeature.cs",
-              "DocumentMoniker": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Library\\PackageCache\\com.unity.xr.openxr@1.11.0\\Runtime\\Features\\OpenXRInteractionFeature.cs",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.xr.openxr@1.11.0\\Runtime\\Features\\OpenXRInteractionFeature.cs",
-              "ToolTip": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Library\\PackageCache\\com.unity.xr.openxr@1.11.0\\Runtime\\Features\\OpenXRInteractionFeature.cs",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.xr.openxr@1.11.0\\Runtime\\Features\\OpenXRInteractionFeature.cs",
-              "ViewState": "AQIAACEBAAAAAAAAAIAwwDEBAAASAQAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T14:17:13.535Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Manager.cs",
               "DocumentMoniker": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Assets\\Scripts\\Manager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Manager.cs",
               "ToolTip": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Assets\\Scripts\\Manager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Manager.cs",
-              "ViewState": "AQIAAL4AAAAAAAAAAAApwNkAAAALAAAA",
+              "ViewState": "AQIAADsBAAAAAAAAAAAkwNkAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-09T15:49:37.985Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Distances.cs",
-              "DocumentMoniker": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Assets\\Scripts\\Distances.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Distances.cs",
-              "ToolTip": "E:\\PoliTo\\Corsi PoliTo\\Semestre 4\\Soluzioni di grafica 3D in applicazioni biometriche\\Soft tissue thickness\\Assets\\Scripts\\Distances.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Distances.cs",
-              "ViewState": "AQIAAI0AAAAAAAAAAAAwwKsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T15:08:42.544Z",
               "EditorCaption": ""
             }
           ]
