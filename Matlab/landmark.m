@@ -3,10 +3,8 @@ close all
 
 
 
-
-landmarks_file = {"hmr_001_landmark.mat", "hmr_002_landmark.mat", "hmr_003_landmark.mat", "hmr_004_landmark.mat", "hmr_005_landmark.mat", "hmr_006_landmark.mat", "hmr_007_landmark.mat", "hmr_008_landmark.mat", "hmr_019_landmark.mat", "hmr_027_landmark.mat","soggetto_007_landmark.mat","soggetto_008_landmark.mat", "soggetto_009_landmark.mat"};
-
 path3="hmr/landmark/";
+landmarks_file = {"hmr_001_landmark.mat", "hmr_002_landmark.mat", "hmr_003_landmark.mat", "hmr_004_landmark.mat", "hmr_005_landmark.mat", "hmr_006_landmark.mat", "hmr_007_landmark.mat", "hmr_008_landmark.mat", "hmr_019_landmark.mat", "hmr_027_landmark.mat","soggetto_007_landmark.mat","soggetto_008_landmark.mat", "soggetto_009_landmark.mat"};
 
 for j=1:numel(landmarks_file)
     % 
@@ -25,7 +23,7 @@ for j=1:numel(landmarks_file)
     numberoflandmarks = 0;
     
     lm=table('Size',[28 4],'VariableTypes',{'string','double','double','double'});
-        err=zeros(30,1);
+        err=zeros(32,1);
         
         if exist('aldx','var')
             lm(1,1)={'aldx'};
@@ -426,6 +424,34 @@ for j=1:numel(landmarks_file)
         else
             err(30)=1;
            end
+
+
+            if exist('r_soft','var')
+            lm(31,1)={'r_soft'};
+            lm(31,2)={r_soft.Position(1)};
+            lm(31,3)={r_soft.Position(2)};
+            lm(31,4)={r_soft.Position(3)};
+            rhinion_soft  = [r_soft.Position(1) r_soft.Position(2) r_soft.Position(3)];
+            plot3(r_soft.Position(1),r_soft.Position(2),r_soft.Position(3),'r.', 'markers', 30);
+            numberoflandmarks = numberoflandmarks +1;
+    
+        else
+            err(31)=1;
+           end
+   
+
+            if exist('mp_soft','var')
+            lm(32,1)={'mp_soft'};
+            lm(32,2)={mp_soft.Position(1)};
+            lm(32,3)={mp_soft.Position(2)};
+            lm(32,4)={mp_soft.Position(3)};
+            midphiltrum_soft = [mp_soft.Position(1) mp_soft.Position(2) mp_soft.Position(3)];
+            plot3(mp_soft.Position(1),mp_soft.Position(2),mp_soft.Position(3),'r.', 'markers', 30);
+            numberoflandmarks = numberoflandmarks +1;
+    
+        else
+            err(32)=1;
+           end
            
     landmarks = table2array(lm);
     landmarksnonames = table2array(lm(:,2:4));
@@ -440,10 +466,10 @@ for j=1:numel(landmarks_file)
     hold on
     
     
-    numberoflandmarks_hard_hard = 0;
+    numberoflandmarks_hard = 0;
     
     lm_hard=table('Size',[15 4],'VariableTypes',{'string','double','double','double'});
-        err_hard=zeros(26,1);
+        err_hard=zeros(28,1);
         
         if exist('a','var')
             lm_hard(1,1)={'a'};
@@ -452,7 +478,7 @@ for j=1:numel(landmarks_file)
             lm_hard(1,4)={a.Position(3)};
             apoint = [a.Position(1) a.Position(2) a.Position(3)];
             plot3(a.Position(1),a.Position(2),a.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(1)=1;
@@ -465,7 +491,7 @@ for j=1:numel(landmarks_file)
             lm_hard(2,4)={ANS.Position(3)}; 
             anteriornasalspline = [ANS.Position(1) ANS.Position(2) ANS.Position(3)]; 
             plot3(ANS.Position(1),ANS.Position(2),ANS.Position(3),'r.', 'markers', 30); 
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(2)=1;
@@ -478,7 +504,7 @@ for j=1:numel(landmarks_file)
             lm_hard(3,4)={b.Position(3)};
             bpoint = [b.Position(1) b.Position(2) b.Position(3)];
             plot3(b.Position(1),b.Position(2),b.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(3)=1;
@@ -491,7 +517,7 @@ for j=1:numel(landmarks_file)
             lm_hard(4,4)={fzdx.Position(3)};
             frontozigomaticodx = [fzdx.Position(1) fzdx.Position(2) fzdx.Position(3)];
             plot3(fzdx.Position(1),fzdx.Position(2),fzdx.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(4)=1;
@@ -504,7 +530,7 @@ for j=1:numel(landmarks_file)
             lm_hard(5,4)={fzsx.Position(3)};
             frontozigomaticosx = [fzsx.Position(1) fzsx.Position(2) fzsx.Position(3)];
             plot3(fzsx.Position(1),fzsx.Position(2),fzsx.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(5)=1;
@@ -517,7 +543,7 @@ for j=1:numel(landmarks_file)
             lm_hard(6,4)={godx.Position(3)};
             goniondx = [godx.Position(1) godx.Position(2) godx.Position(3)];
             plot3(godx.Position(1),godx.Position(2),godx.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(6)=1;
@@ -530,7 +556,7 @@ for j=1:numel(landmarks_file)
             lm_hard(7,4)={gosx.Position(3)};
             gonionsx = [gosx.Position(1) gosx.Position(2) gosx.Position(3)];
             plot3(gosx.Position(1),gosx.Position(2),gosx.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(7)=1;
@@ -543,7 +569,7 @@ for j=1:numel(landmarks_file)
             lm_hard(8,4)={men.Position(3)};
             menton = [men.Position(1) men.Position(2) men.Position(3)];
             plot3(men.Position(1),men.Position(2),men.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(8)=1;
@@ -556,7 +582,7 @@ for j=1:numel(landmarks_file)
             lm_hard(9,4)={n_hard.Position(3)};
             nasion_hard = [n_hard.Position(1) n_hard.Position(2) n_hard.Position(3)];
             plot3(n_hard.Position(1),n_hard.Position(2),n_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(9)=1;
@@ -570,7 +596,7 @@ for j=1:numel(landmarks_file)
             lm_hard(10,4)={orr_hard.Position(3)};
             orbitaledx_hard = [orr_hard.Position(1) orr_hard.Position(2) orr_hard.Position(3)];
             plot3(orr_hard.Position(1),orr_hard.Position(2),orr_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(10)=1;
@@ -583,7 +609,7 @@ for j=1:numel(landmarks_file)
             lm_hard(11,4)={orl_hard.Position(3)};
             orbitalesx_hard = [orl_hard.Position(1) orl_hard.Position(2) orl_hard.Position(3)];
             plot3(orl_hard.Position(1),orl_hard.Position(2),orl_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(11)=1;
@@ -596,7 +622,7 @@ for j=1:numel(landmarks_file)
             lm_hard(12,4)={pog.Position(3)};
             pogonion = [pog.Position(1) pog.Position(2) pog.Position(3)];
             plot3(pog.Position(1),pog.Position(2),pog.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(12)=1;
@@ -610,7 +636,7 @@ for j=1:numel(landmarks_file)
             lm_hard(13,4)={ui.Position(3)};
             upperincisor = [ui.Position(1) ui.Position(2) ui.Position(3)];
             plot3(ui.Position(1),ui.Position(2),ui.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(13)=1;
@@ -625,7 +651,7 @@ for j=1:numel(landmarks_file)
             lm_hard(14,4)={zyr_hard.Position(3)};
             zygiondx_hard = [zyr_hard.Position(1) zyr_hard.Position(2) zyr_hard.Position(3)];
             plot3(zyr_hard.Position(1),zyr_hard.Position(2),zyr_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(14)=1;
@@ -638,7 +664,7 @@ for j=1:numel(landmarks_file)
             lm_hard(15,4)={zyl_hard.Position(3)};
             zygionsx_hard = [zyl_hard.Position(1) zyl_hard.Position(2) zyl_hard.Position(3)];
             plot3(zyl_hard.Position(1),zyl_hard.Position(2),zyl_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(15)=1;
@@ -650,7 +676,7 @@ for j=1:numel(landmarks_file)
             lm_hard(16,4)={sn_hard.Position(3)};
             subnasale_hard = [sn_hard.Position(1) sn_hard.Position(2) sn_hard.Position(3)];
             plot3(sn_hard.Position(1),sn_hard.Position(2),sn_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(16)=1;
@@ -663,7 +689,7 @@ for j=1:numel(landmarks_file)
             lm_hard(17,4)={se_hard.Position(3)};
             sellion_hard = [se_hard.Position(1) se_hard.Position(2) se_hard.Position(3)];
             plot3(se_hard.Position(1),se_hard.Position(2),se_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(17)=1;
@@ -676,7 +702,7 @@ for j=1:numel(landmarks_file)
             lm_hard(18,4)={osr_hard.Position(3)};
             superiusdx_hard = [osr_hard.Position(1) osr_hard.Position(2) osr_hard.Position(3)];
             plot3(osr_hard.Position(1),osr_hard.Position(2),osr_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(18)=1;
@@ -689,7 +715,7 @@ for j=1:numel(landmarks_file)
             lm_hard(19,4)={osl_hard.Position(3)};
             superiussx_hard = [osl_hard.Position(1) osl_hard.Position(2) osl_hard.Position(3)];
             plot3(osl_hard.Position(1),osl_hard.Position(2),osl_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(19)=1;
@@ -703,7 +729,7 @@ for j=1:numel(landmarks_file)
             lm_hard(20,4)={g_hard.Position(3)};
             glabella_hard = [g_hard.Position(1) g_hard.Position(2) g_hard.Position(3)];
             plot3(g_hard.Position(1),g_hard.Position(2),g_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(20)=1;
@@ -716,7 +742,7 @@ for j=1:numel(landmarks_file)
             lm_hard(21,4)={acl_hard.Position(3)};
             alarcurvaturesx_hard = [acl_hard.Position(1) acl_hard.Position(2) acl_hard.Position(3)];
             plot3(acl_hard.Position(1),acl_hard.Position(2),acl_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(21)=1;
@@ -729,7 +755,7 @@ for j=1:numel(landmarks_file)
             lm_hard(22,4)={acr_hard.Position(3)};
             alarcurvaturedx_hard = [acr_hard.Position(1) acr_hard.Position(2) acr_hard.Position(3)];
             plot3(acr_hard.Position(1),acr_hard.Position(2),acr_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(22)=1;
@@ -742,7 +768,7 @@ for j=1:numel(landmarks_file)
             lm_hard(23,4)={exl_hard.Position(3)};
             exocanthionsx_hard = [exl_hard.Position(1) exl_hard.Position(2) exl_hard.Position(3)];
             plot3(exl_hard.Position(1),exl_hard.Position(2),exl_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(23)=1;
@@ -755,7 +781,7 @@ for j=1:numel(landmarks_file)
             lm_hard(24,4)={exr_hard.Position(3)};
             exocanthiondx_hard = [exr_hard.Position(1) exr_hard.Position(2) exr_hard.Position(3)];
             plot3(exr_hard.Position(1),exr_hard.Position(2),exr_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(24)=1;
@@ -768,7 +794,7 @@ for j=1:numel(landmarks_file)
             lm_hard(25,4)={enr_hard.Position(3)};
             endocanthiondx_hard = [enr_hard.Position(1) enr_hard.Position(2) enr_hard.Position(3)];
             plot3(enr_hard.Position(1),enr_hard.Position(2),enr_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(25)=1;
@@ -781,14 +807,42 @@ for j=1:numel(landmarks_file)
             lm_hard(26,4)={enl_hard.Position(3)};
             endocanthionsx_hard = [enl_hard.Position(1) enl_hard.Position(2) enl_hard.Position(3)];
             plot3(enl_hard.Position(1),enl_hard.Position(2),enl_hard.Position(3),'r.', 'markers', 30);
-            numberoflandmarks_hard_hard = numberoflandmarks_hard_hard +1;
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
     
         else
             err_hard(26)=1;
+            end
+
+            if exist('r_hard','var')
+            lm_hard(27,1)={'r_hard'};
+            lm_hard(27,2)={r_hard.Position(1)};
+            lm_hard(27,3)={r_hard.Position(2)};
+            lm_hard(27,4)={r_hard.Position(3)};
+            rhinion_hard = [r_hard.Position(1) r_hard.Position(2) r_hard.Position(3)];
+            plot3(r_hard.Position(1),r_hard.Position(2),r_hard.Position(3),'r.', 'markers', 30);
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
+    
+        else
+            err_hard(27)=1;
            end
    
+
+            if exist('mp_hard','var')
+            lm_hard(28,1)={'mp_hard'};
+            lm_hard(28,2)={mp_hard.Position(1)};
+            lm_hard(28,3)={mp_hard.Position(2)};
+            lm_hard(28,4)={mp_hard.Position(3)};
+            midphiltrum_hard = [mp_hard.Position(1) mp_hard.Position(2) mp_hard.Position(3)];
+            plot3(mp_hard.Position(1),mp_hard.Position(2),mp_hard.Position(3),'r.', 'markers', 30);
+            numberoflandmarks_hard = numberoflandmarks_hard +1;
+    
+        else
+            err_hard(28)=1;
+           end
            landmarks_hard = table2array(lm_hard);
     landmarks_hardnonames = table2array(lm_hard(:,2:4));
+    
+   
     
     mkdir(fullfile('hmr', 'landmark'));
     save(sprintf('hmr/landmark/%s', name));
@@ -798,8 +852,8 @@ for j=1:numel(landmarks_file)
     saveas(f1, sprintf('hmr/landmark_photos/%s/SoftTissue_Landmark.png', name_patient));
     saveas(f2, sprintf('hmr/landmark_photos/%s/HardTissue_Landmark.png', name_patient));
     
+
     
-   
     calculate_thickness(path3+landmarks_file(j))
 
 

@@ -7,65 +7,103 @@ function calculate_thickness(name)
     % Definisci i landmark per tessuti molli e duri
     glabella_soft = g_soft.Position;
     nasion_soft = n_soft.Position;
-    sellion_soft = se_soft.Position;
-    endocanthiondx_soft = enr_soft.Position;
-    endocanthionsx_soft = enl_soft.Position;
-    exocanthiondx_soft = exr_soft.Position;
-    exocanthionsx_soft = exl_soft.Position;
     orbitaledx_soft = orr_soft.Position;
     orbitalesx_soft = orl_soft.Position;
     superiusdx_soft = osr_soft.Position;
     superiussx_soft = osl_soft.Position;
     zygiondx_soft = zyr_soft.Position;
     zygionsx_soft = zyl_soft.Position;
-    alarcurvaturedx_soft = acr_soft.Position;
-    alarcurvaturesx_soft = acl_soft.Position;
-    
+    midphiltrum_soft = mp_soft.Position;
+    rhinion_soft = r_soft.Position;
+
     glabella_hard = g_hard.Position;
     nasion_hard = n_hard.Position;
-    sellion_hard = se_hard.Position;
-    endocanthiondx_hard = enr_hard.Position;
-    endocanthionsx_hard = enl_hard.Position;
-    exocanthiondx_hard = exr_hard.Position;
-    exocanthionsx_hard = exl_hard.Position;
     orbitaledx_hard = orr_hard.Position;
     orbitalesx_hard = orl_hard.Position;
     superiusdx_hard = osr_hard.Position;
     superiussx_hard = osl_hard.Position;
     zygiondx_hard = zyr_hard.Position;
     zygionsx_hard = zyl_hard.Position;
-    alarcurvaturedx_hard = acr_hard.Position;
-    alarcurvaturesx_hard = acl_hard.Position;
+    midphiltrum_hard = mp_hard.Position;
+    rhinion_hard = r_hard.Position;
+
     
+    % % Print sizes of soft tissue landmarks
+    % fprintf('Sizes of soft tissue landmarks:\n');
+    % fprintf('glabella_soft: %s\n', mat2str(size(glabella_soft)));
+    % fprintf('orbitaledx_soft: %s\n', mat2str(size(orbitaledx_soft)));
+    % fprintf('orbitalesx_soft: %s\n', mat2str(size(orbitalesx_soft)));
+    % fprintf('superiusdx_soft: %s\n', mat2str(size(superiusdx_soft)));
+    % fprintf('superiussx_soft: %s\n', mat2str(size(superiussx_soft)));
+    % fprintf('zygiondx_soft: %s\n', mat2str(size(zygiondx_soft)));
+    % fprintf('zygionsx_soft: %s\n', mat2str(size(zygionsx_soft)));
+    % fprintf('rhinion_soft: %s\n', mat2str(size(rhinion_soft)));
+    % fprintf('apoint_soft: %s\n', mat2str(size(midphiltrum_soft)));
+    % 
+    % % Print sizes of hard tissue landmarks
+    % fprintf('Sizes of hard tissue landmarks:\n');
+    % fprintf('glabella_hard: %s\n', mat2str(size(glabella_hard)));
+    % fprintf('orbitaledx_hard: %s\n', mat2str(size(orbitaledx_hard)));
+    % fprintf('orbitalesx_hard: %s\n', mat2str(size(orbitalesx_hard)));
+    % fprintf('superiusdx_hard: %s\n', mat2str(size(superiusdx_hard)));
+    % fprintf('superiussx_hard: %s\n', mat2str(size(superiussx_hard)));
+    % fprintf('zygiondx_hard: %s\n', mat2str(size(zygiondx_hard)));
+    % fprintf('zygionsx_hard: %s\n', mat2str(size(zygionsx_hard)));
+    % fprintf('rhinion_hard: %s\n', mat2str(size(rhinion_hard)));
+    % fprintf('apoint_hard: %s\n', mat2str(size(midphiltrum_hard)));
+    % 
+    % % Print the actual values of the landmarks
+    % fprintf('Values of soft tissue landmarks:\n');
+    % disp('glabella_soft:'), disp(glabella_soft)
+    % disp('nasion_soft:'), disp(nasion_soft)
+    % disp('orbitaledx_soft:'), disp(orbitaledx_soft)
+    % disp('orbitalesx_soft:'), disp(orbitalesx_soft)
+    % disp('superiusdx_soft:'), disp(superiusdx_soft)
+    % disp('superiussx_soft:'), disp(superiussx_soft)
+    % disp('zygiondx_soft:'), disp(zygiondx_soft)
+    % disp('zygionsx_soft:'), disp(zygionsx_soft)
+    % disp('rhinion_soft:'), disp(rhinion_soft)
+    % disp('apoint_soft:'), disp(midphiltrum_soft)
+    % 
+    % fprintf('Values of hard tissue landmarks:\n');
+    % disp('glabella_hard:'), disp(glabella_hard)
+    % disp('nasion_hard:'), disp(nasion_hard)
+    % disp('orbitaledx_hard:'), disp(orbitaledx_hard)
+    % disp('orbitalesx_hard:'), disp(orbitalesx_hard)
+    % disp('superiusdx_hard:'), disp(superiusdx_hard)
+    % disp('superiussx_hard:'), disp(superiussx_hard)
+    % disp('zygiondx_hard:'), disp(zygiondx_hard)
+    % disp('zygionsx_hard:'), disp(zygionsx_hard)
+    % disp('rhinion_hard:'), disp(rhinion_hard)
+    % disp('apoint_hard:'), disp(midphiltrum_hard)
+
+
     % Crea array di landmark per facile elaborazione
-    landmarks_soft = [glabella_soft; nasion_soft; sellion_soft; ...
-                      endocanthiondx_soft; endocanthionsx_soft; exocanthiondx_soft; ...
-                      exocanthionsx_soft; orbitaledx_soft; orbitalesx_soft; ...
+    landmarks_soft = [glabella_soft; nasion_soft; ...
+                      orbitaledx_soft; orbitalesx_soft; ...
                       superiusdx_soft; superiussx_soft; ...
-                      zygiondx_soft; zygionsx_soft; alarcurvaturedx_soft; alarcurvaturesx_soft];
+                      zygiondx_soft; zygionsx_soft;  ...
+                      rhinion_soft;midphiltrum_soft];
     
-    landmarks_hard = [glabella_hard; nasion_hard; sellion_hard; ...
-                      endocanthiondx_hard; endocanthionsx_hard; exocanthiondx_hard; ...
-                      exocanthionsx_hard; orbitaledx_hard; orbitalesx_hard; ...
-                      superiusdx_hard; superiussx_hard; ...
-                      zygiondx_hard; zygionsx_hard; alarcurvaturedx_hard; alarcurvaturesx_hard];
+    landmarks_hard = [glabella_hard; nasion_hard; orbitaledx_hard; ...
+                      orbitalesx_hard;superiusdx_hard; superiussx_hard; ...
+                      zygiondx_hard; zygionsx_hard; ...
+                      rhinion_hard; midphiltrum_hard];
     
     % Assicurati che entrambi gli array di landmark abbiano le stesse dimensioni
     if ~isequal(size(landmarks_soft), size(landmarks_hard))
-        error('Le dimensioni di landmarks_soft e landmarks_hard non corrispondono');
+        error('The dimensions of landmarks_soft and landmarks_hard do not match');
     end
     
     % Calcola le distanze euclidee tra i landmark corrispondenti
     distances_mm = sqrt(sum((landmarks_soft - landmarks_hard).^2, 2));
     
     % Display the distances in millimeters
-    landmark_names = {'Glabella', 'Nasion', 'Sellion', ...
-                      'Endocanthion Right', 'Endocanthion Left', ...
-                      'Exocanthion Right', 'Exocanthion Left', ...
+    landmark_names = {'Glabella', 'Nasion', ...
                       'Orbital Right', 'Orbital Left', ...
                       'Superius Right', 'Superius Left', ...
                       'Zygion Right', 'Zygion Left', ...
-                      'Alar Curvature Right', 'Alar Curvature Left'};
+                      'Rhinion','Mid-Philtrum (A-Point)'};
     
     for i = 1:length(distances_mm)
         fprintf('Distance for landmark %s: %f mm\n', landmark_names{i}, distances_mm(i));
