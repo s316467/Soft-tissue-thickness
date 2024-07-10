@@ -1,0 +1,72 @@
+RESULTS
+
+
+
+Accuracy for gender analysis with Random Forest : 56.33%
+Accuracy for age analysis with Random Forest : 55.67%
+Accuracy for gender analysis with Decision Tree: 37.00%
+Accuracy for age analysis with Decision Tree: 52.33%
+
+Accuracy with Decision Tree with combined labels: 30.00%
+
+Accuracy with Random Fores with combined labels: 27.00%
+
+
+%%%%%%%%%%%%% DECISION TREE FOR AGE ANALYSIS %%%%%%%%%%%%%
+
+Analysis for the model Decision Tree
+
+Gender top landmarks for gender classification are: Nasion Midphiltrum Glabella 
+
+Gender top landmarks for age classification are: Orbital Left Orbital Right Zygion Right 
+
+
+
+
+%%%%%%%%%%%%% RANDOM FOREST FOR GENDER ANALYSIS %%%%%%%%%%%%%
+
+Analysis for the model Random Forest
+
+Gender top landmarks for gender classification are: Zygion Right Nasion Superius Left 
+
+Gender top landmarks for age classification are: Orbital Left Zygion Right Orbital Right 
+
+
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%% DECISION TREE FOR COMBINED LABEL ANALYSIS %%%%%%%%%%%%%
+
+Analysis for the model Decision Tree
+In the order we have for combined classification
+Orbital Left
+Zygion Left
+Orbital Right
+Orbital Left Zygion Left Orbital Right 
+
+
+%%%%%%%%%%%%% RANDOM FOREST FOR COMBINED LABEL ANALYSIS %%%%%%%%%%%%%
+
+Analysis for the model Random ForestIn the order we have for combined classification
+Zygion Right
+Orbital Left
+Midphiltrum
+Orbital Left Zygion Left Orbital Right 
+
+
+Random Forest is the best model for your age analysis and it shows that 
+the top landmarks are: 
+Orbital Left
+Zygion Right
+Orbital Right
+
+Random Forest is the best model for your gender analysis and it shows that
+the top landmarks are:
+Zygion Right
+Nasion
+Superius Left
+
+Decision Tree is the best model for your combined analysis and it shows that
+the top landmarks are: 
+Orbital Left 
+Zygion Left 
+Orbital Right 
