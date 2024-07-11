@@ -8,7 +8,9 @@ from RF_DT import RF_DT
 def main():
     # Assicurati che il percorso sia relativo alla directory principale del progetto
     base_path = os.path.dirname(os.path.abspath(__file__))
+    print(base_path)
     results_path = os.path.join(base_path, 'results')
+    print( results_path)
     if not os.path.exists(results_path):
         os.makedirs(results_path)
 

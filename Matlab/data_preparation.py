@@ -16,9 +16,9 @@ def read_csv_files(folder_path):
 
 def data_preparation(base_path):
     # # os.chdir('../')
-    # print(os.getcwd())
-    patients = pd.read_csv('Matlab/information/INFOclinical_HN_Version2_30may2018_Metadata.csv')
-    olivetti_patients = pd.read_excel('Matlab/information/elenco_soggetti_operazioni_olivetti.xlsx')
+    print(os.getcwd())
+    patients = pd.read_csv('information/INFOclinical_HN_Version2_30may2018_Metadata.csv')
+    olivetti_patients = pd.read_excel('information/elenco_soggetti_operazioni_olivetti.xlsx')
     folder_paths = [os.path.join(base_path, folder) for folder in ['chum', 'hmr', 'hgj', 'chus']]
 
 
