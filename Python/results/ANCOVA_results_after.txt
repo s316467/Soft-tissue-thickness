@@ -1,0 +1,13 @@
+ANCOVA results after cleaning
+
+It allows me to say that for the gender analysis
+ there are no significant landmarks for classification by Gender
+
+It allows me to say that for the age analysis, the most significant landmarks are:
+
+Zygion Right
+Midphiltrum
+
+It allows me to say that for the analysis of the interaction of age and gender
+ there are no significant landmarks for classification by Age and Gender
+
