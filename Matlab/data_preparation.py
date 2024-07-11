@@ -7,24 +7,30 @@ import my_plot
 
 def read_csv_files(folder_path):
     all_files = []
+    # print(os.getcwd())
     for file_name in os.listdir(folder_path):
         if file_name.endswith('.csv'):
             file_path = os.path.join(folder_path, file_name)
             all_files.append(file_path)
     return all_files
 
-def data_preparation():
-    patients = pd.read_csv('information/INFOclinical_HN_Version2_30may2018_Metadata.csv')
-    olivetti_patients = pd.read_excel('information/elenco_soggetti_operazioni_olivetti.xlsx')
-    folder_path = ['chum/', 'hmr/', 'hgj/', 'chus/']
+def data_preparation(base_path):
+    # # os.chdir('../')
+    # print(os.getcwd())
+    patients = pd.read_csv('Matlab/information/INFOclinical_HN_Version2_30may2018_Metadata.csv')
+    olivetti_patients = pd.read_excel('Matlab/information/elenco_soggetti_operazioni_olivetti.xlsx')
+    folder_paths = [os.path.join(base_path, folder) for folder in ['chum', 'hmr', 'hgj', 'chus']]
+
 
     all_files_patients = []
 
-    for folder in folder_path:
+    for folder in folder_paths:
         files_patients = read_csv_files(folder)
         all_files_patients.extend(files_patients)
 
-    files_olivetti = read_csv_files('olivetti/')
+    path_olivetti = os.path.join(base_path, 'olivetti')
+    files_olivetti = read_csv_files(path_olivetti)
+
 
     print("Files olivetti:", files_olivetti)
 
@@ -33,7 +39,7 @@ def data_preparation():
     men_table = pd.DataFrame()
     women_table = pd.DataFrame()
 
-    for hospital_id, folder in enumerate(folder_path):
+    for hospital_id, folder in enumerate(folder_paths):
         files_patients = read_csv_files(folder)
         men_table, women_table = hospital_mean(patients, files_patients, folder, hospital_id, men_table, women_table)
 
@@ -52,7 +58,8 @@ def data_preparation():
     print(f"bmi_landmarks_women shape: {bmi_landmarks_women.shape}")
     print(f"bmi_landmarks_men shape: {bmi_landmarks_men.shape}")
 
-    all_data_bmi = np.concatenate((bmi_landmarks_men, bmi_landmarks_women), axis=1)
+    all_data_bmi = np.concatenate((bmi_landmarks_men.T, bmi_landmarks_women.T), axis=1)
+
     all_genders_bmi = np.concatenate((genders_bmi_men, genders_bmi_women))
     all_ages_bmi = np.concatenate((ages_bmi_men, ages_bmi_women))
     all_bmi = np.concatenate((bmi_men, bmi_women))
@@ -62,13 +69,13 @@ def data_preparation():
     print(f"Length of all_bmi: {len(all_bmi)}")
     print(f"Shape of all_data_bmi: {all_data_bmi.shape}")
 
-    if len(all_genders_bmi) != all_data_bmi.shape[1]:
-        print("Mismatch detected between all_genders_bmi and all_data_bmi. Adjusting arrays.")
-        min_len = min(len(all_genders_bmi), all_data_bmi.shape[1])
-        all_genders_bmi = all_genders_bmi[:min_len]
-        all_ages_bmi = all_ages_bmi[:min_len]
-        all_bmi = all_bmi[:min_len]
-        all_data_bmi = all_data_bmi[:, :min_len]
+    # if len(all_genders_bmi) != all_data_bmi.shape[1]:
+    #     print("Mismatch detected between all_genders_bmi and all_data_bmi. Adjusting arrays.")
+    #     min_len = min(len(all_genders_bmi), all_data_bmi.shape[1])
+    #     all_genders_bmi = all_genders_bmi[:min_len]
+    #     all_ages_bmi = all_ages_bmi[:min_len]
+    #     all_bmi = all_bmi[:min_len]
+    #     all_data_bmi = all_data_bmi[:, :min_len]
 
     genders_women = women_table['Sex'].to_numpy()
     genders_men = men_table['Sex'].to_numpy()
@@ -85,16 +92,19 @@ def data_preparation():
     if len(landmark_men.shape) == 1:
         landmark_men = landmark_men.reshape(1, -1)
 
-    min_len = min(len(genders_men), len(genders_women), len(ages_men), len(ages_women))
-    landmark_men = landmark_men[:min_len]
-    genders_men = genders_men[:min_len]
-    ages_men = ages_men[:min_len]
 
-    landmark_women = landmark_women[:min_len]
-    genders_women = genders_women[:min_len]
-    ages_women = ages_women[:min_len]
+    # min_len = min(len(genders_men), len(genders_women), len(ages_men), len(ages_women))
+    # landmark_men = landmark_men[:min_len]
+    # genders_men = genders_men[:min_len]
+    # ages_men = ages_men[:min_len]
 
-    all_data = np.concatenate((landmark_men, landmark_women), axis=1)
+    # landmark_women = landmark_women[:min_len]
+    # genders_women = genders_women[:min_len]
+    # ages_women = ages_women[:min_len]
+
+
+    all_data = np.concatenate((landmark_men.T, landmark_women.T), axis=1)
+    
     all_genders = np.concatenate((genders_men, genders_women))
     all_ages = np.concatenate((ages_men, ages_women))
 
@@ -110,15 +120,17 @@ def data_preparation():
     all_bmi = np.array([bmi_mapping[x] for x in all_bmi])
 
     gender_mapping = {'M': 1, 'F': 2}
+    
     all_genders = np.array([gender_mapping[x] for x in all_genders])
-
+    
     age_mapping = {'Under 25': 1, '25-60': 2, 'Over 60': 3}
     all_ages = np.array([age_mapping[x] for x in all_ages])
     all_ages = pd.Categorical(all_ages, categories=[1, 2, 3], ordered=True)
 
     num_patients_bmi = all_data_bmi.shape[1]
     print(f"Number of BMI patients: {num_patients_bmi}")
-    rand_indices_bmi = np.random.permutation(num_patients_bmi)
+    rand_indices_bmi = np.random.permutation(all_genders_bmi.shape[0])
+    
     print(f"Random indices for BMI patients: {rand_indices_bmi}")
 
     all_data_bmi = all_data_bmi[:, rand_indices_bmi]
@@ -128,26 +140,61 @@ def data_preparation():
 
     num_patients = all_data.shape[1]
     print(f"Number of patients: {num_patients}")
-    rand_indices = np.random.permutation(num_patients)
+    rand_indices = np.random.permutation(all_genders.shape[0])
     print(f"Random indices for patients: {rand_indices}")
-
+    # print("all_genders ", all_genders)
+    
     all_data = all_data[:, rand_indices]
     all_ages = all_ages[rand_indices]
     all_genders = all_genders[rand_indices]
+    
 
-    all_data_bmi_clean = []
-    for row in all_data_bmi:
-        outliers = np.isnan(row.astype(float))
-        row[outliers] = np.nan
-        all_data_bmi_clean.append(row)
-    all_data_bmi_clean = np.array(all_data_bmi_clean)
+  
+    all_data_bmi_clean = np.empty_like(all_data_bmi)
+    all_data_bmi_clean[:] = np.nan
 
-    all_data_clean = []
-    for row in all_data:
-        outliers = np.isnan(row.astype(float))
-        row[outliers] = np.nan
-        all_data_clean.append(row)
-    all_data_clean = np.array(all_data_clean)
+    for i in range(all_data_bmi.shape[0]):
+        row = all_data_bmi[i, :]
+        Q1 = np.nanquantile(row, 0.25)
+        Q3 = np.nanquantile(row, 0.75)
+        IQR = Q3 - Q1
+        lower_bound = Q1 - 1.5 * IQR
+        upper_bound = Q3 + 1.5 * IQR
+        
+        # Identifica gli outlier
+        outliers = (row < lower_bound) | (row > upper_bound)
+        
+        # Copia la riga escludendo gli outlier
+        clean_row = np.where(outliers, np.nan, row)
+        
+        # Aggiungi la riga pulita all'array dei dati puliti
+        all_data_bmi_clean[i, :] = clean_row
+
+    
+
+  
+  
+    all_data_clean = np.empty_like(all_data)
+    all_data_clean[:] = np.nan
+
+    for i in range(all_data.shape[0]):
+        row = all_data[i, :]
+        Q1 = np.nanquantile(row, 0.25)
+        Q3 = np.nanquantile(row, 0.75)
+        IQR = Q3 - Q1
+        lower_bound = Q1 - 1.5 * IQR
+        upper_bound = Q3 + 1.5 * IQR
+        
+        # Identifica gli outlier
+        outliers = (row < lower_bound) | (row > upper_bound)
+        
+        # Copia la riga escludendo gli outlier
+        clean_row = np.where(outliers, np.nan, row)
+        
+        # Aggiungi la riga pulita all'array dei dati puliti
+        all_data_clean[i, :] = clean_row
+
+    
 
     my_plot.plot_distances(all_data, all_genders, all_ages, landmark_names, 'before cleaning')
     my_plot.plot_distances(all_data_clean, all_genders, all_ages, landmark_names, 'after cleaning')

@@ -59,18 +59,17 @@ classdef my_plot
             end
                 
             
-            f1=figure;
-            new_title=strcat('Men distances, without BMI factor','-', title_str);
-            plot(1:10, men_1,'DisplayName', 'Under 25');
-            title(new_title);
-            hold on;
-            plot(1:10,men_2, 'DisplayName','25-60');
-            plot(1:10,men_3, 'DisplayName','Over 60');
-            xlabel('Landmark');
-            ylabel('Distances');
-            xticks(1:length(landmark_names));
-            xticklabels(landmark_names);
-            legend('show');
+            f1 = plt.figure()
+            new_title = 'Men distances, without BMI factor' + '-' + title_str
+            plt.plot(range(1, 11), men_1, label='Under 25')
+            plt.title(new_title)
+            plt.plot(range(1, 11), men_2, label='25-60')
+            plt.plot(range(1, 11), men_3, label='Over 60')
+            plt.xlabel('Landmark')
+            plt.ylabel('Distances')
+            plt.xticks(range(1, len(landmark_names) + 1), landmark_names, rotation='vertical')  # Aggiunto rotation per migliorare la leggibilità
+            plt.legend()
+            plt.show()
            
             title_new = strrep(title_str,' ','_');
             name_file = sprintf('Men_distances_%s',title_new);
