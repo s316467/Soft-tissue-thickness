@@ -7,24 +7,22 @@ This repository contains a comprehensive collection of files and scripts organiz
 ### 1. MATLAB
 The MATLAB folder includes scripts and functions developed for analyzing and processing soft-tissue thickness data. Key files in this folder are:
 - `calculate_thickness.m`: Script for calculating soft-tissue thickness.
-- `.DS_Store`: Mac OS system file.
-- `generate_images.m`: Script for generating images from the data.
+- `generate_images.m`: Script for generating graphs from provided data.
 - `gridtrimesh.m`: Script for creating a 3D mesh grid.
-- `main_lab.m`: Main script for running lab experiments.
-- `demonstration_fun.m`: Demonstration functions for specific tasks.
+- `main_lab.m`: Main script for getting mesh landmark.
+- `demonstration_fun.m`: Demonstration functions for plotting landmarks on meshes.
 - `calculate_thickness_graphs.m`: Script for calculating and plotting thickness graphs.
 - `landmark pazienti`: Folder containing patient landmark data.
 
 ### 2. Python
 The Python folder contains scripts and modules used for data analysis, machine learning, and visualization. Key files in this folder include:
 - `my_plot.py`: Script for generating plots.
-- `chum`: Folder containing additional scripts or data.
+- `chum`: Folder containing chum hospital data.
 - `MenAndWoman_BMI_after_cleaning.csv`: Cleaned BMI data for men and women.
-- `hospital_mean.py`: Script for calculating mean values from hospital data.
+- `hospital_mean.py`: Script for calculating mean values from hospitals data.
 - `ANCOVA_bmi_results_before.txt`: Results of ANCOVA analysis before cleaning BMI data.
-- `information`: Folder containing additional information or documentation.
+- `information`: Folder containing metadata about patients.
 - `MenAndWoman_BMI_before_cleaning.csv`: Raw BMI data for men and women before cleaning.
-- `.DS_Store`: Mac OS system file.
 - `ANCOVA_results_before.txt`: Results of ANCOVA analysis before data cleaning.
 - `Results_RF_DT_with_BMI.txt`: Results of random forest and decision tree analysis with BMI data.
 - `MEAN_DISTANCES`: Folder containing files related to mean distance calculations.
@@ -38,7 +36,7 @@ The Python folder contains scripts and modules used for data analysis, machine l
 - `ANCOVA_Analysis`: Folder for ANCOVA analysis scripts.
 - `MenAndWoman_before_cleaning.csv`: Raw data for men and women before cleaning.
 - `ANCOVA.py`: Script for performing ANCOVA analysis.
-- `hgj`: Folder containing specific Python scripts or modules.
+- `hgj`: Folder containing hgj hospital patients data.
 - `RF_DT_ANALYSIS`: Folder for random forest and decision tree analysis scripts.
 - `data_preparation.py`: Script for preparing data for analysis.
 - `ANCOVA_bmi_results_after.txt`: Results of ANCOVA analysis after cleaning BMI data.
@@ -51,9 +49,8 @@ The Python folder contains scripts and modules used for data analysis, machine l
 ### 3. Unity
 The Unity folder holds the Unity project files and scripts related to the development of any interactive simulations or visualizations. Key components include:
 - `obj`: Folder containing compiled object files.
-- `.DS_Store`: Mac OS system file.
 - `ProjectSettings`: Folder containing project settings for the Unity project.
-- `landmark_distances_mm_1.csv`: CSV file with landmark distances data.
+- `landmark_distances_mm_1.csv`: CSV file with landmark distances sample patient data.
 - `Library`: Folder containing Unity's library files.
 - `.vs`: Folder for Visual Studio files.
 - `UserSettings`: Folder with user-specific settings.
