@@ -1,0 +1,36 @@
+ANCOVA analysis with BMI factor before cleaning
+
+It allows me to say that for the gender analysis, the most significant landmarks are:
+Nasion
+Superius Left
+
+It allows me to say that for the age analysis
+ there are no significant landmarks for classification by Age
+
+
+It allows me to say that for the BMI analysis, the most significant landmarks are:
+Nasion
+Superius Left
+
+It allows me to say that for the analysis of the interaction of age and gender
+ there are no significant landmarks for classification by Age and Gender
+
+
+It allows me to say that for the analysis of the interaction of gender and BMI,
+ the most significant landmarks are:
+
+Superius Left
+
+It allows me to say that for the analysis of the interaction of age and BMI,
+ the most significant landmarks are:
+
+Nasion
+Superius Left
+
+It allows me to say that for the analysis of the interaction of gender, age and BMI,
+ the most significant landmarks are:
+
+Glabella
+Nasion
+Superius Left
+Rhinion
