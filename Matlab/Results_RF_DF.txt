@@ -2,30 +2,70 @@ RESULTS
 
 
 
-Accuracy for gender analysis with Random Forest: 56.67%
-Accuracy for age analysis with Random Forest: 56.00%
-Accuracy for gender analysis with Decision Tree: 53.67%
-Accuracy for age analysis with Decision Tree: 50.67%
+Accuracy for gender analysis with Random Forest : 60.00%
+Accuracy for age analysis with Random Forest : 57.00%
+Accuracy for gender analysis with Decision Tree: 44.00%
+Accuracy for age analysis with Decision Tree: 54.67%
 
-Accuracy with Decision Tree with combined labels: 27.33%
+Accuracy with Decision Tree with combined labels: 23.00%
 
-Accuracy with Random Forest with combined labels: 36.67%
+Accuracy with Random Fores with combined labels: 28.00%
+
+
+%%%%%%%%%%%%% DECISION TREE FOR AGE ANALYSIS %%%%%%%%%%%%%
+
+Analysis for the model Decision Tree
+
+Gender top landmarks for gender classification are: Nasion Superius Left Superius Right 
+
+Gender top landmarks for age classification are: Orbital Left Zygion Right Orbital Right 
+
+
+
+
+%%%%%%%%%%%%% RANDOM FOREST FOR GENDER ANALYSIS %%%%%%%%%%%%%
+
+Analysis for the model Random Forest
+
+Gender top landmarks for gender classification are: Zygion Right Nasion 
+
+Gender top landmarks for age classification are: Orbital Left Orbital Right Zygion Right 
+
+
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%% DECISION TREE FOR COMBINED LABEL ANALYSIS %%%%%%%%%%%%%
+
+Analysis for the model Decision Tree
+In the order we have for combined classification
+Orbital Left
+Zygion Right
+Orbital Right
+Orbital Left Zygion Right Orbital Right 
+
+
+%%%%%%%%%%%%% RANDOM FOREST FOR COMBINED LABEL ANALYSIS %%%%%%%%%%%%%
+
+Analysis for the model Random ForestIn the order we have for combined classification
+Zygion Right
+Orbital Left
+Midphiltrum
+Orbital Left Zygion Right Orbital Right 
 
 
 Random Forest is the best model for your age analysis and it shows that 
 the top landmarks are: 
 Orbital Left
 Orbital Right
-Midphiltrum
+Zygion Right
 
 Random Forest is the best model for your gender analysis and it shows that
 the top landmarks are:
+Zygion Right
 Nasion
-Superius Right
-Midphiltrum
 
 Random Forest is the best model for your combined analysis and it shows that
 the top landmarks are: 
-Midphiltrum 
+Zygion Right 
 Orbital Left 
-Orbital Right 
+Midphiltrum 

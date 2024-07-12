@@ -1,0 +1,55 @@
+
+
+Accuracy for BMI analysis with Random Forest : 50.00%
+
+
+Accuracy for age and BMI analysis with Random Forest : 0.00%
+
+
+Accuracy for gender and BMI analysis with Random Forest : 50.00%
+
+
+Accuracy for gender,age and BMI analysis with Random Forest : 0.00%
+Accuracy for BMI analysis with Decision Tree: 0.00%
+Accuracy for age and BMI analysis with Decision Tree: 0.00%
+Accuracy for gender and BMI analysis with Decision Tree: 0.00%
+Accuracy for gender,age and BMI analysis with Decision Tree: 0.00%
+%%%%%%%%%%%%% DECISION TREE FOR BMI,AGE AND GENDER ANALYSIS %%%%%%%%%%%%%
+
+Analysis for the model Decision Tree
+
+BMI top landmarks for BMI classification are: Orbital Right, Rhinion, Nasion, 
+
+Age and BMI top landmarks for age and BMI classification are: Nasion, Superius Left, Glabella, 
+
+Gender and BMI top landmarks for gender and BMI classification are: Nasion, Superius Right, 
+
+Gender,Age and BMI top landmarks for gender,age and BMI classification are: Glabella, Nasion, Superius Left, 
+
+%%%%%%%%%%%%% RANDOM FOREST FOR AGE, BMI AND GENDER ANALYSIS %%%%%%%%%%%%%
+Analysis for the model Random Forest
+
+BMI top landmarks for BMI classification are: Rhinion Orbital Right Superius Left 
+
+Age and BMI top landmarks for age and BMI classification are: Nasion Superius Left Glabella Gender and BMI top landmarks for gender and BMI classification are: Superius Left Nasion Superius Right 
+
+Gender,Age and BMI top landmarks for gender,age and BMI classification are: Nasion Superius Left Superius Right 
+
+
+
+
+Final Consideration
+
+
+Random Forest is the best model for your bmi analysis and it shows that
+the top landmarks are:
+Rhinion
+Orbital Right
+Superius Left
+
+Random Forest is the best model for your gender and bmi analysis and it shows that
+the top landmarks are:
+Superius Left
+Nasion
+Superius Right
+There are not enough information to determine which landmarks are important for your age and bmi analysis.There are not enough information to determine which landmarks are important for your gender,age and bmi analysis.
