@@ -1,0 +1,47 @@
+RESULTS
+
+
+
+Accuracy for BMI analysis with Random Forest: 85.71%
+
+
+Accuracy for age and BMI analysis with Random Forest: 50.00%
+
+
+Accuracy for gender and BMI analysis with Random Forest: 42.86%
+
+
+Accuracy for gender, age, and BMI analysis with Random Forest: 21.43%
+Accuracy for BMI analysis with Decision Tree: 71.43%
+Accuracy for age and BMI analysis with Decision Tree: 35.71%
+Accuracy for gender and BMI analysis with Decision Tree: 57.14%
+Accuracy for gender, age, and BMI analysis with Decision Tree: 35.71%
+
+
+
+Final Consideration
+
+
+Random Forest is the best model for your BMI analysis and it shows that
+the top landmarks are:
+Superius Left
+Nasion
+Superius Right
+
+Decision Tree is the best model for your gender and BMI analysis and it shows that
+the top landmarks are:
+Nasion
+Superius Right
+Superius Left
+
+Random Forest is the best model for your age and BMI analysis and it shows that
+the top landmarks are: 
+Nasion 
+Superius Left 
+Zygion Right 
+
+Decision Tree is the best model for your gender, age, and BMI analysis and it shows that
+the top landmarks are: 
+Nasion 
+Superius Left 
+Zygion Left 

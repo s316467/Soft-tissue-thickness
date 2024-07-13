@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "e:\\Downloads\\Soft-tissue-thickness\\Unity\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\wrench.csproj": {}
+  },
+  "projects": {
+    "e:\\Downloads\\Soft-tissue-thickness\\Unity\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\wrench.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "e:\\Downloads\\Soft-tissue-thickness\\Unity\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\wrench.csproj",
+        "projectName": "wrench",
+        "projectPath": "e:\\Downloads\\Soft-tissue-thickness\\Unity\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\wrench.csproj",
+        "packagesPath": "C:\\Users\\tony0\\.nuget\\packages\\",
+        "outputPath": "e:\\Downloads\\Soft-tissue-thickness\\Unity\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "e:\\Downloads\\Soft-tissue-thickness\\Unity\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\NuGet.Config",
+          "C:\\Users\\tony0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://artifactory.prd.it.unity3d.com/artifactory/api/nuget/v3/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "RecipeEngine.Modules.Wrench": {
+              "target": "Package",
+              "version": "[0.7.16, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

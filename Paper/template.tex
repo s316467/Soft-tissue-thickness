@@ -3,7 +3,6 @@
 
 %=================================================================
 \documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
-
 %--------------------
 % Class Options:
 %--------------------
@@ -71,7 +70,7 @@
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{Strip It To The Bone: In-Depth Study of Soft Tissue Thickness for Forensic Analysis}
+\Title{Strip It To The Bone: In-Depth Study of Facial Soft Tissue Thickness for Forensic Analysis}
 
 %\Title{Strip It To The Bone: In-Depth Analysis of Soft Tissue Thickness for Forensic Facial Reconstruction}
 
@@ -111,11 +110,11 @@
 %\conference{} % An extended version of a conference paper
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{Forensic facial reconstruction (FFR) is crucial for identifying human remains in medico-legal context, but the variability in facial soft tissue thickness (FSTT) due to demographic factors like age, sex, and body mass index (BMI) persists as an open problem. This study employs high-resolution DICOM data to accurately measure FSTT at craniofacial landmarks, examining a sample of 57 patients (36 males, 21 females). The segmentation and mesh filtering process facilitated precise measurements. Statistical analysis using Pearson correlation coefficient and ANCOVA, along with Machine Learning models like Random Forest (RF) and Decision Tree (DT), confirmed that BMI significantly influences FSTT, with higher BMI correlating with increased tissue thickness, particularly in the mid-philtrum regions. Age and sex showed a lesser but still significant impact. These results confirm the importance of considering individual demographic characteristics to improve the accuracy of FFRs and surgical planning. This rigorous methodological approach ensures reliable and applicable results in both forensic and medical contexts, proposing a significant improvement in facial reconstruction techniques based on detailed FSTT analysis.}
+\abstract{Forensic facial reconstruction is crucial for identifying human remains in a medico-legal context, but the variability in facial soft tissue thickness due to demographic factors such as age, sex, and body mass index  persists as an open problem. This study utilizes high-resolution DICOM and NRRD data to accurately measure FSTT at craniofacial landmarks, examining a sample of 57 patients (36 males, 21 females). The segmentation and mesh filtering process facilitated precise measurements. Statistical analysis using Pearson correlation coefficient and ANCOVA, along with Machine Learning models like Random Forest and Decision Trees, confirmed that BMI significantly influences FSTT. Specifically, higher BMI was found to correlate with increased FSTT, particularly in the mid-philtrum regions. Age and sex showed a lesser but still significant impact. These results confirm the importance of considering individual demographic characteristics to improve the accuracy of FFRs. This rigorous methodological approach ensures reliable and applicable results in both forensic and medical contexts, proposing a significant improvement in facial reconstruction techniques based on detailed FSTT analysis.}
 
 % Keywords
 \keyword{soft tissue thickness; DICOM data; 3D landmarks;
-statistical analysis; forensic facial reconstruction; Random Forest Algorithm; Decision Tree; ANCOVA; Linear Regression; Pearson correlation coefficient}
+statistical analysis; forensic facial reconstruction; Random Forest Algorithm; ANCOVA; Linear Regression; Pearson correlation coefficient}
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -167,429 +166,373 @@ statistical analysis; forensic facial reconstruction; Random Forest Algorithm; D
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-The identification of human remains has been a significant challenge for the medico-legal system. A thorough examination of recovered unidentified skeletal remains provides answers to fundamental questions regarding characteristics such as sex, age, and ethnicity, and helps to address trauma \cite{ref1}. When corpses lack distinctive features and their identities cannot be confirmed through conventional methods, such as DNA analysis, fingerprint analysis, or dental records [due to advanced postmortem decomposition process or insufficient information], facial reconstruction is one of the last options to recreate their antemortem appearance \citep{ref2,ref3,ref4,ref5}.
+The identification of human remains has been a significant challenge for the medico-legal system. A thorough examination of recovered unidentified skeletal remains provides answers to fundamental questions regarding characteristics such as sex, age, and ethnicity, and helps to address trauma \cite{ref1}. When corpses lack distinctive features and their identities cannot be confirmed through conventional methods, such as DNA analysis, fingerprint analysis or dental records due to advanced postmortem decomposition process or insufficient information, facial reconstruction is one of the last options to recreate their antemortem appearance \citep{ref2,ref3,ref4,ref5}.
+Forensic facial reconstruction (FFR) plays a crucial role in investigating victims of genocide and mass disasters, including wars, natural or intentional accidents \cite{ref4}.
+The technique involves assembling an approximate soft tissue topography over the unknown skull to reconstruct its characteristics as closely as possible to the individual's appearance at the time of death \cite{ref3}. % Once the reconstruction is complete, a public campaign is launched to elicit responses about the possible identity of the remains. This is followed by a formal identification process \cite{ref3}.
+% \\ Although the terms "facial reconstruction" and "facial approximation" are often used interchangeably, authors nowadays prefer "facial approximation" since it is impossible to precisely reproduce an individual's antemortem appearance.
 
-Forensic facial reconstruction (FFR) plays a crucial role in investigating victims \cite{ref4}. 
-%[of genocide and mass disasters, including wars, natural or intentional accidents] \cite{ref4}. 
-[The technique involves] assembling an approximate soft tissue topography over the unknown skull to reconstruct [its characteristics as closely as possible to the] individual's appearance at the time of death. Once the reconstruction is complete, a public campaign is launched to elicit responses about the possible identity of the remains. This is followed by a formal identification process \cite{ref3}.
+The techniques employed to reproduce the face are method specific, which makes the overall process prone to errors. % Consequently, the practitioner can only approximate the natural appearance at best. As a result, 
+Therefore FFR remains an inherently subjective and contentious process, despite incorporating complex sciences such as forensics, anthropology, osteology, and anatomy \cite{ref6}. In the 1970s, the process was manual and involved directly modelling and sculpting with clay or Plasticine on a skull model, combining soft tissue thickness with basic anatomy to reproduce faces \citep{ref7,ref8,ref9,ref10}. More recently, computerized face sculptures can be generated using specialized modelling software (digital method) \cite{ref11}.
 
-% [Although the terms "facial reconstruction" and "facial approximation" are often used interchangeably, authors nowadays prefer "facial approximation" since it is impossible to precisely reproduce an individual's antemortem appearance.]
-The techniques employed to reproduce the face are method specific, which makes the overall process prone to errors, 
-%[. Consequently, the practitioner can only approximate the natural appearance at best. As a result, ] 
-therefore FFR remains an inherently subjective and contentious process, despite incorporating complex sciences such as forensics, anthropology, osteology, and anatomy \cite{ref6}.
+%, with various user interfaces designed to mimic manual modelling procedures. In a 3D context, tablets and haptic devices may be used to add soft tissues to a model of the skull \cite{ref11}.
+However, regardless of the method used, accurate reconstruction requires establishing parameters like facial soft tissue thickness (FSTT), which significantly impacts facial contours. % it is crucial to establish parameters and guidance such as facial soft tissue thickness (FSTT), as variations in FSTT can significantly influence the facial contours of an individual. The points used to estimate the FSTT are known as craniometric landmarks, or facial landmarks. These landmarks are key points of the face with a certain biometric and geometric significance.
+FSTT measurements are based on craniometric landmarks, which are key points on the face used to estimate tissue thickness. They may be either skeletal or soft tissue-based, depending on their location: %—either on bone or directly on the skin.
+ when located on bone, they are referred to as craniometric landmarks of hard tissue, while those on the skin are termed craniometric landmarks of soft tissue \citep{ref4,ref7,ref12}. % Establishing values for FSTT, as well as understanding the relationship between soft and hard tissue, can be achieved through radiological techniques such as X-ray, computed tomography (CT), nuclear magnetic resonance (NMR), and ultrasound.
+ Various radiological techniques, including X-ray, computed tomography (CT), nuclear magnetic resonance (NMR) and ultrasound, are used to measure FSTT. These methods can be conducted in vivo or on cadaveric material, with the latter involving direct measurement via needle puncture \citep{ref13,ref14,ref15,ref16,ref17,ref18}.
+ 
+Piombino et al. \cite{ref19} carried out a comprehensive analysis of FSTT, focusing on the effects of age, sex, and body mass index (BMI). Measurements were conducted on cone beam computed tomography (CBCT). % Their results revealed that BMI plays a significant role at various craniometric points, with higher BMI generally leading to increased FSTT, especially in areas like the mid-philtrum [and prosthion]. In contrast, age and sex have a more marginal yet significant/useful impact.
+They found that BMI has a notable effect on FSTT, with higher BMI correlating with increased tissue thickness, particularly in the mid-philtrum. Age and sex also impact FSTT, though to a lesser extent. During the same period, the study undertaken by Park et al. \cite{ref2} involved patients with malocclusion, divided into three skeletal classes. % based on CBCT data and the ANB angle, which indicates the position of the maxilla in relation to the mandible. FSTT was compered between genders and across skeletal classes.
+Key findings indicated that males generally have thicker FSTT than females across all skeletal types, aligning with previous research suggesting that testosterone promotes collagen synthesis, making men’s skin thicker.
+% This aligns with previous research suggesting that men have larger bones and muscles, and testosterone promotes collagen synthesis, making men’s skin thicker.
 
-[The anthropometric or American Approach, also known as the tissue depth method, was devised in 1946 by anthropologist Wilton Marrion Krogman and later refined in the 1970s by forensic artist Betty Pat Gatliff and physical anthropologist Clyde Snow. This method was manual and involved directly modelling and sculpting by applying clay or Plasticine over the skull or a model of the skull.] Similarly, the Manchester or British method, developed by Neave in 1977 [and later revised by Wilkinson], combines soft tissue thickness with basic anatomy to reproduce faces \citep{ref7,ref8,ref9,ref10}.
+Other studies, even older ones, focused on the same theme, yielding results that have been pivotal for subsequent research. Ellie Simpson and Maciej Henneberg \cite{ref20} investigated the relationship between facial soft tissue depths and cranial morphology in adult, white Australian cadavers. % The findings revealed significant correlations between FSTT and the size of the underlying cranial structure.
+Males exhibited thicker soft tissues and larger craniometric dimensions compared to females (in accordance with the study conducted in South Korea), though there was considerable overlap of ranges. The impact of tissue embalming on FSTT was also noted, emphasizing its implications for forensic identification.
 
-More recently, computerized face sculptures can be generated using specialized modelling software (digital method) \cite{ref11}.
-%, [with various user interfaces designed to mimic manual modelling procedures.] 
-% In a 3D context, tablets and haptic devices may be used to add soft tissues to a model of the skull \cite{ref11}.
+% Additionally, the study examined the impact of tissue embalming, noting significant initial increases in facial soft tissue depths due to this process. These findings hold implications for forensic identification and the estimation of facial features in extinct populations.
+Another research aimed to develop a specific database for the Romanian adult population by investigating the statistical distribution and correlations of craniometric landmarks, conducted by Diac et al \cite{ref21}. % The authors categorized these landmarks by sex and weight to assist in estimating missing landmark values for unidentified bodies.
+Measurements were taken on twelve landmarks from 100 cadavers. % within 24 hours of death. Results showed significant sex-related differences in one landmark and significant variations across different weight categories in seven landmarks. The study also found evidence in average FSTT compared to similar studies involving Caucasian groups from diverse geographic origins. 
+Their study highlighted significant sex-related differences and variations across weight categories. The findings also contribute to a broader understanding of FSTT variations across different populations \citep{ref13,ref22,ref23,ref24,ref25}, yet consensus on this topic remains elusive.
+% Indeed, in recent years, studies have shown that FSTT data can vary notably also among different population groups \citep{ref13,ref22,ref23,ref24,ref25}, yet consensus on this topic remains elusive. Thus, several countries 
+%(France, Brazil, Portugal, etc.) are conducting extensive research to establish FSTT values, specific to each population \citep{ref13,ref14,ref15,ref16,ref17,ref18}.
+Moritsugui et al. \cite{ref26} assessed regional differences in Brazil, finding high compatibility in FSTT averages between regions. % sought to assess the impact of regional differences within Brazil on FSTT, crucial for FFR. Researchers employed a specific CBCT protocol to standardize measurements across a sample of 101 subjects. High compatibility was observed when comparing the averages of FSTT among samples of two different geographic regions, Midwest and Southeast regions.
+Regarding age groups, notable differences on the medium and inferior face were observed in females. Therefore, distinct datasets for the regions considered Brazil are unnecessary.
 
-However, regardless of the method used, it is crucial to establish parameters and guidance such as facial soft tissue thickness (FSTT), as variations in FSTT can significantly influence the facial contours of an individual. The points used to estimate the FSTT are known as craniometric landmarks, or facial landmarks. These landmarks are key points of the face with a certain biometric and geometric significance. They may be either skeletal or soft tissue-based, depending on their location—either on bone or directly on the skin. When located on bone, they are referred to as craniometric landmarks of hard tissue, while those on the skin are termed craniometric landmarks of soft tissue \citep{ref4,ref7,ref12}. Establishing values for FSTT, as well as understanding the relationship between soft and hard tissue, can be achieved through radiological techniques such as X-ray, computed tomography (CT), nuclear magnetic resonance (NMR), and ultrasound. These methods can be conducted in vivo or on cadaveric material, with the latter involving direct measurement via needle puncture \citep{ref13,ref14,ref15,ref16,ref17,ref18}.
-
-Piombino et al. \cite{ref19} carried out a comprehensive analysis of FSTT, focusing on the effects of age, sex, and body mass index (BMI). Measurements were conducted on cone beam computed tomography (CBCT). Their results revealed that BMI plays a significant role at various craniometric points, with higher BMI generally leading to increased FSTT, especially in areas like the mid-philtrum [and prosthion]. In contrast, age and sex have a more marginal yet significant/useful impact.
-
-During the same period, the study undertaken by Park et al. \cite{ref2} involved malocclusion 102 patients in their 20s. They were divided into three skeletal classes based on CBCT data and the ANB angle, which indicates the position of the maxilla in relation to the mandible. FSTT was compered between genders and across skeletal classes. Key findings indicated that males generally have thicker FSTT than females across all skeletal types. This aligns with previous research suggesting that men have larger bones and muscles, and testosterone promotes collagen synthesis, making men’s skin thicker.
-
-Other studies, even older ones, focused on the same theme, yielding results that have been pivotal for subsequent research. Ellie Simpson and Maciej Henneberg \cite{ref20} investigated the relationship between facial soft tissue depths and cranial morphology. Measurements were taken on adult, white Australian cadavers. The findings revealed significant correlations between FSTT and the size of the underlying cranial structure. Males exhibited thicker soft tissues and larger craniometric dimensions compared to females (in accordance with the study conducted in South Korea), though there was considerable overlap of ranges. Additionally, the study examined the impact of tissue embalming, noting significant initial increases in facial soft tissue depths due to this process. These findings hold implications for forensic identification and the estimation of facial features in extinct populations.
-
-Another research [aimed to develop a specific database for the Romanian adult population] by investigating the statistical distribution and correlations of craniometric landmarks, conducted by Diac et al \cite{ref21}. The authors categorized these landmarks by sex and weight to assist in estimating missing landmark values for unidentified bodies. Measurements were taken on twelve landmarks from 100 cadavers within 24 hours of death. Results showed significant sex-related differences in one landmark and significant variations across different weight categories in seven landmarks. The study also found evidence in average FSTT compared to similar studies involving Caucasian groups from diverse geographic origins.
-
-Indeed, in recent years, studies have shown that FSTT data can vary notably also among different population groups \citep{ref13,ref22,ref23,ref24,ref25}, yet consensus on this topic remains elusive. Thus, several countries 
-%[(France, Brazil, Portugal, etc.)] 
-have conducted and/or are conducting extensive research to establish FSTT values, specific to each population \citep{ref13,ref14,ref15,ref16,ref17,ref18}. Moritsugui et al. \cite{ref26} sought to assess the impact of regional differences within Brazil on FSTT, crucial for FFR. Researchers employed a specific CBCT protocol to standardize measurements across a sample of 101 subjects. High compatibility was observed when comparing the avarages of FSTT among samples of two different geographic regions, Midwest and Southeast regions. Regarding age groups, notable differences on the medium and inferior face were observed in females. Therefore, distinct datasets for the Southeast and Midwest regions of Brazil are unnecessary.
-
-Despite advancements in imaging techniques and the availability of high-resolution data, there remains a scarcity of studies that have conducted comprehensive statistical analyses on the correlation between variables such as age, sex, and BMI with FSTT, particularly using CBCT measurements. Recognizing the variability in methodologies, including original measurement protocols, imaging exam sources and types, and regional chart relations, alongside the uncertain success of the FFR, poses challenges for comparing and validating results across studies. Therefore, this study advocates for further investigation into the influence of these variables on FSTT to improve the management of FFR procedures. The primary objectives include the following:
+Despite advancements in imaging techniques and data availability, comprehensive statistical analyses on the correlation between variables such as age, sex, and BMI with FSTT, particularly using CBCT measurements, remain scarce. % there remains a scarcity of studies that have conducted comprehensive statistical analyses on the correlation between variables such as age, sex, and BMI with FSTT, particularly using CBCT measurements. Recognizing the variability in methodologies, including original measurement protocols, imaging exam sources and types, and regional chart relations, alongside the uncertain success of the FFR, poses challenges for comparing and validating results across studies. Therefore, this study advocates for further investigation into the influence of these variables on FSTT to improve the management of FFR procedures. The primary objectives include the following:
+Therefore, this study advocates for further investigation into the influence of these variables on FSTT to improve the management of FFR procedures. The primary objectives are:
 
 % This project aims to address these challenges by utilizing DICOM data to accurately measure FSTT at defined facial landmarks and perform statistical analyses to assess variations based on gender, age and BMI. The results will be benchmarked against established data to ensure reliability and validity, thereby enhancing the credibility and applicability of the findings in real-world scenarios. The primary objectives of this study include:
-
 \begin{enumerate}
     \item Utilizing DICOM data to accurately measure FSTT at defined facial landmarks.
     
-    \item Contextualizing these measurements within specific forensic applications, ensuring relevance and practical utility.
+    \item Contextualizing these measurements for forensic relevance and practical use.
     
-    \item Performing statistical analyses to assess variations in FSTT based on gender, age, and BMI.
+    \item Performing statistical analyses to assess FSTT variations based on gender, age, and BMI.
     
-    \item Ensuring that FSTT measurement accuracy aligns with current literature standards, facilitating reliable comparisons and validations of results.
+    \item Ensuring alignment of FSTT measurement accuracy with current literature for reliable comparisons and validations.
 \end{enumerate}
 
-The remaining sections of this paper are organized as follows. Section \ref{sec:matmet} elaborates on the use of high-resolution DICOM data for accurate and reproducible measurements, detailing the statistical methods used to examine variations in FSTT. Sections \ref{sec:res} and \ref{sec:disc} present comprehensive results, discussions, and comparisons with recent studies. The final section summarizes the study's key findings, discusses its limitations, and proposes potential avenues for future research or applications.
+The remaining sections of this paper are organized as follows. Section \ref{sec:matmet} elaborates on the use of high-resolution \textbf{DICOM} and \textbf{NRRD} data for accurate and reproducible measurements, detailing the statistical methods used to examine variations in FSTT. Sections \ref{sec:res} and \ref{sec:disc} present comprehensive results, discussions, and comparisons with recent studies. The final section summarizes the study's key findings, discusses its limitations, and proposes potential avenues for future research or applications.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Materials and Methods}
 \label{sec:matmet}
-In this section, the main steps that characterized the analysis will be presented, with references to the methods and strategies adopted.
-
-\subsection{Data collection}
-
-The primary dataset used for this research was sourced from the publicly available collection on Academic Torrents \cite{ref27}. This extracted dataset is a subset of DICOM formats representing CT scans, originally compiled for a study on head and neck cancer. Specifically, the dataset includes FDG-PET/CT and radiotherapy planning CT imaging data for 298 patients from four institutions in Quebec, with histologically proven head-and-neck cancer. These patients had pre-treatment FDG-PET/CT scans between April 2006 and November 2014.\\
-%• URL: Head-Neck-CT \\
-%• License: Creative Commons Attribution 3.0 Unported License \\
-Due to limited time and some CT images being unsuitable for analysis, 43 patients from the initial database were analyzed, of which 29 were men and 14 were women. \\
-Additionally, NRRD data from 14 patients (7 males and 7 females) provided by Professor Olivetti and Professor Marcolin were chosen. These patients were evenly distributed across three hospitals.
-
+The main steps that characterized the analysis will be presented, with references to the methods and strategies adopted.
+\vspace{-0.35cm}
 \begin{figure}[H]
 \centering
-\begin{minipage}{0.8\textwidth}
+\begin{minipage}{0.87\textwidth}
 \centering
-\includegraphics[width=1\linewidth]{Definitions/diagramma.jpg}
-\caption{Workflow diagram}
+\includegraphics[width=\linewidth]{Definitions/diagramma.jpg}
+\vspace{-1.1cm}
+\caption{Workflow diagram.}
 \label{fig1}
 \end{minipage}
 \end{figure}
 
+
+
+\subsection{Data collection}
+
+The main dataset used for this research was sourced from the publicly available collection on Academic Torrents \cite{ref27}. Specifically, this collection comprises FDG-PET/CT and radiotherapy planning CT imaging data in \textbf{DICOM} format of 298 patients from four different institutions in Québec, all with histologically proven head-and-neck cancer. All patients had pre-treatment scans between April 2006 and November 2014. Due to time constraints and the exclusion of unsuitable CT images, the analysis focused on 43 patients from the initial database, comprising 29 men and 14 women.
+
+Furthermore, \textbf{NRRD} data from 14 patients (7 males and 7 females), provided by Professor Olivetti E.C. and Professor Marcolin F. were incorporated into the analysis. All of these patients had undergone maxillofacial surgery, and only post-operative CT scans conducted at San Giovanni Battista Hospital in Turin were considered.
+
 \subsection{Image Segmentation and Cleaning}
 
-The DICOM and NRRD files taken by CBCT were 3D modeled for the patient’s hard and soft tissues using the 3DSlicer program.
-\\To extract hard and soft tissues in 3D, the Hounsfield Unit (\textbf{HU}) [value, a numerical value] representing the grayscale, was adjusted in the Segmentation Editor section. 
-
-The extracted segmentation was refined utilizing the 'Smoothing' command, which applies a Gaussian filter to smooth surfaces and reduce irregularities. Additionally, the 'Island' command was employed to manage and manipulate separate regions, keeping only the largest island.
-
+The DICOM and NRRD files acquired via CBCT were 3D-modeled for the patient’s hard and soft tissues using the 3DSlicer software. To extract these tissues in 3D, the Hounsfield Unit (HU) %[value, a numerical value representing the grayscale], 
+was adjusted in the Segmentation Editor section. The extracted segmentation was further refined using the \textit{Smoothing} command, which applies a Gaussian filter to smooth surfaces and reduce irregularities. Additionally, the \textit{Island} command was employed to manage and manipulate separate regions, retaining only the largest island.
 % [Using “Smoothing” and “Islands” commands, the extracted segmentation was refined.
 % The “Smoothing” command is used to smooth out the segmentation surfaces and reduce irregularities, which was particularly useful given the contained noise. The smoothing technique used was Gaussian, which applies a Gaussian filter to smooth the surfaces.\\
 % “Islands” command is used to manage and manipulate separate regions within a segmentation. The operation used was “Keep largest island” which retains only the largest island and removes all others.]
-
-Finally, the hard and soft segmentation was exported in the ‘.stl’ format for the next step.
-
+Ultimately, the hard and soft tissue segmentations were exported in STL format for the subsequent steps.
 
 \subsection{Mesh Filtering}
 
-After importing the mesh in .stl format from 3DSlicer, the next step was cleaning the mesh using \textbf{MeshLab}.
-For subsequent manipulation in Matlab, it was not necessary to keep the entire model but only the facial shell for both tissues, so only the frontal vertices of the models were selected using the z-painting command.
-
-The last step in this phase was to export the final model in “.stl” format.
+Following the import of the mesh from 3DSlicer, the model underwent a refinement process using MeshLab. Specifically, the Z-painting command was utilized to filter and select only the frontal vertices, therefore the model was exported in STL format.
+%For subsequent manipulation in \textbf{Matlab}, it was not necessary to keep the entire model but only the facial shell for both tissues, so only the frontal vertices of the models were selected using the z-painting command.
+% The final step in this phase was to export the  model in “.stl” format.
 
 \subsection{Landmark Selection and Measurement Procedure}
-For each patient, the further refined mesh was imported into MATLAB and the following facial landmarks were manually identified:
+For each patient, the further refined mesh was imported into MATLAB, and the following facial landmarks were manually identified:
 \begin{itemize}
     \item Glabella
     \item Nasion
+    \item Rhinion
     \item Orbitale (right and left)
-    \item Superius (right and left)
+    \item Orbitale superius (right and left)
     \item Zygion (right and left)
-    \item Mid-Philtrum (A-Point)
+    \item Mid-philtrum (A-Point)
 \end{itemize}
-
-These landmarks were chosen based on their relevance in craniofacial studies and their ease of identification on images.
-\\The initial goal of the analysis was to examine additional landmarks related to the lower part of the face, but due to the presence of external objects in that area, they were removed from the analysis.
-
-Each landmark’s FSTT was then measured and recorded for statistical analysis.
 
 \begin{figure}[H]
 \centering
-\begin{minipage}{0.45\textwidth}
+\vspace{-0.2cm}
+\begin{minipage}{0.48\textwidth}
 \centering
-\includegraphics[width=1\linewidth]{Definitions/right_num.jpg}
-\caption{Soft-tissue thickness
-measurements: 1. Glabella, 2. Superius (right), 3. Rhinion, 4. Orbitale (right),  5. Zygion (right), 6. Midphiltrum (right)}
+\includegraphics[width=\linewidth]{Definitions/right_num.jpg}
+\caption{Right measurements: 1. Glabella, 2. Right Orbitale superius, 3. Rhinion, 4. Right Orbitale, 5. Right Zygion, 6. Mid-philtrum.}
 \label{fig1}
 \end{minipage}\hfill
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.48\textwidth}
 \centering
-\includegraphics[width=1\linewidth]{Definitions/left_num.jpg}
-\caption{Soft-tissue thickness
-measurements: 6. Midphiltrum (left), 7. Superius (left), 8. Nasion, 9. Orbitale (left),  10. Zygion (left)}
+\includegraphics[width=\linewidth]{Definitions/left_num.jpg}
+\caption{Left measurements: 6. Mid-philtrum, 7. Left Orbitale superius, 8. Nasion, 9. Left Orbitale, 10. Left Zygion.}
 \label{fig2}
 \end{minipage}
 \end{figure}
 
+\noindent These landmarks were chosen based on their relevance in craniofacial studies and their ease of identification on images. The initial goal of the analysis was to examine additional landmarks related to the lower part of the face, but due to the presence of external objects in that area, they were removed from the analysis. Each distance between corresponding landmarks on the soft tissue and hard tissue was subsequently measured and recorded for statistical analysis.
 
-\subsection{Statistical Analysis} \label{sec:sez2-5}
+\subsection{Statistical Analysis}
+\label{sec:sez2-5}
 
-In this last part of the analysis, the primary objective was to discern potential correlations between these measurements and variables such as \textbf{age} and \textbf{sex}, and then integrating also the \textbf{BMI} factors. 
+In this final part of the analysis, the main objective was to discern potential correlations between these measurements and variables such as \textbf{age} and \textbf{sex}, as well as incorporating \textbf{BMI} factors. The FSTTs from both datasets were merged for analysis, initially conducting a preliminary check for outliers and subsequently excluding them to carry out a more precise analysis. Various statistical and Machine Learning models were then employed to examine the relationship between FSTT and the aforementioned variables.
 
-The FSTTs of the two datasets were combined for the analysis, conducting a preliminary check for the presence of outliers and removing them to carry out a more precise analysis.
+Firstly the \textbf{Pearson correlation coefficient} was used to examine the relationship between the patient age and sex with the distance of each corresponding landmark on the soft tissue and hard tissue. These insights can be valuable for identifying which landmarks are more influential in predicting demographic factors and uncovering the biological relationships underlying these variables. Moreover, they can contribute to the development of more precise predictive models.
 
-Then, several statistical and machine learning methods were employed to analyze the relationship between FSTT and variables mentioned before.
-
-Firstly the \textbf{Pearson correlation} was used to understand the relationship between the patient’s age and sex and each landmark. 
-\\These insights can be valuable for understanding which distances of these landmarks are more influential in predicting demographic factors and discovering the underlying biological relationships between these variables. They can also be useful in creating more accurate predictive models.
-
-Then, statistical method called Analysis of Covariance (\textbf{ANCOVA}), as done in \cite{ref19} was used.\\
-To support this method, three distinct range for ages were considered:
+Next, a statistical method called Analysis of Covariance (\textbf{ANCOVA}), as implemented in \cite{ref19}, was applied. To support this method, three distinct age ranges were considered:
 \begin{enumerate}
-    \item Under 25 (<25)
-    \item 25-60 (>=25 and <60)
-    \item Over 60 (>=60)
+    \item Under 25 ($< 25$);
+    \item 25 - 60 ($\geq 25$ and $< 60$);
+    \item Over 60 ($\geq 60$).
 \end{enumerate}
+To assess the significance of these relationships, the \textbf{p-value} was examined and used to analyze the most notable landmarks (those one with p-value $< 0.05$).
 
-To determine the significance of these relationships, the \textbf{p-value} was examined and used to analyze the most significant landmarks (those one with p-value<0.05).\\ 
+Subsequently, a \textbf{K-fold cross-validation} was conducted for both \textbf{Random Forest} (RF) and \textbf{Decision Trees} (DT) models. The analysis began by dividing the data into Training and Test Sets for each fold using a K-value of 10. Models were trained separately for predicting gender, age, and combined labels (age and gender), using \textit{RandomForestClassifier} class for RF models, and the \textit{DecisionTreeClassifier} class for DT models. Alongside accuracy computation, the importance of each predictor variable was also determined. For RF models, this was done using the \textit{features\_importances\_} parameter, while for DT models, it was done using the \textit{features\_importances\_} function.
 
-Next, a \textbf{K-fold cross-validation} was performed for both \textbf{Random Forest} (RF) and \textbf{Decision Tree} (DT) models.
+Since the Head-Neck-CT dataset lacks BMI information, only the dataset provided by university professors was used in the subsequent statistical analysis. This approach helped evaluate relationships related to this factor and consider potential impacts on the analysis when incorporating additional information.
 
-The analysis began by dividing the data into training and test sets for each fold of the cross-validation process using a K value of 10. 
 
-RF and DT were trained separately for predicting gender, age, and combined labels (age+gender), using \textit{RandomForestClassifier} class to train the RF models, and the \textit{DecisionTreeClassifier} class to train the DT models.
-
-In addition to computing accuracy, the importance of each predictor variable in the models was also computed. This was done using the \textit{features\_importances\_} parameter for the RF models and the \textit{features\_importances\_} function for the DT models.
-
-Given that the Head-Neck-CT dataset does not provide any information related to \textbf{BMI}, only the dataset provided by the university professors was used in the second step of the statistical analysis. This was helpful in evaluating the relationship related to this factor and analyzing how this analysis might change if integrated with more information. 
-In this case, four ranges of BMI were considered:
-
+\newpage
+\noindent In this instance, four BMI [$\frac{kg}{cm}$] ranges were taken into account: underweight ($< 18.5$), normal weight ($\geq 18.5$ and $< 24.9$), overweight ($\geq 24.9$ and $< 29.9$), obese ($\geq 29.9$), along with three age ranges:
 \begin{enumerate}
-    \item Underweight (<18.5)
-    \item Normal weight (>=18.5 and < 24.9)
-    \item Overweight (>= 24.9 and < 29.9)
-    \item Obese (>=29.9)
+    \item Under 24 ($< 24$);
+    \item 24 - 29 ($\geq 24$ and $< 29$);
+    \item Over 29 ($\geq 29$).
 \end{enumerate}
-And 3 ranges for ages:
-\begin{enumerate}
-    \item Under 24 (<24)
-    \item 24-29 (>=24 and <90)
-    \item Over 29 (>= 29) 
-\end{enumerate}
+In this scenario, the use of \textbf{Leave-One-Out} approach for RF and DF was essential since the dataset had only 14 patients. The anticipated outcomes include identifying the most significant predictor variables for each model and label type. Additionally, the analysis aims to assess the accuracy performance of each model. The specific results will be influenced by the dataset and the model configurations. For instance, 
+%the number of trees in the RF models is set to 100 in this analysis, but different results could be obtained with a different number of trees. More trees lead to a more diverse set of predictions, which can result in a more stable and robust model. 
+%The number is set to 100 because training a RF model involves creating multiple decision trees, each of which requires computational resources. This can be helpful to ensure that the model can be trained in a reasonable amount of time without requiring excessive computational resources.
+in this analysis, RF models utilize 100 trees; however, varying this parameter could lead to different outcomes. be influenced by the dataset and the model configurations. The choice of 100 trees strikes a balance between ensuring diverse predictions and maintaining computational efficiency.
 
-In this case, the use of \textbf{Leave-One-Out} approach for RF and DF was necessary since the dataset had only 14 patients.
- 
-In terms of expected results, it is anticipated to see which predictor variables are most important for each model and each type of label. There is also an expectation to see how well each model performed in terms of accuracy. 
-
-The specific results will depend on the data and the specific settings used for the models. For instance, the number of trees in the RF models is set to 100 in this analysis, but different results could be obtained with a different number of trees. More trees lead to a more diverse set of predictions, which can result in a more stable and robust model. 
-The number is set to 100 because training a RF model involves creating multiple decision trees, each of which requires computational resources. This can be helpful to ensure that the model can be trained in a reasonable amount of time without requiring excessive computational resources.
-
-Similarly, the specific method of splitting the data into folds can also affect the results. Since the classes in data are imbalanced, due to the limited dataset used for the analysis, stratified K-Fold Cross-Validation was the better choice. It works by preserving the original distribution of classes in each fold, ensuring that the proportions between classes are conserved. This approach makes sure that each class is adequately represented across all folds, allowing for a fair and accurate evaluation of the model’s performance.
-
-This information aids in analyzing the relationship between FSTT and variables such as age, sex, and BMI (also with the combination of those labels) and how well the models can be expected to perform on new data.
+Similarly, the specific method of splitting the data into folds can also affect the results. Given the imbalanced classes in the dataset used for analysis, stratified K-fold cross-validation was the better choice.
+%It works by preserving the original distribution of classes in each fold, ensuring that the proportions between classes are conserved. 
+This approach ensures that each class is adequately represented across all folds, allowing for a fair and accurate evaluation of the model’s performance. This information assists in examining the correlation between FSTT and variables such as age, sex, and BMI (individually and in combination), as well as predicting the models' performance on new data.
 
 \subsection{Visualization}
 
-As a conclusion of the work, Unity software was used for the visualization of the obtained results.
+In conclusion, Unity software was utilized to visualize the obtained results.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 \label{sec:res}
 
 
-\subsection*{Mean and standard deviation analysis}
-The estimated average soft tissue thicknesses and the standard deviation (\textbf{std}), considering subject sex, are presented in Table \ref{tab1}. The values are thicker soft tissues for men than for women, especially for some points like \textbf{orbitals} and \textbf{zygions}.
-
-
-Figure \ref{fig4} and Figure \ref{fig5} represent the trend of the average FSTT for men and women respectively, this time considering three age groups (Under 25, 25-60, Over 60). \\ From this, it seems that the thickness for some landmarks tends to increase with the rise of the age group in both sexes.\\
-Considering the general trend of FSTT for men and women, it seems that the points relative to the facial medial points, therefore \textbf{glabella}, \textbf{rhinion} and \textbf{mid-philtrum}, are relatively thicker in men, regardless of the age groups considered.
-
-However, both female and male FSTT tend to show an alternating pattern of increase and decrease with age.
+\subsection*{Mean and Standard Deviation analysis}
+The estimated average FSTT and the Standard Deviation (std), categorized by subject sex, are presented in Table \ref{tab1}. Soft tissues are generally \textbf{thicker in men compared to women}, particularly at specific points such as \textbf{Orbitals} and \textbf{Zygions}.
 
 \begin{table}[H]
 \centering
-
-\resizebox{0.5\linewidth}{!}{%
-
+\resizebox{0.525\linewidth}{!}{%
 \begin{tabular}{cc|cccccc|} \cline{3-8}
- &  & \multicolumn{3}{c|}{Men} & \multicolumn{3}{c|}{Women} \\ \hline
-\multicolumn{2}{|c|}{Landmarks} & Mean & Std & \multicolumn{1}{c|}{N} & Mean & Std & N \\ \hline
+ &  & \multicolumn{3}{c|}{\textbf{Men}} & \multicolumn{3}{c|}{\textbf{Women}} \\ \hline
+\multicolumn{2}{|c|}{\textbf {Landmarks}} & \textit{mean} & \textit{std} & \multicolumn{1}{c|}{\textit{n}} & \textit{mean} & \textit{std} & \textit{n} \\ \hline
 \multicolumn{2}{|c|}{Glabella} & 6.19 & 1.12 & \multicolumn{1}{c|} {36} & 5.95 & 1.10 & 20 \\ \hline
 \multicolumn{2}{|c|}{Nasion} & 7.33 & 1.07 & \multicolumn{1}{c|}{32} & 7.15 & 1.38 & 20 \\\hline
-\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Orbitale\\ right\end{tabular}} & 8.52 & 2.22 & \multicolumn{1}{c|}{35} & 8.06 & 2.23 & 20 \\ \hline
-\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Orbitale \\ left\end{tabular}} & 8.53 & 2.31 & \multicolumn{1}{c|}{34} & 7.79 & 1.95 & 19 \\ \hline
-\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Orbitale superius\\ right\end{tabular}} & 8.42 & 1.61 & \multicolumn{1}{c|}{34} & 7.85 & 1.85 & 21 \\ \hline
-\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Orbitale superius\\ left\end{tabular}} & 8.24 & 1.82 & \multicolumn{1}{c|}{34} & 7.58 & 1.47 & 21 \\ \hline
-\multicolumn{2}{|c|}{Zygion right} & 9.47 & 1.50 & \multicolumn{1}{c|}{32} & 9.09 & 1.14 & 20 \\ \hline
-\multicolumn{2}{|c|}{Zygion left} & 9.78 & 1.85 & \multicolumn{1}{c|}{32} & 8.99 & 1.35 & 20 \\ \hline
+\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Orbitale\\ (right)\end{tabular}} & 8.52 & 2.22 & \multicolumn{1}{c|}{35} & 8.06 & 2.23 & 20 \\ \hline
+\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Orbitale \\ (left)\end{tabular}} & 8.53 & 2.31 & \multicolumn{1}{c|}{34} & 7.79 & 1.95 & 19 \\ \hline
+\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Orbitale superius\\ (right)\end{tabular}} & 8.42 & 1.61 & \multicolumn{1}{c|}{34} & 7.85 & 1.85 & 21 \\ \hline
+\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Orbitale superius\\ (left)\end{tabular}} & 8.24 & 1.82 & \multicolumn{1}{c|}{34} & 7.58 & 1.47 & 21 \\ \hline
+\multicolumn{2}{|c|}{Zygion (right)} & 9.47 & 1.50 & \multicolumn{1}{c|}{32} & 9.09 & 1.14 & 20 \\ \hline
+\multicolumn{2}{|c|}{Zygion (left)} & 9.78 & 1.85 & \multicolumn{1}{c|}{32} & 8.99 & 1.35 & 20 \\ \hline
 \multicolumn{2}{|c|}{Rhinion} & 4.19 & 0.89 & \multicolumn{1}{c|}{30} & 3.97 & 1.09 & 18 \\ \hline
-\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Mid-Philtrum\\ (A-Point)\end{tabular}} & 13.99 & 2.34 & \multicolumn{1}{c|}{36} & 13.48 & 2.45 & 21 \\\hline
+\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Mid-philtrum/\\ A-Point\end{tabular}} & 13.99 & 2.34 & \multicolumn{1}{c|}{36} & 13.48 & 2.45 & 21 \\\hline
 \end{tabular}%
 }
-\caption{Mean and std FSTT for men and women \label{tab1}}
+\vspace{0.1cm}
+\caption{Mean and Standard Deviation of FSTT for men and women. \label{tab1}}
 \end{table}
+\vspace{-0.5cm}
 
-
+\noindent Figures \ref{fig4} and \ref{fig5} depict the trend of average FSTT for men and women, respectively, across three age groups (Under 25, 25-60, Over 60). It appears that the thickness of certain landmarks tends to \textbf{increase with age within both sexes}.
 
 \begin{figure}[H]
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.52\textwidth}
 \centering
 \includegraphics[width=1\linewidth]{Definitions/Men_distances_after_cleaning.png}
-\caption{Mean FSTT for Men}
+\caption{Mean of FSTT for men.}
 \label{fig4}
 \end{minipage}%
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.52\textwidth}
 \centering
 \includegraphics[width=1\linewidth]{Definitions/Women_distances_after_cleaning.png}
-\caption{Mean FSTT for Women}
+\caption{Mean of FSTT for women.}
 \label{fig5}
 \end{minipage}
 \end{figure}
- 
+\noindent Considering the overall trend of FSTT for men and women, it seems that the points releated to facial medial points-specifically \textbf{Glabella}, \textbf{Rhinion} and \textbf{Mid-philtrum} are relatively thicker in men across all age groups. However, both male and female FSTT exhibit a fluctuating pattern of increase and decrease with age.
 
-\subsection*{Regression}
+\subsection*{Linear Regression}
 
-The linear regression models for predicting age, sex, and age bins of individuals demonstrated varying accuracy. For age prediction, the model achieved an overall accuracy of \textbf{0.96}, indicating \textbf{high precision, recall, and F1-scores} across age groups. Notably, precision, recall, and F1-scores were \textbf{perfect for the 51-60 and 80+ age groups}. The sex prediction model attained \textbf{perfect accuracy (1.00)} using all landmarks but showed \textbf{decreased accuracy (0.75)} when considering individual patient landmarks, particularly for class female, where precision, recall, and F1-score dropped to 0.00. The age bin prediction model had an overall accuracy of \textbf{0.67}, performing moderately for the 61-70 age group but poorly for other age groups. These results indicate that the models are \textbf{highly effective for predicting age and sex when considering all landmarks} but exhibit decreased performance with individual landmarks or when predicting age bins.
+The linear regression models used for predicting age, sex, and age bins of individuals demonstrated varying levels of accuracy. For age prediction, the model achieved an overall accuracy of \textbf{0.96}, indicating \textbf{high precision, recall, and F1-scores} across age groups. Notably, precision, recall, and F1-scores were \textbf{perfect for the 51-60 and over 80 age groups}.
 
-\subsection*{Pearson correlation} \label{subsec:pearson-correlation}
-In the analysis conducted with \textbf{Pearson correlation}, also considered in \cite{ref19}, the results of which are presented in Table \ref{tab3}, each landmark has corresponding numerical values indicating its correlation with age, gender M (presumably male), and gender F (presumably female). 
+The sex prediction model attained \textbf{perfect accuracy} (\textbf{1.00}) using all landmarks but showed \textbf{decreased accuracy} (\textbf{0.75}) when considering individual patient landmarks, particularly for class female, where precision, recall, and F1-score dropped to \textbf{0.00}.
 
-For instance, for age correlation \textbf{glabella} and \textbf{rhinion} seem to have the highest positive correlation , while most of the landmarks have relatively low correlations.
+The age bin prediction model had an overall accuracy of \textbf{0.67}, performing moderately for the 61-70 age group but poorly for other age groups. These results indicate that the models are \textbf{highly effective for predicting age and sex when considering all landmarks}, but exhibit decreased performance with individual landmarks or when predicting age bins.
 
-For gender correlation, \textbf{mid-philtrum}, \textbf{rhinion} and \textbf{nasion} have the highest correlation for male (and lowest correlation for female).
+\subsection*{Pearson correlation coefficient}
+\label{subsec:pearson-correlation}
+In the analysis conducted with Pearson correlation coefficient, also considered in \cite{ref19}, each landmark has corresponding numerical values indicating its correlation with age, gender M (presumably male), and gender F (presumably female) as shown in Table \ref{tab2}. For instance, for age correlation \textbf{Glabella} and \textbf{Rhinion} seem to have the highest positive correlation, while most other landmarks have relatively low correlations.
 
+For gender correlation, \textbf{Mid-philtrum}, \textbf{Rhinion} and \textbf{Nasion} have the highest correlation for males (and lowest correlation for females).
 
+\vspace{-0.05cm}
 \begin{table}[H]
 \centering
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.42\textwidth}
 \centering
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{clccc}
 \hline
-\multicolumn{2}{c}{} & \multicolumn{3}{c}{Correlation} \\\hline
-\multicolumn{2}{c}{Landmarks} & Age & Gender\_M & Gender\_F \\ \hline
-\multicolumn{2}{c|}{Glabella} & 0.159 & 0.186 & -0.186 \\\hline 
-\multicolumn{2}{c|}{Nasion} & 0.049 & 0.224 & -0.224 \\ \hline
+\multicolumn{2}{c}{} & \multicolumn{3}{c}{\textbf{Correlation}} \\\hline
+\multicolumn{2}{c}{\textbf{Landmarks}} & \textit{age} & \textit{M} & \textit{F} \\ \hline
+\multicolumn{2}{c|}{Glabella} & \textbf{0.159} & 0.186 & -0.186 \\\hline 
+\multicolumn{2}{c|}{Nasion} & 0.049 & \textbf{0.224} & \textbf{-0.224} \\ \hline
 \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Orbitale\\ \end{tabular}} & 0.111 & -0.199 & 0.199 \\ \hline
 \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Orbitale superius\\ \end{tabular}} & 0.103 & 0.139 & -0.139 \\ \hline
 
 \multicolumn{2}{c|}{Zygion} & 0.020 & 0.164 & -0.164 \\ \hline
 
-\multicolumn{2}{c|}{Rhinion} & 0.170 & 0.233 & -0.233 \\ \hline
-\multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Mid-Philtrum\\ (A-Point)\end{tabular}} & -0.028 & 0.361 & -0.361 \\\hline
+\multicolumn{2}{c|}{Rhinion} & \textbf{0.170} & \textbf{0.233} & \textbf{-0.233} \\ \hline
+\multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Mid-philtrum/\\ A-Point\end{tabular}} & -0.028 & \textbf{0.361} & \textbf{-0.361} \\\hline
 \end{tabular}%
 }
-\caption{Pearson Correlation \label{tab3}}
+\caption{Pearson correlation coefficient. \label{tab2}}
 \end{minipage}\hfill
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.42\textwidth}
 \centering
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{clccc}
 \hline
-\multicolumn{2}{c}{} & \multicolumn{3}{c}{p\_values} \\ \hline
-\multicolumn{2}{c|}{Landmarks} & Gender & Age & Gender+Age \\ \hline
+\multicolumn{2}{c}{} & \multicolumn{3}{c}{\textbf{p-values}} \\ \hline
+\multicolumn{2}{c|}{\textbf{Landmarks}} & \textit{gender} & \textit{age} & \textit{gender+age} \\ \hline
 \multicolumn{2}{c|}{Glabella} & 0.371 & 0.510 & 0.332 \\ \hline
 \multicolumn{2}{c|}{Nasion} & 0.368 & 0.683 & 0.773 \\ \hline
-\multicolumn{2}{c|}{Orbitale right} & 0.599 & 0.323 & 0.675 \\ \hline
-\multicolumn{2}{c|}{Orbitale left} & 0.298 & 0.165 & 0.749 \\ \hline
-\multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Orbitale superius\\ right\end{tabular}} & 0.277 & 0.619 & 0.164 \\ \hline
-\multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Orbitale superius\\ left\end{tabular}} & 0.202 & 0.281 & 0.771 \\ \hline
-\multicolumn{2}{c|}{Zygion right} & 0.223 & {\color[HTML]{FE0000} 0.010} & 0.814 \\ \hline
-\multicolumn{2}{c|}{Zygion left} & 0.169 & 0.132 & 0.528 \\ \hline
+\multicolumn{2}{c|}{Orbitale (right)} & 0.599 & 0.323 & 0.675 \\ \hline
+\multicolumn{2}{c|}{Orbitale (left)} & 0.298 & 0.165 & 0.749 \\ \hline
+\multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Orbitale superius\\ (right)\end{tabular}} & 0.277 & 0.619 & 0.164 \\ \hline
+\multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Orbitale superius\\ (left)\end{tabular}} & 0.202 & 0.281 & 0.771 \\ \hline
+\multicolumn{2}{c|}{Zygion (right)} & 0.223 & {\color[HTML]{FE0000} 0.010} & 0.814 \\ \hline
+\multicolumn{2}{c|}{Zygion (left)} & 0.169 & 0.132 & 0.528 \\ \hline
 \multicolumn{2}{c|}{Rhinion} & 0.09 & 0.369 & 0.420 \\ \hline
-\multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Mid-philtrum\\ (A-Point)\end{tabular}} & 0.193 & {\color[HTML]{FE0000} 0.001} & 0.839 \\ \hline
+\multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Mid-philtrum/\\ A-Point\end{tabular}} & 0.193 & {\color[HTML]{FE0000} 0.001} & 0.839 \\ \hline
 \end{tabular}%
 }
-\caption{P-value for ANCOVA analysis \label{tab4}}
+\caption{p-value for ANCOVA analysis (significant p-value: $< 0.05$). \label{tab3}}
 \end{minipage}
 \end{table}
+\vspace{-0.4cm}
 
 \subsection*{ANCOVA and RF analysis} \label{subsec:ancova-rf-analysis}
 
-Subsequently, the \textbf{ANCOVA} statistical analysis was performed, collecting the results in a Table \ref{tab4}. The p value was considered statistically significant when \textbf{p\_values <0.05}. By analyzing the obtained results, it is possible to state that only for the age analysis there is a significant value, both for the \textbf{right zygion} and the \textbf{mid-philtrum}.
+Subsequently, ANCOVA statistical analysis was performed, with the results summerized in Table \ref{tab3}. Significant values were found only for age analysis for \textbf{right Zygion} and \textbf{Mid-philtrum} landmarks.
 
-The latest analysis, which took into account the age and sex of the patients, used two classification models, RF and DT. 
+The final analysis, which took into account both age and sex of the patients, used two classification models: RF and DT. Only the results of the most performant model (RF) are shown in Figure {\ref{fig:fig6}}. This analysis identified which landmarks, based on their thicknesses, most influenced the classification of age, gender, and the combination of age and gender. 
 
-Only the results related to the most performant model (RF) were reported in the Figure {\ref{fig:fig6}}. \\ The analysis conducted allowed us to examine which landmarks (considering their thicknesses) had the most influence in the classification of age, gender, and then in age and gender combined together. 
+From the figures, it is evident that for gender classification, the three most significant landmarks turn out to be \textbf{Nasion}, \textbf{right Orbital superius} and \textbf{right Zygion}. 
+For age classification, the top three landmarks are \textbf{right Orbital}, \textbf{left Orbital} and \textbf{Mid-philtum}.
+When considering the combination of gender and age, the top three landmarks turn out to be \textbf{left Orbital}, \textbf{right Zygion} and \textbf{Mid-philtrum}.
 
-As can be seen from the figures, considering only gender, the 3 most significant landmarks turn out to be \textbf{nasion}, \textbf{superius right} and \textbf{zygion right}. 
-Considering only age, the top-3 landmarks turn out to be \textbf{orbital right}, \textbf{orbital left} and \textbf{mid-philtum}.
-Considering the combination between gender and age, the top-3 landmarks turn out to be \textbf{orbital left}, \textbf{zygion right} and \textbf{mid-philtum}.
-
+\vspace{-0.1cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{Definitions/RF_analysis.png}
-    \caption{RF analysis}
+    \includegraphics[width=1\linewidth]{Definitions/RF_analysis_1.png}
+    \vspace{-0.5cm}
+    \caption{RF analysis. From left to right: (\textbf{a}) Gender classification: accuracy of 60.00\%. (\textbf{b}) Age classification: accuracy of 60.33\%. (\textbf{c}) Combined labels classification: accuracy of 29.33\%.} 
     \label{fig:fig6}
 \end{figure}
 
-Given that the first analysis only considered sex and age, since the Head-Neck-CT dataset does not contain information related to BMI, in this last phase an analysis was conducted only on the dataset provided by Professor Olivetti and Professor Marcolin, also considering the BMI factor and repeating the same statistical analysis steps described previously. 
+\noindent Given that the initial analysis only considered sex and age, since the Head-Neck-CT dataset does not contain information related to BMI, this final phase focused on analysing only the dataset provided by Professor Olivetti E.C. and Professor Marcolin F.. This included the BMI factor and repeated the same statistical analysis steps described previously.
 
-From the analysis of the dataset, it emerged that, considering age ranges, not all weight categories were covered. For this reason, the behavior of the average FSTT for the different bands of age and BMI was not analyzed, as the result was not complete enough to be included in the analysis. 
-Considering the BMI factor and distinguishing the patients as male or female, the trend described in the figure was obtained.
-From this figure, it can be noted that as the weight category increases, the values of the FSTT tend to be thicker. For example, the zygion and the midphiltrum seem to have significant increases for men, while for women the increase seems to also cover the orbitals and the median points of the face.
+It was evident that not all weight categories were covered within each age range. Consequently, the behavior of the average FSTT across different age and BMI bands was not analyzed, as the results were incomplete and thus not suitable for inclusion in the analysis.
+When considering the BMI factor and distinguishing the patients by sex, the trends illustrated in Figures \ref{fig:fig7} and \ref{fig:fig8} were observed.
+These figures illustrate that as weight category increases, the FSTT values tend to thicken. For example, in men, significant increases were observed at the \textbf{Zygion} and \textbf{Mid-philtrum} landmarks, while in women, the increase also encompassed the \textbf{Orbitals} and the \textbf{median points} of the face.
 
-
+\vspace{-0.2cm}
 \begin{figure}[H]
-    \begin{minipage}{0.45\textwidth}
+    \begin{minipage}{0.52\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Definitions/Men_mean_BMI_withoutAge.png}
-        \caption{Men mean considering BMI ranges}
+        \vspace{-0.3cm}
+        \caption{Mean considering BMI ranges (men).}
         \label{fig:fig7}
     \end{minipage}
     \hfill
-    \begin{minipage}{0.45\textwidth}
+    \begin{minipage}{0.52\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Definitions/Women_mean_BMI_withoutAge.png}
-        \caption{Women mean considering BMI ranges}
+        \vspace{-0.3cm}
+        \caption{Mean considering BMI ranges (women).}
         \label{fig:fig8}
     \end{minipage}
 \end{figure}
 
 
-Using ANCOVA analysis, the results obtained are represented in Figure \ref{fig:fig9} and cover the analysis by gender, age, BMI, the interaction between gender and BMI (\textbf{Interaction GB}), the interaction between gender and age (\textbf{Interaction GA}), the interaction between age and BMI (\textbf{Interaction AB}) and finally the interaction between gender,age and BMI combined (\textbf{Interaction GAB}).
-
-By observing this plot, it is possible to notice how the addition of the BMI factor could improve the analysis and provide more accurate results. Based on these results, it would seem that the landmarks that have the most influence are:
-\begin{enumerate}
-    \item Glabella, for the Interaction GAB
-    \item Nasion, for the BMI, Interaction AB, and Interaction GAB analysis
-    \item Superius Left, for gender, BMI, Interaction GB, Interaction AB and Interaction GAB analysis 
-    \item Zygion Left, for BMI, Interacion GB, Interaction AB and Interaction GAB analysis
-    \item Rhinion, for gender, BMI and Interaction GB analysis
-
-\end{enumerate}
-
+Using ANCOVA analysis, the results are shown in Figure \ref{fig:fig9}. This analysis covers gender, age, BMI, the interaction between gender and BMI (\textbf{GB Interaction}), the interaction between gender and age (\textbf{GA Interaction}), the interaction between age and BMI (\textbf{AB Interaction}), and finally, the combined interaction of gender,age, and BMI combined (\textbf{GAB Interaction}). Observing this plot, it is evident that incorporating the BMI factor can enhance the analysis and yield more accurate results.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{Definitions/ANCOVA_BMI_after_cleaning.png}
-    \caption{ANCOVA analysis with BMI factor}
+    \vspace{-0.2cm}
+    \caption{ANCOVA analysis including BMI factor.}
     \label{fig:fig9}
 \end{figure}
 
-Subsequently, the RF model was used, obtaining the results shown in Figure \ref{fig:fig10}.
+\noindent Based on these results, it appears that the landmarks exerting the most influence are:
+\begin{enumerate}
+    \item \textbf{Glabella}, for GAB Interaction analysis;
+    \item \textbf{Nasion}, for BMI, AB Interaction, and GAB Interaction analysis;
+    \item \textbf{left Orbital Superius}, for gender, BMI, GB Interaction, AB Interaction and GAB Interaction analysis;
+    \item \textbf{left Zygion}, for BMI, GB Interacion, AB Interaction and GAB Interaction analysis;
+    \item \textbf{Rhinion}, for gender, BMI and GB Interaction analysis.
 
-As can be seen from the figures, considering only BMI, the 3 most significant landmarks turn out to be \textbf{nasion}, \textbf{superius right} and \textbf{superius left}. 
-Considering age and BMI combined, the top-3 landmarks turn out to be \textbf{glabella}, \textbf{nasion} and \textbf{superius left}.
-Considering the combination between gender and BMI, the top-3 landmarks turn out to be \textbf{nasion}, \textbf{superius right} and \textbf{superius left}.
-Lastly, in the interaction between gender, age and BMI, the 3 most significant landmarks turn out to be \textbf{nasion}, \textbf{superius right} and \textbf{zygion right}.
+\end{enumerate}
+
+Following this, the RF model was utilized, resulting in the findings depicted in Figure \ref{fig:fig10}.
+As can be seen, it is evident that for BMI alone, the three most influential landmarks are \textbf{Nasion}, \textbf{right Orbiatal superius} and \textbf{left Orbital superius}. 
+When considering age combined with BMI, the top three landmarks are turn out to be \textbf{Glabella}, \textbf{Nasion} and \textbf{left Orbital superius}.
+In the context of gender and BMI combined, the top three landmarks are \textbf{Nasion}, \textbf{right Orbital superius} and \textbf{left Orbital superius}.
+Lastly, in the interaction involving gender, age, and BMI, the three most significant landmarks turn out to be \textbf{Nasion}, \textbf{right Orbital superius} and \textbf{right Zygion}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{Definitions/rf_bmi.png}
-    \caption{RF analysis with BMI factor}
+    \includegraphics[width=0.9\linewidth]{Definitions/rf_bmi.png}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{{Definitions/rf_bmi copia.png}}
+    \vspace{-0.2cm}
+    \caption{RF analysis including BMI factor.}
     \label{fig:fig10}
 \end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 \label{sec:disc}
+The findings of this study offer valuable insights into the impact of demographic factors on FSTT, with potential applications in FFR and related fields. Comparative analysis with previous studies reveals both similarities and differences. For instance, this study confirms the influence of age and sex on FSTT, consistent with Piombino et al. \cite{ref19}, and extends these findings through BMI analysis and other works, e.g., Codinha et al. \cite{ref1,ref13}. These correlations may depend on methodological factors such as imaging data sources and demographic diversity among study populations. Table \ref{tab4} underscores the differences in FSTT averages between genders observed in comparison with previous studies, showing thicker measurements for men at specific landmarks. Regarding age groups, there is a trend of increasing thickness with age, likely due to changes in weight distribution, though a larger sample size is needed to explore age-related variations comprehensively.
 
-Findings of this study provide significant insights into the influence of demographic factors on FSTT, with potential applications in FFR and related fields. 
-% These results indicate that BMI plays a crucial role in determining FSTT and suggest that, with a more in-depth analysis for the weight categories missing in this analysis, it could confirm the existing literature that highlights the relationship between a higher BMI and increased tissue thickness at various craniofacial reference points. Specifically, data are aligned with the findings of Piombino et al. \cite{ref19}, who also noted significant correlations between BMI and FSTT, particularly in the orbitals and zygions regions \cite{ref1,ref2}.
+\textbf{Linear regression model} predicting age, sex, and age bins using FSTT measurements demonstrated varying levels of accuracy. The age prediction model performed exceptionally well, underscoring the potential of FSTT data for reliable age estimation. On the other hand, while the sex prediction model achieved perfect accuracy with all landmarks, it showed reduced performance with individual landmarks, emphasizing the need for comprehensive landmark analysis. The age bin prediction model exhibited limited accuracy, highlighting challenges in categorizing individuals into specific age groups based solely on FSTT measurements. These findings underscore the importance of considering multiple demographic factors and comprehensive landmark data to enhance predictive accuracy in forensic and medical applications.
 
-Comparative analysis with previous studies reveals both similarities and differences. For instance, this study's observation of marginal impacts of age and sex on FSTT concurs with Piombino et al. \cite{ref19}, yet contrasts with other works that reported more pronounced age-related changes in FSTT (e.g., Codinha et al. \cite{ref13}) \cite{ref1,ref13}. Such discrepancies could stem from methodological differences, including the source and type of imaging data and demographic variations among study populations.
+\textbf{Pearson correlation coefficient} highlighted that \textbf{Glabella} and \textbf{Rhinion} landmarks as having the \textbf{highest positive correlation with age}, suggesting thicker measurements with increasing age. For gender correlation, \textbf{Mid-philtrum}, \textbf{Rhinion}, and \textbf{Nasion} landmarks showed the \textbf{strongest correlations in males} (and lowest in females), indicating gender-specific influences in these areas. Notably, \textbf{Rhinion} emerged as particularly influential for both age and gender correlations, consistent with findings by Piombino et al. \cite{ref19}.
 
-Table \ref{tab1} compares the FSTT averages with the main papers used and cited in this analysis, highlighting how it is plausible to state that the thickness for some landmarks is greater for men than for women. \\ Regarding the trend of FSTT averages for each age group, thicknesses tend to increase with age, probably due to the variation in weight distribution as the person grows. However, by expanding this analysis with a larger number of patients, it is expected that with advancing age, the FSTT tend to decrease in thickness.
+\textbf{ANCOVA} analysis revealed that age significantly affects the thickness of the \textbf{right Zygion} and \textbf{Mid-philtrum}, suggesting these landmarks serve as indicators of age in future studies. Discrepancies from previous research may stem from the small dataset and manual landmark selection methods, affecting the precision of FSTT measurements. Incorporating BMI into the analysis highlighted \textbf{Zygion} and \textbf{Orbital superius} as notably influential in various interactions.
 
-Regression model for predicting age, sex, and age bins using FSTT measurements demonstrated varying levels of performance. The age prediction model achieved high accuracy, highlighting the potential of FSTT data for reliable age estimation. The sex prediction model showed perfect accuracy with all landmarks but decreased performance with individual landmarks, emphasizing the importance of comprehensive landmark analysis. Age bin prediction model showed limited accuracy, indicating challenges in categorizing individuals into specific age groups based on FSTT alone. These findings underscore the need for considering multiple demographic factors and comprehensive landmark data to enhance predictive accuracy in forensic and medical applications. 
+\textbf{RF} analysis identified distinct influential landmarks for gender and age, such as the \textbf{left Orbital} and \textbf{Mid-philtrum}. Including BMI in the analysis corroborated hypotheses from ANCOVA analysis, particularly regarding \textbf{Nasion} landamrk in AB and GAB Interactions, thereby enhancing result accuracy. Nonetheless, these findings are specific to the dataset and analysis methods used, necessitating further research for validation.
 
-As discussed in Section \ref{subsec:pearson-correlation}, the \textbf{Pearson correlation} highlighted how, for the correlation with age, glabella and rhinion are the landmarks with the highest positive correlation, indicating that as age increases, these thicknesses should increase. For gender correlation, mid-philtrum, rhinion and nasion have the highest correlation for male (and lowest correlation for female), suggesting that these areas of the face may be more influenced by gender. These results are consistent with what has also been stated in other papers, such as Piombino et al \cite{ref19}. 
+This study's detailed analysis of FSTT variations based on demographic factors provides a nuanced understanding, enabling more accurate and personalized FFR, improving identification accuracy in forensic investigations. The findings also hold implications for maxillofacial and aesthetic surgery, aiding in surgical planning and outcome prediction. Future research should expand the dataset to incorporate diverse population groups and additional landmarks, thereby enhancing the accuracy and applicability of FSTT measurements. Integration of FSTT data with other biometric parameters could further enhance FFR and related applications.
 
-\textbf{ANCOVA} statistical analysis shows that age has a significant impact on the thickness of the right zygion and the mid-philtrum. This suggests that these landmarks could be useful indicators of age in future studies. Results are partially confirmed when compared with previous studies, such as that of Moritsugui et al \cite{ref26}, where both rhinion and zygion right landmarks have a significant p-value. Differences, however, could be justified by the small number of initial data and the manual selection of landmarks on the meshes, which could have affected the precision of the average FSTT obtained. 
-
-\textbf{RF} analysis identified different sets of influential landmarks for gender, age, and their combination. This suggests that the physical characteristics associated with age and gender are distinct, but there may be some overlap. For instance, the orbital left and mid-philtrum are influential for both age and the combination of age and gender. The fact that different landmarks are influential for gender and age could suggest that these characteristics develop differently and at different rates. This could have implications for understanding the development of facial traits.
-
-Combination of age and gender seems to be best represented by the orbital left, zygion right, and mid-philtrum. This could suggest that these landmarks capture the most variance when both age and gender are considered. However, due to the low accuracy obtained for this latter consideration, this result cannot be considered significant.
-
-This analysis was expanded to include the \textbf{BMI} factor. This addition of BMI to the ANCOVA analysis seems to have improved the accuracy of the results, providing a more comprehensive understanding of the influential landmarks.
-
-Landmarks that stood out in this analysis showed significant influence in different interactions. For instance, glabella was influential for Interaction GAB, while nasion was influential for BMI, Interaction AB and for Interaction GAB.
-
-This \textbf{RF} model further confirmed the importance of these landmarks. 
-The findings presented in Section \ref{subsec:ancova-rf-analysis} highlight the importance of including BMI in the analysis to gain a more detailed understanding of influential landmarks. However, these conclusions are specific to the dataset and analysis methods used in this study, and additional research is necessary for validation and further exploration. A more comprehensive analysis, particularly of the missing weight categories, could reinforce existing literature on the correlation between higher BMI and increased tissue thickness at various craniofacial reference points. This study's data aligns with Piombino et al.'s findings \cite{ref19}, which also observed significant correlations between BMI and FSTT, especially in the orbitals and zygions regions \cite{ref1,ref2}.
-% Results reported in Section \ref{subsec:ancova-rf-analysis} suggest that the inclusion of BMI in the analysis could provide a more nuanced understanding of the influential landmarks. However, it's important to note that these findings are based on the specific dataset and analysis methods used in this study. Further research may be needed to confirm these findings and explore their implications.
-
-% These results indicate that BMI plays a crucial role in determining FSTT and suggest that, with a more in-depth analysis for the weight categories missing in this analysis, it could confirm the existing literature that highlights the relationship between a higher BMI and increased tissue thickness at various craniofacial reference points. Specifically, data are aligned with the findings of Piombino et al. \cite{ref19}, who also noted significant correlations between BMI and FSTT, particularly in the orbitals and zygions regions \cite{ref1,ref2}.
-
-
-The primary contribution of this research resides in its comprehensive approach to the evaluation of FSTT using high-resolution DICOM data and advanced statistical and machine learning techniques. \\The study’s robustness is enhanced by integrating multiple datasets and applying stratified K-fold cross-validation.
-
-However, this study is not without limitations. The relatively small sample size, particularly for the dataset provided by university professors, may limit the generalizability of the results. Additionally, the exclusion of lower facial landmarks due to the presence of external objects in the images restricts the comprehensiveness of the analysis.
-
-One of the notable improvements in this study is the detailed analysis of FSTT variations based on demographic factors. This provides a more nuanced understanding compared to previous works. It enables a more accurate and personalized FFR, ultimately improving identification accuracy in forensic investigations.
-
-The findings also have implications for maxillofacial and aesthetic surgery, aiding in surgical planning and outcome prediction.
-% In the field of maxillofacial and aesthetic surgery, understanding the variations in FSTT can be crucial for predicting surgical outcomes. The facial features are defined by the distribution and volume of soft tissues, and these results can assist in planning surgeries to achieve more natural and satisfactory results. By incorporating individual demographic characteristics into surgical planning, medical professionals can better anticipate changes in facial contours post-surgery, leading to improved patient outcomes and satisfaction.
-%Specifically, the development of predictive models for maxillofacial and aesthetic surgeries based on FSTT data could revolutionize pre-operative planning and lead to more personalized and precise interventions.
-
-Future research should aim to expand the dataset, incorporating more diverse population groups and additional landmarks to provide a holistic view of FSTT variations. Advancements in imaging techniques and machine learning algorithms will further enhance the accuracy and applicability of FSTT measurements. Furthermore, exploring the integration of FSTT data with other biometric parameters could open new avenues for improving FFR and related applications. 
-
-
-
-% This study significantly advances the understanding of FSTT variations and their implications, providing valuable insights for forensic and medical applications. Continued research and methodological improvements will further solidify the utility of FSTT in accurate and reliable FFRs and in enhancing surgical outcomes in maxillofacial and aesthetic procedures.
-
-
+\vspace{-0.1cm}
 
 \begin{table}[H]
 \centering
@@ -601,52 +544,51 @@ Future research should aim to expand the dataset, incorporating more diverse pop
 
 
 \hline
- &  & Landmarks & Glabella & Nasion & Orbitale right & Orbitale left & \begin{tabular}[c]{@{}c@{}}Orbitale superius \\ right\end{tabular} & \begin{tabular}[c]{@{}c@{}}Orbitale superius \\ left\end{tabular} & Zygion right & Zygion left & Rhinion & \begin{tabular}[c]{@{}c@{}}Mid-philtrum\\ (A-point)\end{tabular} \\ \hline
- &  & n & 36 & 32 & 35 & 34 & 34 & 34 & 32 & 32 & 30 & 36 \\ \cline{3-13} 
- &  & {\color[HTML]{3531FF} mean} & {\color[HTML]{3531FF} 6.19} & {\color[HTML]{3531FF} 7.33} & {\color[HTML]{3531FF} 8.52} & {\color[HTML]{3531FF} 8.53} & {\color[HTML]{3531FF} 8.42} & {\color[HTML]{3531FF} 8.24} & {\color[HTML]{3531FF} 9.47} & {\color[HTML]{3531FF} 9.78} & {\color[HTML]{3531FF} 4.19} & {\color[HTML]{3531FF} 13.99} \\ \cline{3-13} 
- & \multirow{-3}{*}{M} & std & 1.12 & 1.07 & 2.22 & 2.31 & 1.61 & 1.82 & 1.50 & 1.85 & 0.89 & 2.34 \\ \cline{2-13} 
- &  & n & 20 & 20 & 20 & 19 & 21 & 21 & 20 & 20 & 18 & 21 \\ \cline{3-13} 
- &  & {\color[HTML]{FE0000} mean} & {\color[HTML]{FE0000} 5.95} & {\color[HTML]{FE0000} 7.15} & {\color[HTML]{FE0000} 8.06} & {\color[HTML]{FE0000} 7.79} & {\color[HTML]{FE0000} 7.85} & {\color[HTML]{FE0000} 7.58} & {\color[HTML]{FE0000} 9.09} & {\color[HTML]{FE0000} 8.99} & {\color[HTML]{FE0000} 3.97} & {\color[HTML]{FE0000} 13.48} \\ \cline{3-13} 
-\multirow{-6}{*}{This paper} & \multirow{-3}{*}{W} & std & 1.10 & 1.38 & 2.23 & 1.95 & 1.85 & 1.47 & 1.14 & 1.35 & 1.09 & 2.45 \\ \hline
- &  & n & 13 & 13 & - & - & - & - & 13 & 13 & 13 & 13 \\ \cline{3-13} 
- &  & {\color[HTML]{3531FF} mean} & {\color[HTML]{3531FF} 6.69} & {\color[HTML]{3531FF} 6.69} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} 10.88} & {\color[HTML]{3531FF} 10.88} & {\color[HTML]{3531FF} 3.04} & {\color[HTML]{3531FF} 10.15} \\ \cline{3-13} 
- & \multirow{-3}{*}{M} & std & 1.77 & 1.41 & - & - & - & - & 4.90 & 4.90 & 1.03 & 3.29 \\ \cline{2-13} 
- &  & n & 18 & 17 & - & - & - & - & 15 & 15 & 17 & 18 \\ \cline{3-13} 
- &  & {\color[HTML]{FE0000} mean} & {\color[HTML]{FE0000} 5.83} & {\color[HTML]{FE0000} 5.32} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} 9.07} & {\color[HTML]{FE0000} 9.07} & {\color[HTML]{FE0000} 2.59} & {\color[HTML]{FE0000} 8.31} \\ \cline{3-13} 
-\multirow{-6}{*}{Simpson et al.} & \multirow{-3}{*}{W} & std & 1.37 & 1.19 & - & - & - & - & 2.83 & 2.83 & 0.99 & 2.54 \\ \hline
- &  & n & 45 & 45 & 45 & 45 & 45 & 45 & 45 & 45 & 45 & 45 \\ \cline{3-13} 
- &  & {\color[HTML]{3531FF} mean} & {\color[HTML]{3531FF} 5.9} & {\color[HTML]{3531FF} 8.1} & {\color[HTML]{3531FF} 5.8} & {\color[HTML]{3531FF} 5.9} & {\color[HTML]{3531FF} 8.6} & {\color[HTML]{3531FF} 8.7} & {\color[HTML]{3531FF} 9.2} & {\color[HTML]{3531FF} 9.1} & {\color[HTML]{3531FF} 2.3} & {\color[HTML]{3531FF} 15.7} \\ \cline{3-13} 
- & \multirow{-3}{*}{M} & std & 0.95 & 1.24 & 1.15 & 1.65 & 1.33 & 1.33 & 1.85 & 1.87 & 0.58 & 2.22 \\ \cline{2-13} 
- &  & n & 56 & 56 & 56 & 56 & 56 & 56 & 56 & 56 & 56 & 56 \\ \cline{3-13} 
- &  & {\color[HTML]{FE0000} mean} & {\color[HTML]{FE0000} 4.9} & {\color[HTML]{FE0000} 6.2} & {\color[HTML]{FE0000} 5.3} & {\color[HTML]{FE0000} 5.5} & {\color[HTML]{FE0000} 6.5} & {\color[HTML]{FE0000} 6.4} & {\color[HTML]{FE0000} 7.8} & {\color[HTML]{FE0000} 7.8} & {\color[HTML]{FE0000} 1.7} & {\color[HTML]{FE0000} 13.1} \\ \cline{3-13} 
-\multirow{-6}{*}{Moritsugui et al.} & \multirow{-3}{*}{W} & std & 0.77 & 0.97 & 1.47 & 1.58 & 1.27 & 1.37 & 1.79 & 1.9 & 0.43 & 1.82 \\ \hline
- &  & n & 16 & 16 & - & - & - & - & - & - & 16 & - \\ \cline{3-13} 
- &  & {\color[HTML]{3531FF} mean} & {\color[HTML]{3531FF} 5.76} & {\color[HTML]{3531FF} 6.93} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} 2.92} & {\color[HTML]{3531FF} -} \\ \cline{3-13} 
- & \multirow{-3}{*}{M} & std & 0.76 & 0.97 & - & - & - & - & - & - & 0.82 & - \\ \cline{2-13} 
- &  & n & 18 & 18 & - & - & - & - & - & - & 18 & - \\ \cline{3-13} 
- &  & {\color[HTML]{FE0000} mean} & {\color[HTML]{FE0000} 5.57} & {\color[HTML]{FE0000} 6.16} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} 3.10} & {\color[HTML]{FE0000} -} \\ \cline{3-13} 
-\multirow{-6}{*}{Park et al.} & \multirow{-3}{*}{W} & std & 0.68 & 1.48 & - & - & - & - & - & - & 1.60 & - \\ \hline
+ &  & \textbf{Landmarks} & Glabella & Nasion & right Orbitale & left Orbitale & \begin{tabular}[c]{@{}c@{}}Orbitale superius \\ (right)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Orbitale superius \\ (left)\end{tabular} & right Zygion & left Zygion & Rhinion & \begin{tabular}[c]{@{}c@{}}Mid-philtrum/\\ A-point\end{tabular} \\ \hline
+ &  & {\color[HTML]{3531FF} \textit{n}} & {\color[HTML]{3531FF} 36} & {\color[HTML]{3531FF} 32} & {\color[HTML]{3531FF} 35} & {\color[HTML]{3531FF} 34} & {\color[HTML]{3531FF} 34} & {\color[HTML]{3531FF} 34} & {\color[HTML]{3531FF} 32} & {\color[HTML]{3531FF} 32} & {\color[HTML]{3531FF} 30} & {\color[HTML]{3531FF} 36} \\ \cline{3-13} 
+ &  & {\color[HTML]{3531FF} \textit{mean}} & {\color[HTML]{3531FF} 6.19} & {\color[HTML]{3531FF} 7.33} & {\color[HTML]{3531FF} 8.52} & {\color[HTML]{3531FF} 8.53} & {\color[HTML]{3531FF} 8.42} & {\color[HTML]{3531FF} 8.24} & {\color[HTML]{3531FF} 9.47} & {\color[HTML]{3531FF} 9.78} & {\color[HTML]{3531FF} 4.19} & {\color[HTML]{3531FF} 13.99} \\ \cline{3-13} 
+ & \multirow{-3}{*}{{\color[HTML]{3531FF} \textbf{M}}} & {\color[HTML]{3531FF} \textit{std}} & {\color[HTML]{3531FF} 1.12} & {\color[HTML]{3531FF} 1.07} & {\color[HTML]{3531FF} 2.22} & {\color[HTML]{3531FF} 2.31} & {\color[HTML]{3531FF} 1.61} & {\color[HTML]{3531FF} 1.82} & {\color[HTML]{3531FF} 1.50} & {\color[HTML]{3531FF} 1.85} & {\color[HTML]{3531FF} 0.89} & {\color[HTML]{3531FF} 2.34} \\ \cline{2-13} 
+ &  & {\color[HTML]{FE0000} \textit{n}} & {\color[HTML]{FE0000} 20} & {\color[HTML]{FE0000} 20} & {\color[HTML]{FE0000} 20} & {\color[HTML]{FE0000} 19} & {\color[HTML]{FE0000} 21} & {\color[HTML]{FE0000} 21} & {\color[HTML]{FE0000} 20} & {\color[HTML]{FE0000} 20} & {\color[HTML]{FE0000} 18} & {\color[HTML]{FE0000} 21} \\ \cline{3-13} 
+ &  & {\color[HTML]{FE0000} \textit{mean}} & {\color[HTML]{FE0000} 5.95} & {\color[HTML]{FE0000} 7.15} & {\color[HTML]{FE0000} 8.06} & {\color[HTML]{FE0000} 7.79} & {\color[HTML]{FE0000} 7.85} & {\color[HTML]{FE0000} 7.58} & {\color[HTML]{FE0000} 9.09} & {\color[HTML]{FE0000} 8.99} & {\color[HTML]{FE0000} 3.97} & {\color[HTML]{FE0000} 13.48} \\ \cline{3-13} 
+\multirow{-6}{*}{\textbf{This paper}} & \multirow{-3}{*}{{\color[HTML]{FE0000} \textbf{W}}} & {\color[HTML]{FE0000} \textit{std}} & {\color[HTML]{FE0000} 1.10} & {\color[HTML]{FE0000} 1.38} & {\color[HTML]{FE0000} 2.23} & {\color[HTML]{FE0000} 1.95} & {\color[HTML]{FE0000} 1.85} & {\color[HTML]{FE0000} 1.47} & {\color[HTML]{FE0000} 1.14} & {\color[HTML]{FE0000} 1.35} & {\color[HTML]{FE0000} 1.09} & {\color[HTML]{FE0000} 2.45} \\ \hline
+ &  & {\color[HTML]{3531FF} \textit{n}} & {\color[HTML]{3531FF} 13} & {\color[HTML]{3531FF} 13} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} 13} & {\color[HTML]{3531FF} 13} & {\color[HTML]{3531FF} 13} & {\color[HTML]{3531FF} 13} \\ \cline{3-13} 
+ &  & {\color[HTML]{3531FF} \textit{mean}} & {\color[HTML]{3531FF} 6.69} & {\color[HTML]{3531FF} 6.69} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} 10.88} & {\color[HTML]{3531FF} 10.88} & {\color[HTML]{3531FF} 3.04} & {\color[HTML]{3531FF} 10.15} \\ \cline{3-13} 
+ & \multirow{-3}{*}{{\color[HTML]{3531FF} \textbf{M}}} & {\color[HTML]{3531FF} \textit{std}} & {\color[HTML]{3531FF} 1.77} & {\color[HTML]{3531FF} 1.41} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} 4.90} & {\color[HTML]{3531FF} 4.90} & {\color[HTML]{3531FF} 1.03} & {\color[HTML]{3531FF} 3.29} \\ \cline{2-13} 
+ &  & {\color[HTML]{FE0000} \textit{n}} & {\color[HTML]{FE0000} 18} & {\color[HTML]{FE0000} 17} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} 15} & {\color[HTML]{FE0000} 15} & {\color[HTML]{FE0000} 17} & {\color[HTML]{FE0000} 18} \\ \cline{3-13} 
+ &  & {\color[HTML]{FE0000} \textit{mean}} & {\color[HTML]{FE0000} 5.83} & {\color[HTML]{FE0000} 5.32} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} 9.07} & {\color[HTML]{FE0000} 9.07} & {\color[HTML]{FE0000} 2.59} & {\color[HTML]{FE0000} 8.31} \\ \cline{3-13} 
+\multirow{-6}{*}{\textbf{Simpson et al.}} & \multirow{-3}{*}{{\color[HTML]{FE0000} \textbf{W}}} & {\color[HTML]{FE0000} \textit{std}} & {\color[HTML]{FE0000} 1.37} & {\color[HTML]{FE0000} 1.19} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} 2.83} & {\color[HTML]{FE0000} 2.83} & {\color[HTML]{FE0000} 0.99} & {\color[HTML]{FE0000} 2.54} \\ \hline
+ &  & {\color[HTML]{3531FF} \textit{n}} & {\color[HTML]{3531FF} 45} & {\color[HTML]{3531FF} 45} & {\color[HTML]{3531FF} 45} & {\color[HTML]{3531FF} 45} & {\color[HTML]{3531FF} 45} & {\color[HTML]{3531FF} 45} & {\color[HTML]{3531FF} 45} & {\color[HTML]{3531FF} 45} & {\color[HTML]{3531FF} 45} & {\color[HTML]{3531FF} 45} \\ \cline{3-13} 
+ &  & {\color[HTML]{3531FF} \textit{mean}} & {\color[HTML]{3531FF} 5.9} & {\color[HTML]{3531FF} 8.1} & {\color[HTML]{3531FF} 5.8} & {\color[HTML]{3531FF} 5.9} & {\color[HTML]{3531FF} 8.6} & {\color[HTML]{3531FF} 8.7} & {\color[HTML]{3531FF} 9.2} & {\color[HTML]{3531FF} 9.1} & {\color[HTML]{3531FF} 2.3} & {\color[HTML]{3531FF} 15.7} \\ \cline{3-13} 
+ & \multirow{-3}{*}{{\color[HTML]{3531FF} \textbf{M}}} & {\color[HTML]{3531FF} \textit{std}} & {\color[HTML]{3531FF} 0.95} & {\color[HTML]{3531FF} 1.24} & {\color[HTML]{3531FF} 1.15} & {\color[HTML]{3531FF} 1.65} & {\color[HTML]{3531FF} 1.33} & {\color[HTML]{3531FF} 1.33} & {\color[HTML]{3531FF} 1.85} & {\color[HTML]{3531FF} 1.87} & {\color[HTML]{3531FF} 0.58} & {\color[HTML]{3531FF} 2.22} \\ \cline{2-13} 
+ &  & {\color[HTML]{FE0000} \textit{n}} & {\color[HTML]{FE0000} 56} & {\color[HTML]{FE0000} 56} & {\color[HTML]{FE0000} 56} & {\color[HTML]{FE0000} 56} & {\color[HTML]{FE0000} 56} & {\color[HTML]{FE0000} 56} & {\color[HTML]{FE0000} 56} & {\color[HTML]{FE0000} 56} & {\color[HTML]{FE0000} 56} & {\color[HTML]{FE0000} 56} \\ \cline{3-13} 
+ &  & {\color[HTML]{FE0000} \textit{mean}} & {\color[HTML]{FE0000} 4.9} & {\color[HTML]{FE0000} 6.2} & {\color[HTML]{FE0000} 5.3} & {\color[HTML]{FE0000} 5.5} & {\color[HTML]{FE0000} 6.5} & {\color[HTML]{FE0000} 6.4} & {\color[HTML]{FE0000} 7.8} & {\color[HTML]{FE0000} 7.8} & {\color[HTML]{FE0000} 1.7} & {\color[HTML]{FE0000} 13.1} \\ \cline{3-13} 
+\multirow{-6}{*}{\textbf{Moritsugui et al.}} & \multirow{-3}{*}{{\color[HTML]{FE0000} \textbf{W}}} & {\color[HTML]{FE0000} \textit{std}} & {\color[HTML]{FE0000} 0.77} & {\color[HTML]{FE0000} 0.97} & {\color[HTML]{FE0000} 1.47} & {\color[HTML]{FE0000} 1.58} & {\color[HTML]{FE0000} 1.27} & {\color[HTML]{FE0000} 1.37} & {\color[HTML]{FE0000} 1.79} & {\color[HTML]{FE0000} 1.9} & {\color[HTML]{FE0000} 0.43} & {\color[HTML]{FE0000} 1.82} \\ \hline
+ &  & {\color[HTML]{3531FF} \textit{n}} & {\color[HTML]{3531FF} 16} & {\color[HTML]{3531FF} 16} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} 16} & {\color[HTML]{3531FF} -} \\ \cline{3-13} 
+ &  & {\color[HTML]{3531FF} \textit{mean}} & {\color[HTML]{3531FF} 5.76} & {\color[HTML]{3531FF} 6.93} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} 2.92} & {\color[HTML]{3531FF} -} \\ \cline{3-13} 
+ & \multirow{-3}{*}{{\color[HTML]{3531FF} \textbf{M}}} & {\color[HTML]{3531FF} \textit{std}} & {\color[HTML]{3531FF} 0.76} & {\color[HTML]{3531FF} 0.97} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} -} & {\color[HTML]{3531FF} 0.82} & {\color[HTML]{3531FF} -} \\ \cline{2-13} 
+ &  & {\color[HTML]{FE0000} \textit{n}} & {\color[HTML]{FE0000} 18} & {\color[HTML]{FE0000} 18} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} 18} & {\color[HTML]{FE0000} -} \\ \cline{3-13} 
+ &  & {\color[HTML]{FE0000} \textit{mean}} & {\color[HTML]{FE0000} 5.57} & {\color[HTML]{FE0000} 6.16} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} 3.10} & {\color[HTML]{FE0000} -} \\ \cline{3-13} 
+\multirow{-6}{*}{\textbf{Park et al.}} & \multirow{-3}{*}{{\color[HTML]{FE0000} \textbf{W}}} & {\color[HTML]{FE0000} \textit{std}} & {\color[HTML]{FE0000} 0.68} & {\color[HTML]{FE0000} 1.48} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} -} & {\color[HTML]{FE0000} 1.60} & {\color[HTML]{FE0000} -} \\ \hline
 \end{tabular}
 }
-\caption{Average soft tissue thicknesses (mm), standard deviation (std) for men (M) and women (W), and number (n) of patients considered after outlier removal \label{tab2}}
+\caption{Average facial soft tissue thicknesses (mean), standard deviation of the distribution (std) and number of patients (n) considered after outlier removal: comparison with previous studies. M: men, W: women. \label{tab4}}
 \end{adjustwidth}
 \end{table}
+\vspace{-0.6cm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 \label{sec:conc}
 
-Our study focused on measuring FSTT at defined landmarks to address the challenge of identifying human remains. The primary aim was to assess the impact of demographic factors like age, gender, and BMI on FSTT using high-resolution DICOM data.
+Our study aimed to measure Facial Soft Tissue Thickness (FSTT) at specific landmarks to address the challenge of identifying human remains. The primary objective was to assess how demographic factors such as age, sex, and BMI affect FSTT. The results of the study revealed that BMI significantly influences FSTT, with higher BMI correlating with greater thickness, particularly at the \textbf{Mid-philtrum} and \textbf{Zygion landmarks}. Age and sex also affect FSTT, albeit to a lesser extent. These insights are crucial for Facial Forensic Reconstruction (FFR) and medical applications, highlighting the necessity of considering individual demographic characteristics for accurate reconstructions.
 
-The findings of this study show that BMI significantly influences FSTT, with higher BMI associated with increased thickness, especially at the mid-philtrum and zygion. Age and sex also affect FSTT but to a lesser extent. These insights are crucial for FFR and medical applications, highlighting the need to consider individual demographic characteristics for accurate reconstructions.
+\textbf{Linear regression} models demonstrated high accuracy in predicting age and sex using FSTT data, although performance decreased across individual landmarks and age bins.
 
-Linear regression models showed high accuracy in predicting age and sex using FSTT data, but performance decreased with individual landmarks and age bins. 
+Statistical analyses, including \textbf{Pearson correlation coefficient} and \textbf{ANCOVA}, revealed significant correlations between FSTT and age, as well as between FSTT and BMI. Machine Learning models such as \textbf{Random Forest} and \textbf{Decision Trees} supported these findings, emphasizing the predictive role of these variables in FSTT. The use of \textbf{stratified K-fold cross-validation} ensured the robustness and reliability of the models.
 
-Statistical analyses, including Pearson correlation and ANCOVA, revealed significant correlations between FSTT and age factor. Machine learning models, such as RF and DT, have supported these findings, adding further information and emphasizing the importance of these variables in predicting FSTT. The use of stratified K-fold cross-validation ensured the robustness and reliability of the models.
+Integration of FSTT data from diverse datasets, despite methodological variations, provided a comprehensive evaluation across different demographic groups, enhancing the credibility and applicability of their findings.
 
-By integrating FSTT data from various datasets despite methodological differences, this study provides a comprehensive evaluation across different demographic groups, enhancing the credibility and applicability of the findings.
-
-In summary, this study advances the understanding of FSTT variations and their implications for forensic and medical applications. The results underscore the importance of personalized approaches in FFR, considering demographic factors for improved accuracy. Future research should aim to expand the dataset, include more diverse population groups, and refine imaging techniques to further validate and enhance FSTT measurement reliability.
+In summary, this study advances understanding of FSTT variations and their implications for forensic applications. It underscores the importance of personalized approaches in FFR, considering demographic factors to improve accuracy. t underscores the importance of personalized approaches in FFR, considering demographic factors to improve accuracy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt} 
@@ -717,6 +659,7 @@ In summary, this study advances the understanding of FSTT variations and their i
 % \begin{adjustwidth}{-\extralength}{0cm}
 % %\printendnotes[custom] % Un-comment to print a list of endnotes
 
+\newpage
 \reftitle{References}
 
 % Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.

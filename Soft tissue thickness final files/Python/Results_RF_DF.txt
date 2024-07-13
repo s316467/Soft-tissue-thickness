@@ -1,0 +1,31 @@
+RESULTS
+
+
+
+Accuracy for gender analysis with Random Forest: 60.00%
+Accuracy for age analysis with Random Forest: 61.33%
+Accuracy for gender analysis with Decision Tree: 36.00%
+Accuracy for age analysis with Decision Tree: 45.00%
+
+Accuracy with Decision Tree with combined labels: 24.33%
+
+Accuracy with Random Forest with combined labels: 30.67%
+
+
+Random Forest is the best model for your age analysis and it shows that 
+the top landmarks are: 
+Orbital Left
+Orbital Right
+Midphiltrum
+
+Random Forest is the best model for your gender analysis and it shows that
+the top landmarks are:
+Nasion
+Superius Right
+Midphiltrum
+
+Random Forest is the best model for your combined analysis and it shows that
+the top landmarks are: 
+Orbital Left 
+Midphiltrum 
+Zygion Right 
