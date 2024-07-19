@@ -1,4 +1,4 @@
-# Soft-Tissue Thickness Repository Overview
+# Strip It To The Bone
 
 This repository contains a comprehensive collection of files and scripts organized into various folders based on the programming languages and tools used, as well as documentation related to the compilation of the research paper on Overleaf. The primary contributors to this repository are Federica Amato, Matteo Di Iorio, Antonio Ferrigno, Giulio Figliolino, and Fatjona Gjikopulli. Below is an overview of the repository's structure and contents:
 
